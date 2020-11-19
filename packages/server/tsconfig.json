@@ -9,8 +9,10 @@
         "sourceMap": true,
         "baseUrl": "src",
         "outDir": "dist",
-        "strict": true
+        "strict": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
     },
     "exclude": ["node_modules", "dist"],
-    "include": ["**/*.ts", "src/index.js", "src/app.js"]
+    "include": ["**/*.ts", "src/index.ts", "src/app.ts"]
   }

@@ -1,9 +1,6 @@
-import { app } from './app';
+import "reflect-metadata";
+import { createConnection } from "./technical/typeorm/connexion";
+import { User } from "./entity/User";
 
-const port = 3001;
+createConnection(error => console.log('ERROR', error)); // Todo: implement better error handler
 
-app.get('/', (req, res) => {
-    res.send('Hello world');
-})
-
-app.listen(port, () => console.log(`listening on port ${port}`));
