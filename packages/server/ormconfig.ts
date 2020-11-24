@@ -4,7 +4,6 @@ import path from "path";
 const isCompiled = path.extname(__filename).includes('js');
 
 const fileExtension = isCompiled ? "js" : "ts";
-
 export default {
    type: "postgres",
    host: process.env.DB_HOST || "localhost",
