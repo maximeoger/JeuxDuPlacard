@@ -4,15 +4,18 @@
         "esModuleInterop": true,
         "target": "es2017",
         "allowJs": true,
-        "rootDir": ".",
         "moduleResolution": "node",
         "sourceMap": true,
         "baseUrl": "src",
-        "outDir": "dist",
         "strict": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "paths": {
+            "*": ["node_modules/*"],
+            "business/*": ["src/business"],
+            "technical/*": ["src/technical"]
+        }
     },
     "exclude": ["node_modules", "dist"],
-    "include": ["**/*.ts", "src/index.ts", "src/app.ts"]
-  }
+    "include": ["**/*.ts"]
+}
