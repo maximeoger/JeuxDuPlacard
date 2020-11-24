@@ -1,26 +1,12 @@
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import { getUserRepository } from '../../../../business/user/repository/user';
-import { createUserEntity, UserEntity } from '../../entity/user.entity';
-
-interface IUserResponse {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-};
-
-const extract = (user: UserEntity): IUserResponse => {
-  return {
-    id: user.id,
-    email: user.email,
-    firstName: user.firstName,
-    lastName: user.lastName
-  }
-}
+import { createUserEntity } from '../../entity/user.entity';
+import jwt from 'jsonwebtoken';
+import { IUserResponse } from 'common/src/business/user';
+import { extract } from '../../../../technical/user/apiExtractor';
 
 const createUserController: ControllerInterface<IUserResponse> = async function UserGetController(req) {
   const userRepository = getUserRepository();
-  console.log(req.body)
   let user = createUserEntity(req.body);
 
   const userExists = await userRepository.findOne({
@@ -32,10 +18,14 @@ const createUserController: ControllerInterface<IUserResponse> = async function 
   }
 
   // Todo : if user.password, encrypt password
+  // Todo : set TOKEN_SECRET and TOKEN_LIFE in .env
+  let accessToken = await jwt.sign(user.password, "sihdfoijdsoifjsdf", {
+    algorithm: "HS256",
+  })
 
   user = await userRepository.save(user);
 
-  return extract(user);
+  return extract(user, accessToken);
 };
 
 export default createUserController;
