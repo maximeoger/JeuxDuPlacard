@@ -1,6 +1,21 @@
 import "reflect-metadata";
 import { createConnection } from "./technical/typeorm/connexion";
-import { User } from "./entity/User";
+//import app from './app';
+import express from 'express';
+const port = 3002;
 
-createConnection(error => console.log('ERROR', error)); // Todo: implement better error handler
+//createConnection( error => { throw new Error(error.message) });
+const app = express();
+
+app.get('/', (req, res) => res.send("coucou"));
+
+app.listen(port, () => console.log(`Server listening at http://localhost:${port}`))
+
+process.on('uncaughtException', function (err) {
+  console.log(err);
+}); 
+
+
+
+
 
