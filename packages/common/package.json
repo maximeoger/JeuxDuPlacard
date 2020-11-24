@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "tsc src/**/*.ts"
+    "build": "tsc -w"
   },
   "devDependencies": {
     "ts-node": "^9.0.0",
