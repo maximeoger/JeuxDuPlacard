@@ -5,3 +5,5 @@ build/
 dist/
 tmp/
 temp/
+.env
+yarn-error.log
