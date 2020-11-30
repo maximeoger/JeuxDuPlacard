@@ -5,3 +5,7 @@ export interface IUserResponse {
   lastName: string;
   accessToken: string;
 };
+
+export interface IUserLoginResponse {
+  accessToken: string;
+}
