@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import PasswordHandler from '../../../technical/user/passwordHandler';
 
 interface IUserEntity {
   id?: string;
@@ -23,22 +24,24 @@ export class UserEntity extends BaseEntity {
   @Column("text", { name: "last_name" })
   lastName!: string;
 
-  @Column("text", { name: "password" })
+  @Column("text", { name: "password", select: false })
   password!: string; 
 }
 
-export function createUserEntity(userToCreate: IUserEntity): UserEntity {
+export async function createUserEntity(userToCreate: IUserEntity): Promise<UserEntity> {
   const user = new UserEntity();
-  console.log({userToCreate, user})
   
   if(userToCreate.id) {
     user.id = userToCreate.id
   }
 
+  const passwordHandler = new PasswordHandler(userToCreate.password);
+  const userPassword = await passwordHandler.hash();
+
   user.email = userToCreate.email.toLowerCase();
   user.firstName = userToCreate.firstName;
   user.lastName = userToCreate.lastName;
-  user.password = userToCreate.password;
+  user.password = userPassword;
 
   return user;
 }

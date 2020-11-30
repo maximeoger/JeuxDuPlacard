@@ -1,12 +1,7 @@
-import { UserEntity } from '../../business/user/entity/user.entity';
-import { IUserResponse } from 'common/src/business/user';
+import { IUserLoginResponse } from 'common/src/business/user';
 
-export const extract = (user: UserEntity, accessToken: string): IUserResponse => {
+export const extract = (accessToken: string): IUserLoginResponse => {
   return {
-    id: user.id,
-    email: user.email,
-    firstName: user.firstName,
-    lastName: user.lastName,
     accessToken: accessToken,
   }
 }

@@ -2,12 +2,12 @@ import ControllerInterface from '../../../../technical/controller/controllerInte
 import { getUserRepository } from '../../../../business/user/repository/user';
 import { createUserEntity } from '../../entity/user.entity';
 import jwt from 'jsonwebtoken';
-import { IUserResponse } from 'common/src/business/user';
+import { IUserLoginResponse } from 'common/src/business/user';
 import { extract } from '../../../../technical/user/apiExtractor';
 
-const createUserController: ControllerInterface<IUserResponse> = async function UserGetController(req) {
+const createUserController: ControllerInterface<IUserLoginResponse> = async function UserGetController(req) {
   const userRepository = getUserRepository();
-  let user = createUserEntity(req.body);
+  let user = await createUserEntity(req.body);
 
   const userExists = await userRepository.findOne({
     where: { email: user.email }
@@ -17,15 +17,17 @@ const createUserController: ControllerInterface<IUserResponse> = async function 
     throw new Error('user exist');
   }
 
-  // Todo : if user.password, encrypt password
-  // Todo : set TOKEN_SECRET and TOKEN_LIFE in .env
-  let accessToken = await jwt.sign(user.password, "sihdfoijdsoifjsdf", {
+  user = await userRepository.save(user);
+
+  const tokenSecret: string = process.env.ACCESS_TOKEN_SECRET!
+
+  const {password, ...userData} = user;
+
+  let accessToken = await jwt.sign({...userData}, tokenSecret, {
     algorithm: "HS256",
   })
 
-  user = await userRepository.save(user);
-
-  return extract(user, accessToken);
+  return extract(accessToken);
 };
 
 export default createUserController;
