@@ -1,0 +1,13 @@
+@import "../../styles/vars/colors/index.module.scss";
+
+.button {
+  box-sizing: border-box;
+  padding: 24px 94px;
+  border-radius: 16px;
+  cursor: pointer;
+  background-color: $secondary_color;
+  border: none;
+  color: $white;
+  font-family: Quicksand;
+  font-weight: 800;
+}
