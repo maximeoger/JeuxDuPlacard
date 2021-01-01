@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, ErrorMessage } from 'formik';
+import classname from 'classnames';
 import styles from './index.module.scss';
 
 enum InputTypes {
@@ -17,7 +18,7 @@ interface IProps {
 
 export const Input = ({ type, name, placeholder }: IProps) => {
   return (
-    <div className={styles.inputWrapper}>
+    <div className={classname('Field', styles.inputWrapper)}>
       <Field type={type} name={name} placeholder={placeholder} className={styles.input}/>
       <ErrorMessage name={name} component="div" className={styles.error}/> 
     </div>

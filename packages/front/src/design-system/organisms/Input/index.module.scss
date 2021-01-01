@@ -3,7 +3,8 @@
 .inputWrapper {
   display: block;
   width: 100%;
-  margin-top: 16px;
+  position: relative;
+  height: 102px;
 }
 
 .input {
@@ -24,4 +25,6 @@
   color: $tertiary_color;
   font-family: "Quicksand";
   font-weight: 700;
+  margin-top: 4px;
+  position: absolute;
 }

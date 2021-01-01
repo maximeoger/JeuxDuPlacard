@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
+import { useUserContext } from 'business/User/state/index';
 import validateFormValues from 'technical/form/validateFormValues';
 import { loginFormValidationRules } from 'common/src/business/user/validation/login';
+import { UserCredentials } from 'common/src/business/user/index';
 import { Input } from 'design-system/organisms/Input';
 import { Button } from 'design-system/organisms/Button';
 import styles from './index.module.scss';
 
-type FormData = {
-  login: string;
-  password: string;
-}
 
 const initialValues = {
   login: "",
@@ -17,13 +15,21 @@ const initialValues = {
 }
 
 const LoginForm = () => {
+  const [loading, setLoading] = useState(false);
+  let { connectUser } = useUserContext();
+
+
+  const submitForm = (values: UserCredentials) => {
+    connectUser(values)
+  }
+  
   return (
     <div className={styles.loginFormContainer}>
       <Formik 
         initialValues={initialValues}
-        onSubmit={values => alert(`Submitting: ${JSON.stringify(values)}`)}
+        onSubmit={submitForm}
         validate={
-          (values: FormData) => validateFormValues(values, loginFormValidationRules)
+          (values: UserCredentials) => validateFormValues(values, loginFormValidationRules)
         }
       >
         {() => (
