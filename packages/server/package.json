@@ -9,9 +9,8 @@
    ],
    "private": true,
    "scripts": {
-      "dev": "tsc --watch",
       "test": "echo testing server",
-      "start": "ts-node src/index.ts"
+      "start": "tsc --watch"
    },
    "dependencies": {
       "@types/jsonwebtoken": "^8.5.0",

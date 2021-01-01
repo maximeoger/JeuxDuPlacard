@@ -1,6 +1,16 @@
 module.exports = {
   apps: [
     {
+      name: "build.watch.back",
+      script: "../../scripts/start_watch.sh",
+      cwd: "packages/back",
+      exec_interpreter: "bash",
+      exec_mode: "fork_mode",
+      instances: 1,
+      autorestart: true,
+      max_memory_restart: "1G"
+    },
+    {
       name: "common",
       cwd: "packages/common",
       script: "yarn",
@@ -21,8 +31,9 @@ module.exports = {
     {
       name: "Server",
       cwd: "packages/server",
-      script: "yarn",
-      args: "run start",
+      script: "../../scripts/start_server.sh",
+      exec_interpreter: "bash",
+      exec_mode: "fork_mode",
       instances: 1,
       watch: ["dist", "../common/dist"],
       autorestart: true,

@@ -1,25 +1,29 @@
-import {ConnectionOptions} from "typeorm";
-import path from "path";
 
-const isCompiled = path.extname(__filename).includes('js');
 
-const fileExtension = isCompiled ? "js" : "ts";
-export default {
+const HOST = process.env.DB_HOST || "localhost";
+const PORT =  Number(process.env.DB_PORT) || 5432;
+const USER_NAME = process.env.DB_USERNAME || "test";
+const PASSWORD = process.env.DB_PASSWORD || "test";
+const DATABASE = process.env.DB_NAME || "test";
+
+const ORMConfig = {
    type: "postgres",
-   host: process.env.DB_HOST || "localhost",
-   port: Number(process.env.DB_PORT) || 5432,
-   username: process.env.DB_USERNAME || "test",
-   password: process.env.DB_PASSWORD || "test",
-   database: process.env.DB_NAME || "test",
+   host: HOST,
+   port: PORT,
+   username: USER_NAME,
+   password: PASSWORD,
+   database: DATABASE,
    synchronize: true,
    logging: false,
    entities: [
-      `src/business/**/*.entity.${fileExtension}`
+      `dist/business/**/*.entity.js`
    ],
    migrations: [
-      `src/migration/**/*.${fileExtension}`
+      `dist/migration/**/*.js`
    ],
    subscribers: [
-      `src/subscriber/**/*.${fileExtension}`
+      `dist/subscriber/**/*.js`
    ]
-} as ConnectionOptions;
+};
+
+module.exports = ORMConfig;
