@@ -6,15 +6,15 @@ install:
 	yarn install
 	npx lerna bootstrap
 	cd packages/common && yarn run build
+	cd packages/front && yarn 
+	cd packages/server && yarn
 
-db.connect:
-	cd packages/server/docker && docker-compose up --build
-	
 ## ------------
 ## Dev
 ## ------------
 
 start:
+
 	npx pm2 start
 
 stop:

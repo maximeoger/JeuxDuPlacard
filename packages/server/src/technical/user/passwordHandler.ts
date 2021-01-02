@@ -1,21 +1,9 @@
 import bcrypt from 'bcrypt';
 
-class PasswordHandler {
-  pwd: string;
-  saltRounds: number;
+export const hashPassword = async (password: string): Promise<string> => {
+  return await bcrypt.hash(password, 10);
+}
 
-  constructor(pwd : string){
-    this.pwd = pwd;
-    this.saltRounds = parseInt(process.env.BCRYPT_SALT_ROUNDS!);
-  }
-
-  async hash(): Promise<string> {
-    return await bcrypt.hash(this.pwd, this.saltRounds)
-  }
-
-  async compare(passwordToCompare: string, userPassword: string): Promise<boolean> {
-    return await bcrypt.compare(passwordToCompare, userPassword)
-  }
-};
-
-export default PasswordHandler;
+export const comparePasswords = async (password: string, hash: string): Promise<boolean> => {
+  return await bcrypt.compare(password, hash)
+}

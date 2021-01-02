@@ -8,4 +8,9 @@ export interface IUserResponse {
 
 export interface IUserLoginResponse {
   accessToken: string;
-}
+};
+
+export type UserCredentials = {
+  login: string;
+  password: string;
+};
