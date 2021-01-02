@@ -1,6 +1,7 @@
 import express, { Router, Request, Response } from 'express';
 import userRouter from './business/user/routes';
 import bodyParser from 'body-parser';
+import cors from './technical/cors';
 
 /**
  * ---------
@@ -10,9 +11,11 @@ import bodyParser from 'body-parser';
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+
+app.use(cors);
 
 /**
  * ---------
