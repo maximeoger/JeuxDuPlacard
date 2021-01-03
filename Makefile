@@ -21,3 +21,5 @@ stop:
 	npx pm2 delete all
 
 
+log:
+	npx pm2 logs
