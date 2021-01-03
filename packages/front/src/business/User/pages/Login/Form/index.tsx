@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
+import { Link } from 'react-router-dom';
+import FrontRoutes from 'technical/routes';
 import { useUserContext } from 'business/User/state/index';
 import validateFormValues from 'technical/form/validateFormValues';
 import { loginFormValidationRules } from 'common/src/business/user/validation/login';
-import { UserCredentials } from 'common/src/business/user/index';
+import { UserCredentials } from 'common/src/business/user/types/login';
 import { Input } from 'design-system/organisms/Input';
 import { Button } from 'design-system/organisms/Button';
 import styles from './index.module.scss';
@@ -34,12 +36,12 @@ const LoginForm = () => {
       >
         {() => (
           <Form>
-            <Input type="email" name="login" placeholder="ex: toto@gmail.com"/>
+            <Input type="email" name="login"/>
             <Input type="password" name="password"/>
-
-            <Button type="submit">
-              Me connecter
-            </Button>
+            <Button type="submit">Me connecter</Button>
+            <Link to={FrontRoutes.register}>
+              <Button>Créer un compte</Button>
+            </Link>
           </Form>
         )}
       </Formik>

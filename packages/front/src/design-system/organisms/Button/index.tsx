@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './index.module.scss';
 
 interface IProps { 
-  type: "submit";
+  type?: "submit";
   children: React.ReactNode;
 }
 
