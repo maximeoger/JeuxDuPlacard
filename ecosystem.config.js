@@ -1,15 +1,15 @@
 module.exports = {
   apps: [
-    // {
-    //   name: "build.watch.back",
-    //   script: "../../scripts/start_watch.sh",
-    //   cwd: "packages/back",
-    //   exec_interpreter: "bash",
-    //   exec_mode: "fork_mode",
-    //   instances: 1,
-    //   autorestart: true,
-    //   max_memory_restart: "1G"
-    // },
+    {
+      name: "build.watch.back",
+      script: "../../scripts/start_watch.sh",
+      cwd: "packages/server",
+      exec_interpreter: "bash",
+      exec_mode: "fork_mode",
+      instances: 1,
+      autorestart: true,
+      max_memory_restart: "1G"
+    },
     {
       name: "Server",
       cwd: "packages/server",
