@@ -1,11 +1,11 @@
-import { IUserLoginResponse } from 'common/src/business/user/index';
+import { IUserLoginAndRegisterResponse } from 'common/src/business/user/index';
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import { getUserRepository } from '../../../../business/user/repository/user';
 import { comparePasswords } from '../../../../technical/user/passwordHandler';
 import { extract } from '../../../../technical/user/apiExtractor';
 import { generateToken } from '../../../../technical/user/jwtHandler';
 
-const loginUserController: ControllerInterface<IUserLoginResponse> = async function UserLoginController(req) {
+const loginUserController: ControllerInterface<IUserLoginAndRegisterResponse> = async function UserLoginController(req) {
   const userRepository = getUserRepository();
   
   const user = await userRepository.findOne({

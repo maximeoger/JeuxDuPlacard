@@ -10,7 +10,8 @@
    "private": true,
    "scripts": {
       "test": "echo testing server",
-      "start": "tsc --watch"
+      "start": "tsc --watch",
+      "build": "tsc"
    },
    "dependencies": {
       "@types/cors": "^2.8.9",
