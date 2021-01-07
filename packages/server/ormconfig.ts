@@ -1,10 +1,14 @@
+import { ConnectionOptions } from 'typeorm';
+import path from 'path';
 
+const HOST : string = process.env.DB_HOST || "localhost";
+const PORT : number =  Number(process.env.DB_PORT) || 5432;
+const USER_NAME : string = process.env.DB_USERNAME || "test";
+const PASSWORD : string = process.env.DB_PASSWORD || "test";
+const DATABASE : string = process.env.DB_NAME || "test";
 
-const HOST = process.env.DB_HOST || "localhost";
-const PORT =  Number(process.env.DB_PORT) || 5432;
-const USER_NAME = process.env.DB_USERNAME || "test";
-const PASSWORD = process.env.DB_PASSWORD || "test";
-const DATABASE = process.env.DB_NAME || "test";
+const fileBaseName : string = path.basename(__filename);
+const fileExtention : string = path.extname(fileBaseName);
 
 const ORMConfig = {
    type: "postgres",
@@ -16,14 +20,11 @@ const ORMConfig = {
    synchronize: true,
    logging: false,
    entities: [
-      `dist/business/**/*.entity.js`
+      `src/business/**/*.entity${fileExtention}`
    ],
    migrations: [
-      `dist/migration/**/*.js`
-   ],
-   subscribers: [
-      `dist/subscriber/**/*.js`
+      `src/migration/**/*${fileExtention}`
    ]
-};
+} as ConnectionOptions;
 
 module.exports = ORMConfig;

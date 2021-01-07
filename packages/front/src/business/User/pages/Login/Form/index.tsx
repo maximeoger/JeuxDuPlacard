@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 import FrontRoutes from 'technical/routes';
@@ -17,7 +17,6 @@ const initialValues = {
 }
 
 const LoginForm = () => {
-  const [loading, setLoading] = useState(false);
   let { connectUser } = useUserContext();
 
 

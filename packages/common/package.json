@@ -5,11 +5,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "tsc"
+    "build": "tsc --watch"
   },
   "devDependencies": {
     "ts-node": "^9.0.0",
-    "typescript": "^4.1.2"
+    "typescript": "^4.0.5"
   },
   "dependencies": {
     "validate.js": "^0.13.1"

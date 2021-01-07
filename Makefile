@@ -10,6 +10,14 @@ install:
 	cd packages/server && yarn
 
 ## ------------
+## Database
+## ------------
+
+db.connect:
+	cd packages/server/docker
+	docker-compose up
+
+## ------------
 ## Dev
 ## ------------
 
@@ -23,3 +31,4 @@ stop:
 
 log:
 	npx pm2 logs
+

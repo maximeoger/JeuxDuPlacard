@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik, Form } from 'formik';
 import { useUserContext } from 'business/User/state/index';
 import { UserRegisterData } from 'common/src/business/user/types/register';
@@ -17,15 +17,14 @@ const initialValues = {
 }
 
 const RegisterForm = () => {
-  const [loading, setLoading] = useState(false);
   const { registerUser } = useUserContext();
 
   const submitForm = (values: UserRegisterData) => {
     registerUser(values)
   }
-  
+
   return (
-    <div className={styles.RegisterFormContainer}>
+    <div className={styles.registerFormContainer}>
       <Formik
         onSubmit={submitForm}
         initialValues={initialValues}
@@ -33,16 +32,16 @@ const RegisterForm = () => {
           (values: UserRegisterData) => validateFormValues(values, registerValidationConstraints)
         }
       >
-        {() => {
-            <Form>
-              <Input type="text" name="lastName"/>
-              <Input type="text" name="firstName"/>
-              <Input type="email" name="email" placeholder="ex: D.Dupondt@gmail.com"/>
-              <Input type="password" name="password"/>
-              <Input type="password" name="confirmPassword"/>
-              <Button type="submit">Créer mon compte</Button>
-            </Form>
-        }}
+        {() => (
+          <Form>
+            <Input type="text" name="lastName" placeholder="Nom"/>
+            <Input type="text" name="firstName" placeholder="Prénom"/>
+            <Input type="email" name="email" placeholder="Email"/>
+            <Input type="password" name="password" placeholder="Mot de passe"/>
+            <Input type="password" name="confirmPassword" placeholder="Confirmation du Mot de passe"/>
+            <Button type="submit">Créer mon compte</Button>
+          </Form>
+        )}
       </Formik>
     </div>
   )
