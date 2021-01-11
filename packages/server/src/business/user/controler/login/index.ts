@@ -2,7 +2,7 @@ import { IUserLoginAndRegisterResponse } from 'common/dist/business/user/index';
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import { getUserRepository } from '../../../../business/user/repository/user';
 import { comparePasswords } from '../../../../technical/user/passwordHandler';
-import { extract } from '../../../../technical/user/apiExtractor';
+import { bindAccessTokenToUserData } from '../../../../technical/user/apiExtractor';
 import { generateToken } from '../../../../technical/user/jwtHandler';
 
 const loginUserController: ControllerInterface<IUserLoginAndRegisterResponse> = async function UserLoginController(req) {
@@ -22,11 +22,7 @@ const loginUserController: ControllerInterface<IUserLoginAndRegisterResponse> = 
     throw new Error('wrong password');
   }
 
-  const {password, ...userData} = user;
-
-  const accessToken = await generateToken(userData);
-
-  return extract(accessToken)
+  return await bindAccessTokenToUserData(user)
 }
 
 export default loginUserController;

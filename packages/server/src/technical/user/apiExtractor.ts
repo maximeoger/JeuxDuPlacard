@@ -1,7 +1,15 @@
-import { IUserLoginAndRegisterResponse } from 'common/dist/business/user';
+import { IUserResponse } from 'common/dist/business/user';
+import { generateToken } from '../../technical/user/jwtHandler';
+import { UserEntity } from '../../business/user/entity/user.entity';
 
-export const extract = (accessToken: string): IUserLoginAndRegisterResponse => {
+
+export const bindAccessTokenToUserData = async (user: UserEntity): Promise<IUserResponse> => {
+  
+  const { password, id, ...userData } = user;
+  const accessToken = await generateToken(userData);
+  
   return {
-    accessToken: accessToken,
-  }
+    ...userData,
+    accessToken
+  } 
 }
