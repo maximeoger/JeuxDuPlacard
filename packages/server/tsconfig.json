@@ -19,6 +19,7 @@
         "noImplicitReturns": true,
         "noImplicitThis": true,
         "incremental": false,
+        "skipLibCheck": true,
         "paths": {
             "*": ["node_modules/*"],
             "business/*": ["src/business"],
