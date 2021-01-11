@@ -7,7 +7,7 @@ const port = 3002;
 createConnection( error => { throw new Error(error.message) })
 .catch(error => console.log(error));
 
-app.listen(port, () => console.log(`Server listening at http://localhost:${port}`))
+app.listen(port, () => console.log(`Server listening @ http://localhost:${port}`))
 
 
 

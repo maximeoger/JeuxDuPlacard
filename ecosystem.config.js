@@ -17,7 +17,7 @@ module.exports = {
       exec_interpreter: "bash",
       exec_mode: "fork_mode",
       instances: 1,
-      //watch: ["dist", "../common/dist"],
+      watch: ["dist", "../common/dist"],
       autorestart: true,
       watch_delay: 5000,
       max_memory_restart: "1G"

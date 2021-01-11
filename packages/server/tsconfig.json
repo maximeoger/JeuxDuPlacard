@@ -18,7 +18,7 @@
         "experimentalDecorators": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
-        "incremental": false,
+        "incremental": true,
         "skipLibCheck": true,
         "paths": {
             "*": ["node_modules/*"],

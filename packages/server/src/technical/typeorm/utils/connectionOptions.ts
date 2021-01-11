@@ -13,12 +13,6 @@ const connectionOptions = {
    database: DATABASE,
    synchronize: true,
    logging: false,
-   entities: [
-      `business/**/*.entity.js`
-   ],
-   migrations: [
-      `migration/**/*.js`
-   ]
 };
 
 export default connectionOptions;
