@@ -1,7 +1,7 @@
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import { getUserRepository } from '../../../../business/user/repository/user';
 import { createUserEntity } from '../../entity/user.entity';
-import { IUserLoginAndRegisterResponse } from 'common/src/business/user';
+import { IUserLoginAndRegisterResponse } from 'common/dist/business/user';
 import { extract } from '../../../../technical/user/apiExtractor';
 import { generateToken } from '../../../../technical/user/jwtHandler';
 
