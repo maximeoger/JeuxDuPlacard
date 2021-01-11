@@ -6,11 +6,7 @@ export interface IUserResponse {
   accessToken: string;
 };
 
-export interface IUserLoginResponse {
+export interface IUserLoginAndRegisterResponse {
   accessToken: string;
 };
 
-export type UserCredentials = {
-  login: string;
-  password: string;
-};

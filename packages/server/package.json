@@ -1,16 +1,15 @@
 {
    "name": "server",
    "version": "1.0.0",
-   "main": "index.js",
+   "main": "./dist/server/src/index.js",
    "license": "MIT",
-   "type": "commonjs",
-   "workspaces": [
-      "packages/*"
-   ],
    "private": true,
+   "type": "commonjs",
    "scripts": {
       "test": "echo testing server",
-      "start": "tsc --watch"
+      "start": "tsc --watch",
+      "build": "tsc",
+      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
    },
    "dependencies": {
       "@types/cors": "^2.8.9",
@@ -18,6 +17,7 @@
       "bcrypt": "^5.0.0",
       "body-parser": "^1.19.0",
       "cors": "^2.8.5",
+      "dotenv": "^8.2.0",
       "express": "^4.17.1",
       "jsonwebtoken": "^8.5.1",
       "pg": "^8.4.0",
@@ -32,5 +32,8 @@
       "ts-node": "3.3.0",
       "ts-node-dev": "^1.0.0",
       "typescript": "^4.0.5"
+   },
+   "engines": {
+      "node": "^14"
    }
 }

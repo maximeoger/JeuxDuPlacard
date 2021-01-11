@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginPage from 'design-system/pages/Login';
+import Router from 'business/Router';
 import styles from './index.module.scss';
 import { UserProvider } from 'business/User/state/index';
 import "./reset.scss";
@@ -9,7 +9,7 @@ function App() {
   return (
     <UserProvider>
       <div className={styles.container}>
-        <LoginPage/>
+        <Router/>
       </div>
     </UserProvider>
     

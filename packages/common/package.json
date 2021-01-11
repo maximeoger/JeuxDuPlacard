@@ -1,17 +1,20 @@
 {
   "name": "common",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
+  "type": "commonjs",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc --watch"
   },
   "devDependencies": {
     "ts-node": "^9.0.0",
-    "typescript": "^4.1.2"
+    "typescript": "^4.0.5"
   },
   "dependencies": {
     "validate.js": "^0.13.1"
+  },
+  "engines": {
+    "node": "14"
   }
 }

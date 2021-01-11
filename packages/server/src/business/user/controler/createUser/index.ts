@@ -1,11 +1,11 @@
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import { getUserRepository } from '../../../../business/user/repository/user';
 import { createUserEntity } from '../../entity/user.entity';
-import { IUserLoginResponse } from 'common/src/business/user';
+import { IUserLoginAndRegisterResponse } from 'common/dist/business/user';
 import { extract } from '../../../../technical/user/apiExtractor';
 import { generateToken } from '../../../../technical/user/jwtHandler';
 
-const createUserController: ControllerInterface<IUserLoginResponse> = async function UserGetController(req) {
+const createUserController: ControllerInterface<IUserLoginAndRegisterResponse> = async function UserGetController(req) {
   const userRepository = getUserRepository();
   let user = await createUserEntity(req.body);
 

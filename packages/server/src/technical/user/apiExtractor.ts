@@ -1,6 +1,6 @@
-import { IUserLoginResponse } from 'common/src/business/user';
+import { IUserLoginAndRegisterResponse } from 'common/dist/business/user';
 
-export const extract = (accessToken: string): IUserLoginResponse => {
+export const extract = (accessToken: string): IUserLoginAndRegisterResponse => {
   return {
     accessToken: accessToken,
   }
