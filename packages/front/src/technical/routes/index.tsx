@@ -1,7 +1,8 @@
 
 enum FrontRoutes {
   login = "/login",
-  register = "/register"
+  register = "/register",
+  home = "/welcome",
 }
 
 export default FrontRoutes;

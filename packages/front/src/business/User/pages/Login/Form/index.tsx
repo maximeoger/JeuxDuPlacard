@@ -17,8 +17,7 @@ const initialValues = {
 }
 
 const LoginForm = () => {
-  let { connectUser } = useUserContext();
-
+  const { connectUser } = useUserContext();
 
   const submitForm = (values: UserCredentials) => {
     connectUser(values)
