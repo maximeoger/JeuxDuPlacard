@@ -11,17 +11,17 @@ const Router = () => {
   return (
     <BrowserRouter>
       <RouterProvider>
+
         <Route path={FrontRoutes.login}>
           <LoginPage/>
         </Route>
-
         <Route path={FrontRoutes.register}>
           <RegisterPage/>
         </Route>
-
         <PrivateRoute path={FrontRoutes.home}>
           <HomePage/>
         </PrivateRoute>
+
       </RouterProvider>
     </BrowserRouter>
   )

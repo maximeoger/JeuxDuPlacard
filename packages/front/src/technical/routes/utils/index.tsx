@@ -8,7 +8,16 @@ interface IPrivateRouteProps {
   children: React.ReactChild;
 }
 
-export const PrivateRoute = ({path}: IPrivateRouteProps) => {
+export const PrivateRoute = ({path, children}: IPrivateRouteProps) => {
   const { userIsLoggedIn } = useUserContext();
-  return userIsLoggedIn ? <Route path={path}/> : <Redirect to={FrontRoutes.login}/>;
+  
+  if(userIsLoggedIn) {
+    return (
+      <Route path={path}>
+        {children}
+      </Route> 
+    )
+  }
+
+  return (<Redirect to={FrontRoutes.login}/>);
 }
