@@ -1,29 +1,32 @@
-import React, {createContext, useContext, useMemo, useState} from 'react';
-import { IUserLoginAndRegisterResponse } from 'common/src/business/user';
+import React, {createContext, useContext, useEffect, useMemo, useState} from 'react';
+import { IUserResponse } from 'common/src/business/user';
 import { UserCredentials } from 'common/src/business/user/types/login';
 import { UserRegisterData } from 'common/src/business/user/types/register';
 import { login, register } from 'business/User/state/services/api';
 
 interface IUserContext {
-  user: IUserLoginAndRegisterResponse | null;
+  user: IUserResponse | null;
+  userIsLoggedIn: boolean;
   connectUser: (payload: UserCredentials) => void;
   registerUser: (payload: UserRegisterData) => void;
 }
 
 export const UserContext = createContext<IUserContext>({
   user: null,
+  userIsLoggedIn: false,
   connectUser: () => {},
   registerUser: () => {},
 });
 
 function useUserStateProvider() {
-  const [user, setUser] = useState<IUserLoginAndRegisterResponse | null>(null);
+  const [user, setUser] = useState<IUserResponse | null>(null);
+
+  const userIsLoggedIn : boolean = user?.accessToken != undefined;
 
   const connectUser = async (payload: UserCredentials) => {
     try{
       const loginResponseSuccess = await login(payload);
       setUser(loginResponseSuccess);
-      // TODO: extract user data from base64 encoded token
     }catch(err) {
       setUser(null);
     }
@@ -33,7 +36,6 @@ function useUserStateProvider() {
     try{
       const registerResponseSuccess = await register(payload);
       setUser(registerResponseSuccess);
-      // TODO: extract user data from base64 encoded token
     } catch(error) {
       setUser(null);
     }
@@ -41,6 +43,7 @@ function useUserStateProvider() {
 
   return {
     user,
+    userIsLoggedIn,
     connectUser,
     registerUser,
   }

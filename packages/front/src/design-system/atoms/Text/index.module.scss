@@ -1,8 +1,12 @@
+@import "../../styles/vars/fonts/index.module.scss";
+
 .text {
   color: #080708;
+  font-family: "Quicksand";
+  font-weight: $regular;
 }
 
 .page-title {
   font-size: 27px;
-  font-weight: bold;
+  font-weight: $bold;
 }
