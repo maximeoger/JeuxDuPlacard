@@ -1,12 +1,29 @@
 @import "../../styles/vars/fonts/index.module.scss";
+@import "../../styles/vars/colors/index.module.scss";
 
 .text {
-  color: #080708;
+  color: $text_color;
   font-family: "Quicksand";
   font-weight: $regular;
 }
 
-.page-title {
+.pageTitle {
   font-size: 27px;
   font-weight: $bold;
+}
+
+.link {
+  font-weight: $bold;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
 }

@@ -7,8 +7,10 @@ import styles from './index.module.scss';
 export default function LoginPage(){
   return (
     <PageWrapper>
-      <div className={styles.loginPageLayout}>
-        <PageTitle>Bienvenue !</PageTitle>
+      <div className={styles.pageLayout}>
+        <div className={styles.pageTitle}>
+          <PageTitle>Bienvenue !</PageTitle>
+        </div>
         <LoginForm/>
       </div>
     </PageWrapper>

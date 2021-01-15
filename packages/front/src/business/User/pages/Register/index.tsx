@@ -8,7 +8,9 @@ export default function RegisterPage(){
 	return (
 		<PageWrapper>
 			<div className={styles.registerPageLayout}>
-				<PageTitle>Créer un compte</PageTitle>
+				<div className={styles.pageTitle}>
+					<PageTitle>Créer un compte</PageTitle>
+				</div>
 				<RegisterForm/>
 			</div>
 		</PageWrapper>
