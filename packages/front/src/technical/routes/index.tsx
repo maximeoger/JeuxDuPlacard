@@ -1,8 +1,9 @@
 
 enum FrontRoutes {
-  login = "/login",
-  register = "/register",
-  home = "/welcome",
+  login = "/connexion",
+  register = "/creer-mon-compte",
+  forgotPassword = "/reinitialiser-mot-de-passe",
+  home = "/bienvenue",
 }
 
 export default FrontRoutes;

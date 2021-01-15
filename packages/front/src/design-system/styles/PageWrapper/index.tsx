@@ -5,7 +5,7 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export function PageWrapper ({children}: IProps) {
+export function PageWrapper({children}: IProps) {
   return (
     <div className={styles.pageWrapper}>{children}</div>
   )

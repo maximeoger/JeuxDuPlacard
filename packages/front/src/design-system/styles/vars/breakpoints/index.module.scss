@@ -1,0 +1,37 @@
+/*********************
+VARIABLES
+*********************/
+
+$bp-mobile-large: 480px;
+$bp-tablet: 768px;
+$bp-desktop-small: 1024px;
+$bp-desktop: 1200px;
+
+
+/*********************
+MIXINS
+*********************/
+
+@mixin mobile-large {
+  @media (min-width: #{$bp-mobile-large}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$bp-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop-small {
+  @media (min-width: #{$bp-desktop-small}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$bp-desktop}) {
+    @content;
+  }
+}

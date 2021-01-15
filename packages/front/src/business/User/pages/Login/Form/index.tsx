@@ -7,9 +7,9 @@ import validateFormValues from 'technical/form/validateFormValues';
 import { loginFormValidationRules } from 'common/src/business/user/validation/login';
 import { UserCredentials } from 'common/src/business/user/types/login';
 import { Input } from 'design-system/organisms/Input';
+import { Text } from 'design-system/atoms/Text';
 import { Button } from 'design-system/organisms/Button';
-import styles from './index.module.scss';
-
+import styles from '../index.module.scss';
 
 const initialValues = {
   login: "",
@@ -34,12 +34,19 @@ const LoginForm = () => {
       >
         {() => (
           <Form>
-            <Input type="email" name="login"/>
-            <Input type="password" name="password"/>
+            <Input placeholder="email" type="email" name="login"/>
+            <Input placeholder="mot de passe" type="password" name="password"/>
+            <div  className={styles.forgotPassword}>
+              <Link to={FrontRoutes.forgotPassword}>
+                <Text style="link" textAlign="right">Mot de passe oublié ?</Text>
+              </Link>
+            </div>
             <Button type="submit">Me connecter</Button>
-            <Link to={FrontRoutes.register}>
-              <Button>Créer un compte</Button>
-            </Link>
+            <div className={styles.createAccount}>
+              <Link to={FrontRoutes.register}>
+                <Text style="link" textAlign="center">Créer mon compte</Text>
+              </Link>
+            </div>
           </Form>
         )}
       </Formik>

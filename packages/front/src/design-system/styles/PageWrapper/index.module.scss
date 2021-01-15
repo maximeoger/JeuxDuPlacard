@@ -1,4 +1,7 @@
+@import "../vars/breakpoints/index.module.scss";
+
 .pageWrapper {
+  height: 100vh;
   padding: 26px;
   box-sizing: border-box;
 }
