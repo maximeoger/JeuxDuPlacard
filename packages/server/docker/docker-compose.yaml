@@ -8,5 +8,12 @@ services:
       - database-data:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
+    
+  # adminer:
+  #   image: dockette/adminer:full-php5
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
+
 volumes:
   database-data: 
