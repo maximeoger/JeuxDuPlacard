@@ -4,7 +4,7 @@ import styles from './index.module.scss';
 
 interface IProps {
   children: React.ReactNode;
-  style?: "page-title" | "link";
+  style?: "page-title" | "link" | "error";
   textAlign?: "left" | "center" | "right";
 }
 
@@ -16,7 +16,8 @@ export const Text = ({children, style, textAlign = "left"}: IProps) => (
         [styles.link]: style === "link",
         [styles.left]: textAlign === "left",
         [styles.center]: textAlign === "center",
-        [styles.right]: textAlign === "right"
+        [styles.right]: textAlign === "right",
+        [styles.error]: style === "error",
       })
     }
   >{children}</p>

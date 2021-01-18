@@ -9,6 +9,8 @@ interface IProps { 
 
 export function Button({type, children}: IProps){
   return (
-    <button className={styles.button} type={type}>{children}</button>
+    <div className={styles.container}>
+      <button className={styles.button} type={type}>{children}</button>
+    </div>
   )
 }

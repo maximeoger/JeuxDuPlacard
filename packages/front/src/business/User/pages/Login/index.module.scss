@@ -18,13 +18,14 @@
 }
 
 .loginFormContainer {
-  & button {
-    margin-top: 77px;
-    width: 100%;
-  }
   @include mobile-large {
     margin-top: 35px;
   }
+}
+
+.submitButton {
+  margin-top: 77px;
+  width: 100%;
 }
 
 .createAccount {

@@ -41,7 +41,9 @@ const LoginForm = () => {
                 <Text style="link" textAlign="right">Mot de passe oublié ?</Text>
               </Link>
             </div>
-            <Button type="submit">Me connecter</Button>
+            <div className={styles.submitButton}>
+              <Button type="submit">Me connecter</Button>
+            </div>
             <div className={styles.createAccount}>
               <Link to={FrontRoutes.register}>
                 <Text style="link" textAlign="center">Créer mon compte</Text>
