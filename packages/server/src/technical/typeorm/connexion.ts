@@ -4,7 +4,6 @@ import { createConnection as TypeOrmCreateConnexion, getConnectionOptions, Conne
 export async function createConnection(handleError: (error: Error) => unknown): Promise<Connection>{
   return getConnectionOptions()
     .then(connectionOptions => {
-      console.log(connectionOptions)
       return TypeOrmCreateConnexion({ 
         ...(connectionOptions as PostgresConnectionOptions),
         poolErrorHandler: handleError,
