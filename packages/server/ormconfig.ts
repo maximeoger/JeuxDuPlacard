@@ -15,6 +15,9 @@ const connectionOptions = {
    logging: false,
    entities: [
      'dist/server/src/business/**/*.entity.js'
+   ],
+   subscribers: [
+     'dist/server/src/business/**/*.subscriber.js'
    ]
 };
 

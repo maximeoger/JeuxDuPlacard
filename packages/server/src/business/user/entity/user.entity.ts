@@ -1,5 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
-import { hashPassword } from '../../../technical/user/passwordHandler';
 
 interface IUserEntity {
   id?: string;
@@ -35,12 +34,10 @@ export async function createUserEntity(userToCreate: IUserEntity): Promise<UserE
     user.id = userToCreate.id
   }
 
-  const userPassword = await hashPassword(userToCreate.password);
-
   user.email = userToCreate.email.toLowerCase();
   user.firstName = userToCreate.firstName;
   user.lastName = userToCreate.lastName;
-  user.password = userPassword;
+  user.password = userToCreate.password;
 
   return user;
 }
