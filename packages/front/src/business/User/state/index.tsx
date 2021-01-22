@@ -21,7 +21,9 @@ export const UserContext = createContext<IUserContext>({
 function useUserStateProvider() {
   const [user, setUser] = useState<IUserResponse | null>(null);
 
-  const userIsLoggedIn : boolean = user?.accessToken != undefined;
+  const userIsLoggedIn : boolean = useMemo(() => {
+    return user !== null;
+  }, [user])
 
   const connectUser = async (payload: UserCredentials) => {
     try{

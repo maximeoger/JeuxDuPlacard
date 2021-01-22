@@ -15,7 +15,7 @@ user.route('/register').post([
 
 user.route('/login').post([
   validationHandler(loginFormValidationRules),
-  jsonRequestHandler(loginUserController)
+  jsonRequestHandler(loginUserController),
 ]);
 
 

@@ -2,10 +2,11 @@ export interface IUserResponse {
   email: string;
   firstName: string;
   lastName: string;
-  accessToken: string;
 };
 
 export interface IUserLoginAndRegisterResponse {
-  accessToken: string;
+  email: string;
+  firstName: string;
+  lastName: string;
 };
 
