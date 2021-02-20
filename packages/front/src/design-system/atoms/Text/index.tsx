@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './index.module.scss';
+import styles from 'styles/atoms/Text/index.module.scss';
 
 interface IProps {
   children: React.ReactNode;

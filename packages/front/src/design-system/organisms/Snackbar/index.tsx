@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { Text } from 'design-system/atoms/Text';
-import styles from './index.module.scss';
+import styles from 'styles/organisms/Snackbar/index.module.scss';
 
 interface IProps {
   message: string;
