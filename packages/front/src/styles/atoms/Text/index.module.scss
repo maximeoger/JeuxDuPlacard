@@ -2,8 +2,13 @@
 @import "styles/vars/colors/index.module.scss";
 
 .text {
+<<<<<<< HEAD:packages/front/src/styles/atoms/Text/index.module.scss
   color: $light_purple;
   font-family: "Quicksand";
+=======
+  color: $text_color;
+  font-family: "Nunito Black";
+>>>>>>> added nunito font:packages/front/src/design-system/atoms/Text/index.module.scss
   font-weight: $regular;
 }
 
