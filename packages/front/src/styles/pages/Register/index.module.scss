@@ -1,0 +1,23 @@
+@import "styles/vars/breakpoints/index.module.scss";
+
+.registerPageLayout {
+  height: 100%;
+  margin: 0 auto;
+  @include mobile-large {
+    max-width: 464px;
+  }
+}
+
+.pageTitle {
+  margin-top: 35px;
+}
+
+.registerFormContainer {
+  max-width: 464px;
+  margin: 0 auto;
+  margin-top: 35px;
+
+  & button {
+    width: 100%;
+  }
+}

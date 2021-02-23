@@ -26,6 +26,7 @@ function useUserStateProvider() {
   }, [user])
 
   const connectUser = async (payload: UserCredentials) => {
+    console.log(payload)
     try{
       const loginResponseSuccess = await login(payload);
       setUser(loginResponseSuccess);

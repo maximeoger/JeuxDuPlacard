@@ -1,0 +1,31 @@
+@import "styles/vars/colors/index.module.scss";
+@import "styles/vars/fonts/index.module.scss";
+
+.inputWrapper {
+  display: block;
+  width: 100%;
+  position: relative;
+  height: 102px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: $input_background;
+  outline: none;
+  border-radius: 16px;
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 72px;
+  border: none;
+  font-family: "Quicksand";
+  font-weight: $medium;
+}
+
+.error {
+  color: $tertiary_color;
+  font-family: "Quicksand";
+  font-weight: $medium;
+  margin-top: 4px;
+  position: absolute;
+}

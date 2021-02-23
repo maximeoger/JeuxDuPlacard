@@ -18,7 +18,7 @@ function useErrorStateProvider() {
   useEffect(() => {
     AxiosInstance.interceptors.response.use(undefined, (err) => {
         if(err.response.status !== 200){
-          console.time();
+          //console.time();
           setMessage(err.response.statusText);
         }
         return Promise.reject(err);
@@ -27,7 +27,7 @@ function useErrorStateProvider() {
   }, []);
 
   const refreshMessage = () => {
-    console.timeEnd();
+    //console.timeEnd();
     setMessage(null);
   };
 

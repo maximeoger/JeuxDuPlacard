@@ -1,0 +1,36 @@
+@import "styles/vars/breakpoints/index.module.scss";
+
+.pageLayout {
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include mobile-large {
+    max-width: 464px;
+    justify-content: initial;
+  }
+}
+
+.pageTitle {
+  margin-top: 35px;
+}
+
+.loginFormContainer {
+  @include mobile-large {
+    margin-top: 35px;
+  }
+}
+
+.submitButton {
+  margin-top: 77px;
+  width: 100%;
+}
+
+.createAccount  {
+  height: 64px;
+}
+
+.forgotPassword {
+  margin-top: 16px;
+}

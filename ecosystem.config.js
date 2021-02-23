@@ -53,7 +53,7 @@ module.exports = {
         REACT_APP_API_URL: "http://localhost:3002",
       },
       script: "yarn",
-      args: "run start",
+      args: "run dev",
       exec_interpreter: "bash",
       exec_mode: "fork_mode",
       instances: 1,
