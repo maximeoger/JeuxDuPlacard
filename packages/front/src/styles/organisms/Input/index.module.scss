@@ -18,14 +18,15 @@
   font-size: 16px;
   height: 72px;
   border: none;
-  font-family: "Quicksand";
+  font-family: "Nunito Regular";
   font-weight: $medium;
 }
 
 .error {
   color: $tertiary_color;
-  font-family: "Quicksand";
+  font-family: "Nunito Regular";
   font-weight: $medium;
   margin-top: 4px;
+  margin-left: 20px;
   position: absolute;
 }

@@ -6,9 +6,9 @@ import { useUserContext } from 'business/User/state/index';
 import validateFormValues from 'technical/form/validateFormValues';
 import { loginFormValidationRules } from 'common/src/business/user/validation/login';
 import { UserCredentials } from 'common/src/business/user/types/login';
-import { Input } from 'design-system/organisms/Input';
-import { Text } from 'design-system/atoms/Text';
-import { Button } from 'design-system/organisms/Button';
+import { Input } from 'components/organisms/Input';
+import { Text } from 'components/atoms/Text';
+import { Button } from 'components/organisms/Button';
 import styles from 'styles/pages/Login/index.module.scss';
 
 const initialValues = {
@@ -36,18 +36,8 @@ const LoginForm = () => {
           <Form>
             <Input placeholder="email" type="email" name="login"/>
             <Input placeholder="mot de passe" type="password" name="password"/>
-            <div  className={styles.forgotPassword}>
-              {/* <Link to={FrontRoutes.forgotPassword}>
-                <Text style="link" textAlign="right">Mot de passe oublié ?</Text>
-              </Link> */}
-            </div>
             <div className={styles.submitButton}>
-              <Button type="submit">Me connecter</Button>
-            </div>
-            <div className={styles.createAccount}>
-              {/* <Link to={FrontRoutes.register}>
-                <Text style="link" textAlign="center">Créer mon compte</Text>
-              </Link> */}
+              <Button type="submit">Je m'identifie</Button>
             </div>
           </Form>
         )}
