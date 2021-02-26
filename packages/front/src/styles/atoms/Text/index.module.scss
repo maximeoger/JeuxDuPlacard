@@ -4,10 +4,13 @@
 .text {
   color: $text_color;
   font-family: "Nunito Regular";
+  line-height: 21px;
+  font-size: 14px;
+  color: $grey;
 }
 
 .pageTitle {
-  font-size: 27px;
+  font-size: 22px;
   font-family: "Nunito Bold";
   color: $light_purple;
 }

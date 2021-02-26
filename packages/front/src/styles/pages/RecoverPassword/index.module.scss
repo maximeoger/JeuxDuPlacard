@@ -1,0 +1,13 @@
+@import "styles/vars/breakpoints/index.module.scss";
+
+.spacing32 {
+  margin-top: 32px;
+}
+
+.recoverPasswordPageLayout {
+  height: 100%;
+  margin: 0 auto;
+  @include mobile-large {
+    max-width: 464px;
+  }
+}

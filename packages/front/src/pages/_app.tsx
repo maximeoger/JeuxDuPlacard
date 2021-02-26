@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
 import { UserProvider } from 'business/User/state/index';
 import { ErrorProvider } from 'business/Error/state/index';

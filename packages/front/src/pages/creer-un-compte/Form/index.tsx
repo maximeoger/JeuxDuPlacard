@@ -2,8 +2,8 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { useUserContext } from 'business/User/state/index';
 import { UserRegisterData } from 'common/src/business/user/types/register';
-import { Input } from 'components/organisms/Input';
-import { Button } from 'components/organisms/Button';
+import { Input } from 'components/molecules/Input';
+import { Button } from 'components/molecules/Button';
 import styles from 'styles/pages/Register/index.module.scss';
 import validateFormValues from 'technical/form/validateFormValues';
 import { registerValidationConstraints } from 'common/src/business/user/validation/register';
@@ -39,7 +39,7 @@ const RegisterForm = () => {
             <Input type="email" name="email" placeholder="Email"/>
             <Input type="password" name="password" placeholder="Mot de passe"/>
             <Input type="password" name="confirmPassword" placeholder="Confirmation du Mot de passe"/>
-            <Button type="submit">Créer mon compte</Button>
+            <Button type="submit" variant="default">Créer mon compte</Button>
           </Form>
         )}
       </Formik>

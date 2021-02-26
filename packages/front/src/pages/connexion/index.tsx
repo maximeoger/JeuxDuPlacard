@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageTitle } from 'components/molecules/PageTitle';
 import { PageWrapper } from 'components/styles/PageWrapper';
+import { Button } from 'components/molecules/Button';
 import Layout from 'components/Layout';
 import LoginForm from './Form';
 import styles from 'styles/pages/Login/index.module.scss';
@@ -16,7 +17,11 @@ export default function LoginPage(){
           </div>
           <LoginForm/>
           <Link href="/retrouver-son-mot-de-passe">
-            <a>J'ai oublié mon mot de passe</a>
+            <a>
+              <Button>
+                J'ai oublié mon mot de passe
+              </Button>
+            </a>
           </Link>
         </div>
       </PageWrapper>

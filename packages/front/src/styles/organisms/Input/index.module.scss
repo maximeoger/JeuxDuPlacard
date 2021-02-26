@@ -1,11 +1,15 @@
 @import "styles/vars/colors/index.module.scss";
 @import "styles/vars/fonts/index.module.scss";
 
+.field {
+  height: 102px;
+}
+
 .inputWrapper {
   display: block;
   width: 100%;
   position: relative;
-  height: 102px;
+  height: 72px;
 }
 
 .input {
@@ -20,6 +24,22 @@
   border: none;
   font-family: "Nunito Regular";
   font-weight: $medium;
+}
+
+.iconButton {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  height: 42px;
+  width: 42px;
+  transform: translateY(-50%);
+  background: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all ease-in-out 0.1s;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .error {

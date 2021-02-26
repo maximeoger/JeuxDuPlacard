@@ -2,10 +2,37 @@
 
 .container {
   height: 72px;
-  border-radius: 16px;
   position: relative;
   overflow: hidden;
   transition: all ease-out 0.3s;
+  border-radius: 16px;
+}
+
+.button {
+  border: none;
+  background-color: $white;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 2;
+  padding: 24px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  color: $black;
+  font-family: "Nunito Bold";
+  height: 68px;
+  width: 100%;
+  transition: all ease-in-out 0.3s;
+}
+
+.variantDefault {
+  & button.button {
+    border: 2px solid;
+    border-color: $primary_color_variant3;
+    background-color: $primary_color;
+    &:active {
+      top: 3px;
+    }
+  }
   &:after {
     content: "";
     position: absolute;
@@ -15,24 +42,31 @@
     bottom: 0;
     background-color: $primary_color_variant3;
   }
+  &:active {
+    top: 0;
+  }
 }
 
-.button {
-  box-sizing: border-box;
-  position: absolute;
-  z-index: 2;
-  padding: 24px 94px;
-  border-radius: 16px;
-  cursor: pointer;
-  border: 2px solid;
-  border-color: $primary_color_variant3;
-  background-color: $primary_color;
-  color: $black;
-  font-family: "Nunito Bold";
-  height: 68px;
-  width: 100%;
-  transition: all ease-in-out 0.3s;
-  &:active {
-    top: 3px;
+.variantFacebook {
+  height: 51px;
+  & button.button {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    grid-gap: 16px;
+    align-items: center;
+    text-align: left;
+    border-radius: 32px;
+    border-color: $quaternary_color;
+    color: $white;
+    height: 51px;
+    padding: 10px 16px 10px 55px;
+    box-sizing: border-box;
+    background: $quaternary_color;
+    &:active {
+      top: 0px;
+    }
+  }
+  &:after {
+    background: none;
   }
 }
