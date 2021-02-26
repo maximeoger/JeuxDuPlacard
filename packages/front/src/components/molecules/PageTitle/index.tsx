@@ -1,4 +1,4 @@
-import { Text } from 'design-system/atoms/Text';
+import { Text } from 'components/atoms/Text';
 
 interface IProps {
   children: React.ReactNode;

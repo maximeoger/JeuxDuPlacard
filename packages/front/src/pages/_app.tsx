@@ -1,10 +1,10 @@
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
 import { UserProvider } from 'business/User/state/index';
 import { ErrorProvider } from 'business/Error/state/index';
 import SnackbarRoot from 'business/Snackbar';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <ErrorProvider>
       <UserProvider>
@@ -15,4 +15,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp
+export default App

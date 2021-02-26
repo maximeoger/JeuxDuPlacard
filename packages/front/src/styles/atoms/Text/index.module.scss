@@ -2,18 +2,23 @@
 @import "styles/vars/colors/index.module.scss";
 
 .text {
-  color: $light_purple;
-  font-family: "Quicksand";
-  font-weight: $regular;
+  color: $text_color;
+  font-family: "Nunito Regular";
+  line-height: 21px;
+  font-size: 14px;
+  color: $grey;
 }
 
 .pageTitle {
-  font-size: 27px;
-  font-weight: $bold;
+  font-size: 22px;
+  font-family: "Nunito Bold";
+  color: $light_purple;
 }
 
 .link {
   font-weight: $bold;
+  font-family: "Nunito Regular";
+  color: $grey;
 }
 
 .error {

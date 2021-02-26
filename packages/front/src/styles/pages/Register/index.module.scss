@@ -1,4 +1,5 @@
 @import "styles/vars/breakpoints/index.module.scss";
+@import "styles/vars/colors/index.module.scss";
 
 .registerPageLayout {
   height: 100%;
@@ -8,8 +9,40 @@
   }
 }
 
-.pageTitle {
-  margin-top: 35px;
+.instructionsParagraph {
+  margin-top: 80px;
+}
+
+.facebookButton {
+  margin-top: 32px;
+}
+
+.separator {
+  margin-top: 24px;
+  display: flex;
+  font-family: "Nunito SemiBold";
+  color: $grey;
+  & :before {
+    content: "";
+    height: 2px;
+    width: 40px;
+    background: $grey;
+  }
+
+  & :after {
+    content: "";
+    height: 2px;
+    width: 4px;
+    background: $grey;
+  }
+}
+
+.registerButton {
+  margin-top: 24px;
+}
+
+.loginButton {
+  margin-top: 8px;
 }
 
 .registerFormContainer {
