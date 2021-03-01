@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, } from 'axios';
 
-const API_HOST = process.env.REACT_APP_API_URL;
+const API_HOST = 'http://localhost:3002';
 const API_PATH = '/api';
 const API_TIMEOUT = 12000;
 

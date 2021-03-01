@@ -6,6 +6,7 @@ interface IUserEntity {
   firstName: string;
   lastName: string;
   password: string;
+  email_confirmed: boolean;
 }
 
 @Entity('user')
@@ -25,6 +26,9 @@ export class UserEntity extends BaseEntity {
 
   @Column("text", { name: "password" })
   password!: string; 
+
+  @Column("boolean", { name: "email_confirmed", default: false })
+  email_confirmed!: boolean;
 }
 
 export async function createUserEntity(userToCreate: IUserEntity): Promise<UserEntity> {
@@ -38,6 +42,7 @@ export async function createUserEntity(userToCreate: IUserEntity): Promise<UserE
   user.firstName = userToCreate.firstName;
   user.lastName = userToCreate.lastName;
   user.password = userToCreate.password;
+  user.email_confirmed = false;
 
   return user;
 }
