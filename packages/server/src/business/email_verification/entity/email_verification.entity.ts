@@ -12,16 +12,16 @@ interface IEmailVerificationEntity {
 export class EmailVerificationEntity extends BaseEntity {
 
   @PrimaryGeneratedColumn("uuid")
-  id!: string;
+  id: string;
 
   @ManyToOne(() => UserEntity, user => user.id)
-  user!: UserEntity;
+  user: UserEntity;
 
-  @Column("datetime", { name: "verified_at", nullable: true })
-  verified_at!: Date | null;
+  @Column("timestamp", { name: "verified_at", nullable: true })
+  verified_at: Date | null;
 
   @Column("boolean", {name: "verified"})
-  verified!: boolean; 
+  verified: boolean; 
 }
 
 export async function createEmailVerificationEntity(associatedUser: UserEntity): Promise<IEmailVerificationEntity> {
