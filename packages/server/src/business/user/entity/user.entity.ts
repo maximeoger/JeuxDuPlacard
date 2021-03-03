@@ -13,22 +13,22 @@ interface IUserEntity {
 export class UserEntity extends BaseEntity {
 
   @PrimaryGeneratedColumn("uuid")
-  id!: string;
+  id: string;
 
   @Column("text", { name: "email", unique: true })
-  email!: string; 
+  email: string; 
 
   @Column("text", { name: "first_name" })
-  firstName!: string;
+  firstName: string;
 
   @Column("text", { name: "last_name" })
-  lastName!: string;
+  lastName: string;
 
   @Column("text", { name: "password" })
-  password!: string; 
+  password: string; 
 
   @Column("boolean", { name: "email_confirmed", default: false })
-  email_confirmed!: boolean;
+  email_confirmed: boolean;
 }
 
 export async function createUserEntity(userToCreate: IUserEntity): Promise<UserEntity> {
@@ -42,7 +42,6 @@ export async function createUserEntity(userToCreate: IUserEntity): Promise<UserE
   user.firstName = userToCreate.firstName;
   user.lastName = userToCreate.lastName;
   user.password = userToCreate.password;
-  user.email_confirmed = false;
 
   return user;
 }
