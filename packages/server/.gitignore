@@ -7,3 +7,4 @@ tmp/
 temp/
 .env
 yarn-error.log
+sendgrid.env
