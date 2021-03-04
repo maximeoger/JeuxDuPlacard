@@ -14,7 +14,7 @@ export class EmailVerificationEntity extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @ManyToOne(() => UserEntity, user => user.id)
+  @ManyToOne(() => UserEntity, user => user.id, { eager: true })
   user: UserEntity;
 
   @Column("timestamp", { name: "verified_at", nullable: true })
