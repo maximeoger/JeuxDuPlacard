@@ -1,5 +1,5 @@
 import axios from 'technical/request';
-import { IUserResponse} from 'common/src/business/user';
+import { IUserResponse } from 'common/src/business/user';
 import { UserCredentials } from 'common/src/business/user/types/login';
 import { UserRegisterData } from 'common/src/business/user/types/register';
 

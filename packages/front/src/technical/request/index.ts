@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
 const API_HOST = 'http://localhost:3002';
 const API_PATH = '/api';
