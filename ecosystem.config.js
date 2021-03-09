@@ -48,10 +48,6 @@ module.exports = {
       name: "Front",
       cwd: "packages/front",
       interpreter: "bash",
-      env: {
-        NODE_ENV: "development",
-        REACT_APP_API_URL: "http://localhost:3002",
-      },
       script: "yarn",
       args: "run dev",
       exec_interpreter: "bash",

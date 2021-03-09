@@ -14,8 +14,8 @@ install:
 ## ------------
 
 db.connect:
-	cd packages/server/docker
-	docker-compose up
+	cd packages/server/docker && docker-compose up -d
+	
 
 ## ------------
 ## Dev

@@ -1,5 +1,6 @@
 import express, { Router, Request, Response } from 'express';
 import userRouter from './business/user/routes';
+import emailVerificationRouter from './business/email_verification/routes';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from './technical/cors';
@@ -37,11 +38,11 @@ app.get('/test', (req: Request, res: Response) => {
 });
 
 app.post('/test', (req: Request, res: Response) => {
-  console.log(req.body);
   res.send('[POST] test');
 });
 
 apiRouter.use(userRouter);
+apiRouter.use(emailVerificationRouter);
 
 
 export default app;

@@ -4,7 +4,6 @@ import { createGetRepository } from '../../../technical/typeorm/repository/creat
 
 
 @EntityRepository(UserEntity)
-export class UserRepository extends Repository<UserEntity> {
-}
+export class UserRepository extends Repository<UserEntity> {}
 
 export const getUserRepository = createGetRepository(UserRepository);

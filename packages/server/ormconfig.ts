@@ -14,7 +14,7 @@ const connectionOptions = {
    synchronize: true,
    logging: false,
    entities: [
-     'dist/server/src/business/**/*.entity.js'
+     'dist/server/src/business/**/*.entity.js',
    ],
    subscribers: [
      'dist/server/src/business/**/*.subscriber.js'

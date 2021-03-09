@@ -20,6 +20,7 @@
         "noImplicitThis": true,
         "incremental": true,
         "skipLibCheck": true,
+        "strictPropertyInitialization": false,
         "paths": {
             "*": ["node_modules/*"],
             "business/*": ["src/business"],
