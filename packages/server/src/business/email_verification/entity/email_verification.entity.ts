@@ -14,17 +14,17 @@ export class EmailVerificationEntity extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @ManyToOne(() => UserEntity, user => user.id, { eager: true })
+  @ManyToOne(() => UserEntity, user => user.id, { eager: true, cascade: true, onDelete: 'CASCADE', onUpdate: 'CASCADE' })
   user: UserEntity;
 
   @Column("timestamp", { name: "verified_at", nullable: true })
   verified_at: Date | null;
 
-  @Column("boolean", {name: "verified"})
+  @Column("boolean", { name: "verified" })
   verified: boolean; 
 }
 
-export async function createEmailVerificationEntity(associatedUser: UserEntity): Promise<IEmailVerificationEntity> {
+export async function createEmailVerificationEntity(associatedUser: UserEntity): Promise<EmailVerificationEntity> {
 
   const emailVerification = new EmailVerificationEntity();
 

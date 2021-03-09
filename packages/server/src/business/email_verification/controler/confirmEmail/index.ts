@@ -1,7 +1,7 @@
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import { getEmailVerificationRepository } from '../../repository/emailVerification';
 import { getUserRepository } from '../../../user/repository/user';
-
+import { getManager } from 'typeorm';
 
 const confirmEmailController: ControllerInterface<void> = async function EmailVerificationGetController(req, res) {
   const emailVerificationRepository = getEmailVerificationRepository();
@@ -14,8 +14,6 @@ const confirmEmailController: ControllerInterface<void> = async function EmailVe
   if(!emailVerificationFound){
     throw new Error('provided verification key does not relate to any existing verification.')
   }
-
-  console.log(emailVerificationFound)
 
   const userRelatedToEmailVerification = await userRepository.findOne({
     id: emailVerificationFound.user.id
@@ -32,11 +30,13 @@ const confirmEmailController: ControllerInterface<void> = async function EmailVe
   userRelatedToEmailVerification.email_confirmed = true;
   emailVerificationFound.verified_at = new Date();
   emailVerificationFound.verified = true;
+  emailVerificationFound.user = userRelatedToEmailVerification;
 
-  userRepository.save(userRelatedToEmailVerification);
-  emailVerificationRepository.save(emailVerificationFound);
+  await getManager().transaction(async entityManager => {
+    await entityManager.save(emailVerificationFound);
+  })
 
-  res.status(204);
+  res.send("Email successfully verified").status(204);
 }
 
 export default confirmEmailController;

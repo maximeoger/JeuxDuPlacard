@@ -16,7 +16,7 @@ const createUserController: ControllerInterface<IUserResponse> = async function 
 
   const userExists = await userRepository.findOne({
     where: { email: user.email }
-  })
+  });
 
   if(userExists) {
     throw new Error('user exist');
@@ -27,9 +27,8 @@ const createUserController: ControllerInterface<IUserResponse> = async function 
   user = await hashPassword(user);
 
   await getManager().transaction(async entityManager => {
-    await entityManager.save(user);
     await entityManager.save(emailVerification);
-  })
+  });
 
   EmailService.send({
     to: user.email,
