@@ -4,6 +4,7 @@ import { getUserRepository } from '../../../../business/user/repository/user';
 import { comparePasswords } from '../../../../technical/user/passwordHandler';
 import { apiExtractor } from '../../../../technical/user/apiExtractor';
 import { generateToken, TOKEN_MAX_AGE } from '../../../../technical/user/jwtHandler';
+import BadRequestError from '../../../../technical/Error/utils/badRequestError';
 
 const loginUserController: ControllerInterface<IUserLoginAndRegisterResponse> = async function UserLoginController(req, res) {
   const userRepository = getUserRepository();
@@ -13,12 +14,12 @@ const loginUserController: ControllerInterface<IUserLoginAndRegisterResponse> = 
   });
 
   if(!user){
-    throw new Error('wrong email');
+    throw new BadRequestError('wrong email', 500);
   }
 
   const passwordIsCorrect = await comparePasswords(req.body.password, user.password);
   if(!passwordIsCorrect){
-    throw new Error('wrong password');
+    throw new BadRequestError('wrong password', 500);
   }
 
   const responseData = await apiExtractor(user);

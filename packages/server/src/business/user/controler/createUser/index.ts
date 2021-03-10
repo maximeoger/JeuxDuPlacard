@@ -8,6 +8,7 @@ import { generateToken, TOKEN_MAX_AGE } from '../../../../technical/user/jwtHand
 import { getManager } from 'typeorm';
 import { hashPassword } from '../../../../technical/user/passwordHandler';
 import EmailService from '../../../../technical/sendgrid/services/sendEmail';
+import BadRequestError from '../../../../technical/Error/utils/badRequestError';
 
 const createUserController: ControllerInterface<IUserResponse> = async function UserPostController(req, res) {
   const userRepository = getUserRepository();
@@ -19,7 +20,7 @@ const createUserController: ControllerInterface<IUserResponse> = async function 
   });
 
   if(userExists) {
-    throw new Error('user exist');
+    throw new BadRequestError('user exist', 500);
   }
 
   let emailVerification = await createEmailVerificationEntity(user);

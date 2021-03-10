@@ -4,6 +4,7 @@ import emailVerificationRouter from './business/email_verification/routes';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from './technical/cors';
+import ErrorMiddleware from './technical/Error/middleware';
 
 /**
  * ---------
@@ -43,6 +44,6 @@ app.post('/test', (req: Request, res: Response) => {
 
 apiRouter.use(userRouter);
 apiRouter.use(emailVerificationRouter);
-
+app.use(ErrorMiddleware);
 
 export default app;
