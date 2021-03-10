@@ -2,8 +2,10 @@ import ControllerInterface from '../../../../technical/controller/controllerInte
 import { getEmailVerificationRepository } from '../../repository/emailVerification';
 import { getUserRepository } from '../../../user/repository/user';
 import { getManager } from 'typeorm';
+import BadRequestError from '../../../../technical/Error/utils/badRequestError';
+import { IEmailVerificationResponse } from 'common/src/business/email_verification/index';
 
-const confirmEmailController: ControllerInterface<void> = async function EmailVerificationGetController(req, res) {
+const confirmEmailController: ControllerInterface<IEmailVerificationResponse> = async function EmailVerificationGetController(req, res) {
   const emailVerificationRepository = getEmailVerificationRepository();
   const userRepository = getUserRepository();
 
@@ -12,7 +14,7 @@ const confirmEmailController: ControllerInterface<void> = async function EmailVe
   })
 
   if(!emailVerificationFound){
-    throw new Error('provided verification key does not relate to any existing verification.')
+    throw new BadRequestError('provided verification key does not relate to any existing verification.', 500);
   }
 
   const userRelatedToEmailVerification = await userRepository.findOne({
@@ -20,11 +22,11 @@ const confirmEmailController: ControllerInterface<void> = async function EmailVe
   });
 
   if(!userRelatedToEmailVerification){
-    throw new Error('user does not exists');
+    throw new BadRequestError('user does not exists', 500);
   }
 
   if(emailVerificationFound.verified === true){
-    throw new Error('this user email has already been verified');
+    throw new BadRequestError('this user email has already been verified', 500);
   } 
 
   userRelatedToEmailVerification.email_confirmed = true;
@@ -36,7 +38,7 @@ const confirmEmailController: ControllerInterface<void> = async function EmailVe
     await entityManager.save(emailVerificationFound);
   })
 
-  res.send("Email successfully verified").status(204);
+  return { succeeded: true, message: 'Email successfully verified.' }
 }
 
 export default confirmEmailController;
