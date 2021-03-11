@@ -11,7 +11,7 @@ const user = Router();
 user.route('/register').post([
   validationHandler(registerValidationConstraints),
   jsonRequestHandler(createUserController)
-]);
+])
 
 user.route('/login').post([
   validationHandler(loginFormValidationRules),

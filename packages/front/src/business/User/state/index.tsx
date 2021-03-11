@@ -1,8 +1,10 @@
 import React, {createContext, useContext, useEffect, useMemo, useState} from 'react';
+import { useRouter } from 'next/router'
 import { IUserResponse } from 'common/src/business/user';
 import { UserCredentials } from 'common/src/business/user/types/login';
 import { UserRegisterData } from 'common/src/business/user/types/register';
 import { login, register } from 'business/User/state/services/api';
+
 
 interface IUserContext {
   user: IUserResponse | null;
@@ -20,6 +22,7 @@ export const UserContext = createContext<IUserContext>({
 
 function useUserStateProvider() {
   const [user, setUser] = useState<IUserResponse | null>(null);
+  const router = useRouter();
 
   const userIsLoggedIn : boolean = useMemo(() => {
     return user !== null;
@@ -29,6 +32,7 @@ function useUserStateProvider() {
     try{
       const loginResponseSuccess = await login(payload);
       setUser(loginResponseSuccess);
+      router.push('/');
     }catch(err) {
       setUser(null);
     }
@@ -38,6 +42,7 @@ function useUserStateProvider() {
     try{
       const registerResponseSuccess = await register(payload);
       setUser(registerResponseSuccess);
+      router.push('/account-created');
     } catch(error) {
       setUser(null);
     }

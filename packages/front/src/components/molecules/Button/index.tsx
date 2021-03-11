@@ -5,7 +5,7 @@ import styles from 'styles/organisms/Button/index.module.scss';
 interface IProps { 
   type?: "submit";
   children: React.ReactNode;
-  variant?: "default" | "facebook";
+  variant?: "default" | "facebook" ;
   size?: "default" | "small";
 }
 
