@@ -29,11 +29,11 @@ export default function RegisterPage(){
 					</div>
 					<div className={styles.registerButton}>
             <Link href="/creer-un-compte">
-							<a><Button variant="default">Je crée mon compte</Button></a>
+							<a><Button>Je crée mon compte</Button></a>
 						</Link>
 					</div>
 					<div className={styles.loginButton}>
-            <Link href="/connexion"><a><Button>Je me connecte</Button></a></Link>
+            <Link href="/connexion"><a><Button color="secondary" variant="flat">Je me connecte</Button></a></Link>
           </div>
 				</div>
 			</PageWrapper>

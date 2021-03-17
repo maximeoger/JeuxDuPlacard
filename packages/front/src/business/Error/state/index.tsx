@@ -13,13 +13,11 @@ export const ErrorContext = createContext<IErrorContext>({
 
 function useErrorStateProvider() {
   const [message, setMessage] = useState<string | null>(null);
-  
 
   useEffect(() => {
     AxiosInstance.interceptors.response.use(undefined, (err) => {
         if(err.response.status !== 200){
-          //console.time();
-          setMessage(err.response.statusText);
+          setMessage(err.response.data.error);
         }
         return Promise.reject(err);
       }
@@ -27,7 +25,6 @@ function useErrorStateProvider() {
   }, []);
 
   const refreshMessage = () => {
-    //console.timeEnd();
     setMessage(null);
   };
 
