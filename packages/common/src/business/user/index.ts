@@ -10,3 +10,6 @@ export interface IUserLoginAndRegisterResponse {
   lastName: string;
 };
 
+export interface IUserRecoverPasswordResponse {
+  recoverPasswordEmailSent: boolean;
+}
