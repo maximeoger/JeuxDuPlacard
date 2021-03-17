@@ -2,8 +2,12 @@ import Layout from 'components/Layout';
 import { Display } from  'components/atoms/Display';
 import { Button } from "components/molecules/Button";
 import styles from "styles/pages/Home/index.module.scss";
+import useBreakpoint from "technical/utils/useBreakpoint";
 
 export default function Home() {
+  const bp = useBreakpoint();
+
+  
   return (
     <Layout title="Jeux du Placard - Recyclez vos anciens jeux de sociétés !">
       <main>
@@ -12,9 +16,11 @@ export default function Home() {
             <Display>Offrez une seconde vie <br/> à vos anciens jeux</Display>
           </div>
         </section>
-        <div className={styles.placeASaleBtnContainer}>
-          <Button variant="default">Vendre un jeu</Button>
-        </div>
+        {
+          (bp === "mobile-large" || bp === "tablet") && (<div className={styles.placeASaleBtnContainer}>
+            <Button>Vendre un jeu</Button>
+          </div>)
+        }
       </main>
     </Layout>
   )

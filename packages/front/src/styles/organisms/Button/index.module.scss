@@ -10,7 +10,6 @@
 
 .button {
   border: none;
-  background-color: $white;
   box-sizing: border-box;
   position: absolute;
   z-index: 2;
@@ -27,8 +26,6 @@
 .variantDefault {
   & button.button {
     border: 2px solid;
-    border-color: $primary_color_variant3;
-    background-color: $primary_color;
     &:active {
       top: 3px;
     }
@@ -61,12 +58,43 @@
     height: 51px;
     padding: 10px 16px 10px 55px;
     box-sizing: border-box;
-    background: $quaternary_color;
+    background-color: $quaternary_color;
     &:active {
       top: 0px;
     }
   }
   &:after {
     background: none;
+  }
+}
+
+.variantFlat {
+  & button.button {
+    border: 2px solid;
+  }
+}
+
+.sizeSmall {
+  height: 42px;
+  & button.button {
+    height: 42px;
+    padding: 8px 6px;
+    border-radius: 8px;
+    font-family: "Nunito Semibold";
+  }
+  border-radius: 8px;
+}
+
+.colorPrimary {
+  & button.button {
+    border-color: $primary_color_variant3;
+    background-color: $primary_color;
+  }
+}
+
+.colorSecondary {
+  & button.button {
+    background-color: $input_background;
+    border-color: $pale_grey;
   }
 }

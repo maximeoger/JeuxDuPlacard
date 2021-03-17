@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { ReactNode } from 'react';
+import Header from 'components/organisms/Header';
 import styles from './index.module.scss';
 
 interface IProps {
@@ -16,25 +17,7 @@ export default function Layout({children, title}: IProps) {
       <title>{title}</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <nav>
-      <ul>
-        <li>
-          <Link href="/">
-            <a>Accueil</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/connexion">
-            <a>Connexion</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/inscription">
-            <a>Inscription</a>
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <Header/>
     <div className={styles.layout}>
       {children}
     </div>

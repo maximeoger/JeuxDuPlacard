@@ -7,14 +7,16 @@ import { Input } from 'components/molecules/Input';
 import { Button } from 'components/molecules/Button';
 import styles from './index.module.scss';
 
+interface IProps {
+  sendRecoverPasswordEmail: (values: RecoverPassword) => Promise<void>
+}
+
 const initialValues = {
   email: "",
 }
 
-const RecoverPasswordForm = () => {
-  const submitForm = (values: RecoverPassword) => {
-    console.log(values);
-  }
+const RecoverPasswordForm = ({ sendRecoverPasswordEmail }: IProps) => {
+  const submitForm = (values: RecoverPassword) => sendRecoverPasswordEmail(values);
 
   return (
     <div className={styles.spacing32}>
