@@ -1,13 +1,15 @@
 @import "styles/vars/breakpoints/index.module.scss";
 
-.spacing32 {
-  margin-top: 32px;
-}
+.section {
+  padding: 0 26px;
+  display: grid;
+  place-items: center;
+  height: calc(100vh - 65px);
 
-.recoverPasswordPageLayout {
-  height: 100%;
-  margin: 0 auto;
-  @include mobile-large {
-    max-width: 464px;
+  div {
+    width: 100%;
+    @include mobile-large {
+      max-width: 360px;
+    }
   }
 }

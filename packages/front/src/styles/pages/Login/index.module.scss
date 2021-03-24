@@ -1,24 +1,17 @@
 @import "styles/vars/breakpoints/index.module.scss";
 
-.pageLayout {
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  @include mobile-large {
-    max-width: 464px;
-    justify-content: initial;
-  }
-}
+.section {
+  padding: 0 26px;
+  height: calc(100vh - 65px);
+  display: grid;
+  place-items: center;
 
-.pageTitle {
-  margin-top: 35px;
-}
+  div {
+    width: 100%;
 
-.loginFormContainer {
-  @include mobile-large {
-    margin-top: 35px;
+    @include mobile-large {
+      max-width: 360px;
+    }
   }
 }
 

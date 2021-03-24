@@ -2,6 +2,7 @@ import React from 'react';
 import { PageTitle } from 'components/molecules/PageTitle';
 import { PageWrapper } from 'components/styles/PageWrapper';
 import { Button } from 'components/molecules/Button';
+import { Space } from 'components/styles/Space';
 import Layout from 'components/Layout';
 import LoginForm from './Form';
 import styles from 'styles/pages/Login/index.module.scss';
@@ -11,10 +12,23 @@ export default function LoginPage(){
   return (
     <Layout title="Jeux du Placard - Connexion">
       <PageWrapper>
-        <div className={styles.pageLayout}>
-          <div className={styles.loginFormContainer}>
-            <PageTitle>Connexion</PageTitle>
-          </div>
+         
+          <PageTitle>Connexion</PageTitle>
+          
+          <Space up={32}>
+            <LoginForm/>
+          </Space>
+
+          <Space up={32}>
+            <Link href="/retrouver-son-mot-de-passe">
+              <a>
+                <Button variant="link">
+                  J'ai oublié mon mot de passe
+                </Button>
+              </a>
+            </Link>
+          </Space>
+          
           <LoginForm/>
           <Link href="/retrouver-son-mot-de-passe">
             <a>
@@ -23,7 +37,6 @@ export default function LoginPage(){
               </Button>
             </a>
           </Link>
-        </div>
       </PageWrapper>
     </Layout>
   )

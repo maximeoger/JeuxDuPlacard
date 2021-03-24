@@ -1,24 +1,21 @@
 @import "styles/vars/breakpoints/index.module.scss";
 @import "styles/vars/colors/index.module.scss";
 
-.registerPageLayout {
-  height: 100%;
-  margin: 0 auto;
-  @include mobile-large {
-    max-width: 464px;
+.section {
+  padding: 0 26px;
+  display: grid;
+  place-items: center;
+  height: calc(100vh - 65px);
+
+  div {
+    width: 100%;
+    @include mobile-large {
+      max-width: 360px;
+    }
   }
 }
 
-.instructionsParagraph {
-  margin-top: 80px;
-}
-
-.facebookButton {
-  margin-top: 32px;
-}
-
 .separator {
-  margin-top: 24px;
   display: flex;
   font-family: "Nunito SemiBold";
   color: $grey;
@@ -37,20 +34,7 @@
   }
 }
 
-.registerButton {
-  margin-top: 24px;
-}
-
-.loginButton {
-  margin-top: 8px;
-}
-
 .registerFormContainer {
-  max-width: 464px;
   margin: 0 auto;
-  margin-top: 35px;
 
-  & button {
-    width: 100%;
-  }
 }
