@@ -3,6 +3,8 @@ import { PageWrapper } from 'components/styles/PageWrapper';
 import { PageTitle } from 'components/molecules/PageTitle';
 import { Text } from 'components/atoms/Text';
 import { performEmailVerification } from 'business/EmailVerification/services/api';
+import { Space } from 'components/styles/Space';
+import styles from 'styles/pages/AccountVerification/index.module.scss';
 
 type Context = { 
   params: {
@@ -16,16 +18,16 @@ interface IProps {
 
 export default function AccountVerificationPage(props: IProps) {
   return (
-    <PageWrapper>
+    <section className={styles.section}>
       <div>
-        <div>
-          <PageTitle>Email confirmé !</PageTitle>
-        </div>
-        <div>
+    
+        <PageTitle>Email confirmé !</PageTitle>
+        
+        <Space up={32}>
           <Text>Votre adresse email à bien été vérifiée ! Vous pouvez maintenant vous connecter et utiliser l’ensemble des fonctionnalités du site</Text>
-        </div>
+        </Space>
       </div>
-    </PageWrapper>
+    </section>
   )
 }
 
