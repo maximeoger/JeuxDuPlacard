@@ -24,7 +24,7 @@ export class EmailVerificationEntity extends BaseEntity {
   verified: boolean; 
 }
 
-export async function createEmailVerificationEntity(associatedUser: UserEntity): Promise<EmailVerificationEntity> {
+export async function createEmailVerificationEntity(associatedUser: UserEntity): Promise<IEmailVerificationEntity> {
 
   const emailVerification = new EmailVerificationEntity();
 

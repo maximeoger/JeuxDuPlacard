@@ -6,6 +6,6 @@ export const generateToken = async (data: any) : Promise<string> => {
   const tokenSecret: string = process.env.ACCESS_TOKEN_SECRET!
   return await jwt.sign({...data}, tokenSecret, {
     algorithm: "HS256",
-    expiresIn: TOKEN_MAX_AGE
+    expiresIn: 30
   });
 };
