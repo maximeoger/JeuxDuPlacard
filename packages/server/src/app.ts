@@ -1,5 +1,6 @@
 import express, { Router, Request, Response } from 'express';
 import sgMail from '@sendgrid/mail';
+import announcementRouter from './business/announcement/routes';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import userRouter from './business/user/routes';
@@ -45,6 +46,7 @@ app.post('/test', (req: Request, res: Response) => {
 
 apiRouter.use(userRouter);
 apiRouter.use(emailVerificationRouter);
+apiRouter.use(announcementRouter);
 
 app.use(ErrorMiddleware);
 

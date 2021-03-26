@@ -1,14 +1,14 @@
-import {
-  Entity, PrimaryGeneratedColumn, Column, BaseEntity,
-} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from "typeorm";
+import { AnnouncementEntity } from '../../announcement/entity/announcement.entity';
 
-interface IUserEntity {
+export interface IUserEntity {
   id?: string;
   email: string;
   firstName: string;
   lastName: string;
   password: string;
-  email_confirmed: boolean;
+  emailConfirmed: boolean;
+  announcements?: AnnouncementEntity[]; 
 }
 
 @Entity('user')
@@ -30,6 +30,9 @@ export class UserEntity extends BaseEntity {
 
   @Column('boolean', { name: 'email_confirmed', default: false })
   email_confirmed: boolean;
+
+  @OneToMany(() => AnnouncementEntity, announcement => announcement.user, { nullable: true })
+  announcements: AnnouncementEntity[];
 }
 
 export async function createUserEntity(userToCreate: IUserEntity): Promise<UserEntity> {
