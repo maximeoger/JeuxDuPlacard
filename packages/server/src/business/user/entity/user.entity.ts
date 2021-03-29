@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import {
+  Entity, PrimaryGeneratedColumn, Column, BaseEntity,
+} from 'typeorm';
 
 interface IUserEntity {
   id?: string;
@@ -11,31 +13,30 @@ interface IUserEntity {
 
 @Entity('user')
 export class UserEntity extends BaseEntity {
-
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column("text", { name: "email", unique: true })
-  email: string; 
+  @Column('text', { name: 'email', unique: true })
+  email: string;
 
-  @Column("text", { name: "first_name" })
+  @Column('text', { name: 'first_name' })
   firstName: string;
 
-  @Column("text", { name: "last_name" })
+  @Column('text', { name: 'last_name' })
   lastName: string;
 
-  @Column("text", { name: "password" })
-  password: string; 
+  @Column('text', { name: 'password' })
+  password: string;
 
-  @Column("boolean", { name: "email_confirmed", default: false })
+  @Column('boolean', { name: 'email_confirmed', default: false })
   email_confirmed: boolean;
 }
 
 export async function createUserEntity(userToCreate: IUserEntity): Promise<UserEntity> {
   const user = new UserEntity();
-  
-  if(userToCreate.id) {
-    user.id = userToCreate.id
+
+  if (userToCreate.id) {
+    user.id = userToCreate.id;
   }
 
   user.email = userToCreate.email.toLowerCase();

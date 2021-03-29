@@ -1,8 +1,8 @@
 import express, { Router, Request, Response } from 'express';
-import userRouter from './business/user/routes';
-import emailVerificationRouter from './business/email_verification/routes';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
+import userRouter from './business/user/routes';
+import emailVerificationRouter from './business/email_verification/routes';
 import cors from './technical/cors';
 import ErrorMiddleware from './technical/Error/middleware';
 

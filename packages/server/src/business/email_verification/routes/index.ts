@@ -5,7 +5,7 @@ import { jsonRequestHandler } from '../../../technical/controller/jsonController
 const emailVerification = Router();
 
 emailVerification.route('/email/verify').get([
-  jsonRequestHandler(confirmEmailController)
-])
+  jsonRequestHandler(confirmEmailController),
+]);
 
 export default emailVerification;

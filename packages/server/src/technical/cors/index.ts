@@ -1,6 +1,5 @@
 import cors, { CorsOptions } from 'cors';
 
-
 const crossOriginOptions : CorsOptions = {
   allowedHeaders: [
     'Origin',
@@ -8,7 +7,7 @@ const crossOriginOptions : CorsOptions = {
     'Content-Type',
     'Accept',
     'X-Access-Token',
-    'Authorization'
+    'Authorization',
   ],
   credentials: true,
   methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',

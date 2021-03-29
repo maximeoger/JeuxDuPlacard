@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne } from 'typeorm';
+import {
+  Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne,
+} from 'typeorm';
 import { UserEntity } from '../../user/entity/user.entity';
 
 interface IEmailVerificationEntity {
@@ -10,22 +12,22 @@ interface IEmailVerificationEntity {
 
 @Entity('email_verification')
 export class EmailVerificationEntity extends BaseEntity {
-
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => UserEntity, user => user.id, { eager: true, cascade: true, onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+  @ManyToOne(() => UserEntity, (user) => user.id, {
+    eager: true, cascade: true, onDelete: 'CASCADE', onUpdate: 'CASCADE',
+  })
   user: UserEntity;
 
-  @Column("timestamp", { name: "verified_at", nullable: true })
+  @Column('timestamp', { name: 'verified_at', nullable: true })
   verified_at: Date | null;
 
-  @Column("boolean", { name: "verified" })
-  verified: boolean; 
+  @Column('boolean', { name: 'verified' })
+  verified: boolean;
 }
 
 export async function createEmailVerificationEntity(associatedUser: UserEntity): Promise<EmailVerificationEntity> {
-
   const emailVerification = new EmailVerificationEntity();
 
   emailVerification.user = associatedUser;
@@ -33,4 +35,4 @@ export async function createEmailVerificationEntity(associatedUser: UserEntity):
   emailVerification.verified_at = null;
 
   return emailVerification;
-} 
+}

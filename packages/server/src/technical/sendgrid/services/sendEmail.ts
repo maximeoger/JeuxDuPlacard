@@ -1,16 +1,14 @@
 import sgMail from '@sendgrid/mail';
 
-
-
 class Email {
   private static instance : Email;
 
-  private constructor(){
+  private constructor() {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
   }
 
   public static getInstance(): Email {
-    if(!this.instance){
+    if (!this.instance) {
       this.instance = new Email();
     }
     return this.instance;
@@ -20,11 +18,9 @@ class Email {
     try {
       await sgMail.send(msg);
     } catch (error) {
-      console.log(error.response.body)
+      console.log(error.response.body);
     }
   }
-
-
 }
 
 const EmailInstance = Email.getInstance();
