@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { createConnection } from './technical/typeorm/connexion';
+import createConnection from './technical/typeorm/connexion';
 import app from './app';
 
 const port = 3002;

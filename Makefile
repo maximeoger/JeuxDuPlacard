@@ -30,3 +30,5 @@ stop:
 log:
 	npx pm2 logs
 
+lint:
+	cd packages/server && yarn run lint

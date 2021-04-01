@@ -4,7 +4,7 @@ const USER_NAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;
 const DATABASE = process.env.DB_NAME;
 
-const connectionOptions = {
+const connectionOptions = {
   type: 'postgres',
   host: HOST,
   port: PORT,

@@ -2,15 +2,15 @@ import { getManager } from 'typeorm';
 import { IEmailVerificationResponse } from 'common/src/business/email_verification/index';
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import { getEmailVerificationRepository } from '../../repository/emailVerification';
-import { getUserRepository } from '../../../user/repository/user';
+import { getUserRepository } from '../../../user/repository/user';
 import BadRequestError from '../../../../technical/Error/utils/badRequestError';
 
-const confirmEmailController: ControllerInterface<IEmailVerificationResponse> = async function EmailVerificationGetController(req, res) {
+const confirmEmailController: ControllerInterface<IEmailVerificationResponse> = async function EmailVerificationGetController(req) {
   const emailVerificationRepository = getEmailVerificationRepository();
   const userRepository = getUserRepository();
 
   const emailVerificationFound = await emailVerificationRepository.findOne({
-    where: { id: req.query.verification_id },
+    where: { id: req.query.verification_id },
   });
 
   if (!emailVerificationFound) {

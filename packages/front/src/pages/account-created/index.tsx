@@ -1,6 +1,6 @@
 import Layout from 'components/Layout';
 import { Button } from "components/molecules/Button";
-import { Text } from "components/atoms/Text";
+import { Text } from "components/atoms/Text";
 import { PageTitle } from "components/molecules/PageTitle";
 import styles from "styles/pages/AccountCreated/index.module.scss";
 

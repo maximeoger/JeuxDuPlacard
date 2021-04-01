@@ -1,4 +1,5 @@
 import express, { Router, Request, Response } from 'express';
+import sgMail from '@sendgrid/mail';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import userRouter from './business/user/routes';
@@ -45,5 +46,7 @@ app.post('/test', (req: Request, res: Response) => {
 apiRouter.use(userRouter);
 apiRouter.use(emailVerificationRouter);
 app.use(ErrorMiddleware);
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
 export default app;

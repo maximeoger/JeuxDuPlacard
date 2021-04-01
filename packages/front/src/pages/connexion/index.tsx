@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageTitle } from 'components/molecules/PageTitle';
 import { PageWrapper } from 'components/styles/PageWrapper';
-import { Button } from 'components/molecules/Button';
+import { Button } from 'components/molecules/Button';
 import Layout from 'components/Layout';
 import LoginForm from './Form';
 import styles from 'styles/pages/Login/index.module.scss';

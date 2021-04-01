@@ -3,7 +3,7 @@ import {
 } from 'express';
 import validate from 'validate.js';
 
-export function validationHandler<T>(constraints: T) {
+export default function validationHandler<T>(constraints: T) {
   const requestHandler: RequestHandler = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const validationError : boolean = validate(req.body, constraints);

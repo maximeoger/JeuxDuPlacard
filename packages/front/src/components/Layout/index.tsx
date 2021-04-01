@@ -10,7 +10,7 @@ interface IProps {
 
 }
 
-export default function Layout({children, title}: IProps) {
+export default function Layout({children, title}: IProps) {
   return (
     <>
     <Head>

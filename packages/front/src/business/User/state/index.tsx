@@ -1,14 +1,14 @@
 import React, {createContext, useContext, useEffect, useMemo, useState} from 'react';
 import { useRouter } from 'next/router'
 import { IUserResponse } from 'common/src/business/user';
-import { UserCredentials } from 'common/src/business/user/types/login';
-import { UserRegisterData } from 'common/src/business/user/types/register';
-import { RecoverPassword } from 'common/src/business/user/types/recoverPassword';
+import { UserCredentials } from 'common/src/business/user/types/login';
+import { UserRegisterData } from 'common/src/business/user/types/register';
+import { RecoverPassword } from 'common/src/business/user/types/recoverPassword';
 import { login, register, recoverPassword } from 'business/User/state/services/api';
-import { IUserRecoverPasswordResponse } from 'common/src/business/user';
+import { IUserRecoverPasswordResponse } from 'common/src/business/user';
 
-interface IUserContext {
-  user: IUserResponse | null;
+interface IUserContext {
+  user: IUserResponse | null;
   userIsLoggedIn: boolean;
   connectUser: (data: UserCredentials) => void;
   registerUser: (data: UserRegisterData) => void;
@@ -36,7 +36,7 @@ function useUserStateProvider() {
       const loginResponseSuccess = await login(data);
       setUser(loginResponseSuccess);
       router.push('/');
-    } catch(err) {
+    } catch(err) {
       setUser(null);
     }
   }

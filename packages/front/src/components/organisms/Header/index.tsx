@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import { Button } from 'components/molecules/Button';
+import { Button } from 'components/molecules/Button';
 import useBreakpoint from "technical/utils/useBreakpoint";
 import styles from 'styles/organisms/Header/index.module.scss';
-import { Search } from 'components/icons/Search';
+import { Search } from 'components/icons/Search';
 
 const Header = () => {
   const bp = useBreakpoint();
@@ -25,7 +25,7 @@ const Header = () => {
                 <a><Button variant="flat" size="small" color="primary">Vendre un jeu</Button></a>
               </Link>
               <Link href="/inscription">
-                <a><Button variant="flat" size="small" color="secondary">Inscription | Connexion</Button></a>
+                <a><Button variant="flat" size="small" color="secondary">Inscription | Connexion</Button></a>
               </Link>
             </div>
           )

@@ -1,4 +1,4 @@
-import {
+import {
   Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne,
 } from 'typeorm';
 import { UserEntity } from '../../user/entity/user.entity';
@@ -21,18 +21,18 @@ export class EmailVerificationEntity extends BaseEntity {
   user: UserEntity;
 
   @Column('timestamp', { name: 'verified_at', nullable: true })
-  verified_at: Date | null;
+  verified_at: Date | null;
 
-  @Column('boolean', { name: 'verified' })
+  @Column('boolean', { name: 'verified' })
   verified: boolean;
 }
 
-export async function createEmailVerificationEntity(associatedUser: UserEntity): Promise<EmailVerificationEntity> {
+export const createEmailVerificationEntity = async (newUser: UserEntity): Promise<EmailVerificationEntity> => {
   const emailVerification = new EmailVerificationEntity();
 
-  emailVerification.user = associatedUser;
+  emailVerification.user = newUser;
   emailVerification.verified = false;
   emailVerification.verified_at = null;
 
   return emailVerification;
-}
+};

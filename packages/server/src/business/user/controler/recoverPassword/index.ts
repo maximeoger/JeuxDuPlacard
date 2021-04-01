@@ -1,10 +1,10 @@
 import { IUserRecoverPasswordResponse } from 'common/dist/business/user/index';
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
-import EmailService from '../../../../technical/sendgrid/services/sendEmail';
+import sendEmail from '../../../../technical/sendgrid/services/sendEmail';
 import BadRequestError from '../../../../technical/Error/utils/badRequestError';
 import { getUserRepository } from '../../repository/user';
 
-const createRecoverPassordController: ControllerInterface<IUserRecoverPasswordResponse> = async function recoverPasswordController(req, res) {
+const createRecoverPassordController: ControllerInterface<IUserRecoverPasswordResponse> = async function recoverPasswordController(req, res) {
   const userRepository = getUserRepository();
 
   const userExists = await userRepository.findOne({
@@ -12,10 +12,10 @@ const createRecoverPassordController: ControllerInterface<IUserRecoverPasswordRe
   });
 
   if (!userExists) {
-    throw new BadRequestError('l\email spécifié n\'existe pas', 500);
+    throw new BadRequestError('l\'email spécifié n\'existe pas', 500);
   }
 
-  EmailService.send({
+  sendEmail({
     to: userExists.email,
     from: 'maximeoger93@gmail.com',
     template_id: 'd-535e1ab727af43a48204cbb2c6e564c7',

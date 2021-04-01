@@ -1,7 +1,7 @@
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 import { createConnection as TypeOrmCreateConnexion, getConnectionOptions, Connection } from 'typeorm';
 
-export async function createConnection(handleError: (error: Error) => unknown): Promise<Connection> {
+export default async function createConnection(handleError: (error: Error) => unknown): Promise<Connection> {
   return getConnectionOptions()
     .then((connectionOptions) => TypeOrmCreateConnexion({
       ...(connectionOptions as PostgresConnectionOptions),

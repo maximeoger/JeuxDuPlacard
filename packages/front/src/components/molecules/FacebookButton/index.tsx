@@ -6,7 +6,7 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export const FacebookButton = ({children}: IProps) => (
+export const FacebookButton = ({children}: IProps) => (
   <Button variant="facebook" size="small">
     <Facebook color="#F3F3F3"/>
     <div>{children}</div>

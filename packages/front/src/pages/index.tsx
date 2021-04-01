@@ -1,5 +1,5 @@
 import Layout from 'components/Layout';
-import { Display } from  'components/atoms/Display';
+import { Display } from  'components/atoms/Display';
 import { Button } from "components/molecules/Button";
 import styles from "styles/pages/Home/index.module.scss";
 import useBreakpoint from "technical/utils/useBreakpoint";
@@ -17,7 +17,7 @@ export default function Home() {
           </div>
         </section>
         {
-          (bp === "mobile-large" || bp === "tablet") && (<div className={styles.placeASaleBtnContainer}>
+          (bp === "mobile-large" || bp === "tablet") && (<div className={styles.placeASaleBtnContainer}>
             <Button>Vendre un jeu</Button>
           </div>)
         }
