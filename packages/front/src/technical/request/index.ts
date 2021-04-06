@@ -17,7 +17,7 @@ export class RequestHandler {
     })
   };
 
-  public static getInstance(): RequestHandler {
+  public static getInstance(): RequestHandler {
     if(!RequestHandler.instance) {
       RequestHandler.instance = new RequestHandler();
     }

@@ -7,7 +7,7 @@ import styles from 'styles/molecules/PasswordInput/index.module.scss';
 interface IProps {
   placeholder?: string;
   name: string;
-};
+}
 
 export const PasswordInput = ({placeholder, name}: IProps) => {
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false);

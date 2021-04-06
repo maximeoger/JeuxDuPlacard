@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from 'styles/atoms/Display/index.module.scss';
 
-interface IProps { 
+interface IProps { 
   children: React.ReactNode;
 }
 

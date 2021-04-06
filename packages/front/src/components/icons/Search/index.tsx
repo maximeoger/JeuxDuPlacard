@@ -1,7 +1,7 @@
 
 interface IProps {
   color?: string;
-};
+}
 
 export const Search = ({color="none"}: IProps) => (
   <svg 

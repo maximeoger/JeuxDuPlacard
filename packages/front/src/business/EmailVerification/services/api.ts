@@ -1,12 +1,12 @@
 import { CONNREFUSED } from 'node:dns';
 import axios from 'technical/request';
 
-interface RequestStatus { 
+interface RequestStatus { 
   succeeded: boolean 
 };
 
 export async function performEmailVerification(verificationId: string) : Promise<RequestStatus> {
-  let requestStatus = { succeeded: false };
+  let requestStatus = { succeeded: false };
   
   const response = await axios.get(`/email/verify`, { params: { verification_id: verificationId } });
   

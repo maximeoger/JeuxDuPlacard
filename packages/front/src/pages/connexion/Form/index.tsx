@@ -1,10 +1,10 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
-import { useUserContext } from 'business/User/state/index';
+import { useUserContext } from 'business/User/state/index';
 import validateFormValues from 'technical/form/validateFormValues';
 import { loginFormValidationRules } from 'common/src/business/user/validation/login';
 import { UserCredentials } from 'common/src/business/user/types/login';
-import { Input } from 'components/molecules/Input';
+import { Input } from 'components/molecules/Input';
 import { PasswordInput } from 'components/molecules/PasswordInput';
 import { Button } from 'components/molecules/Button';
 import styles from 'styles/pages/Login/index.module.scss';
@@ -35,7 +35,7 @@ const LoginForm = () => {
             <Input placeholder="email" type="email" name="login"/>
             <PasswordInput placeholder="Mot de passe" name="password"/>
             <div className={styles.submitButton}>
-              <Button type="submit" variant="default">Je m'identifie</Button>
+              <Button type="submit" variant="default">Je m&apos identifie</Button>
             </div>
           </Form>
         )}

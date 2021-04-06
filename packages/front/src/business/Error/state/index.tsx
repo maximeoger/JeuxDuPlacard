@@ -1,7 +1,7 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import AxiosInstance from 'technical/request/index';
 
-interface IErrorContext {
+interface IErrorContext {
   message: string | null;
   refreshMessage: () => void;
 }

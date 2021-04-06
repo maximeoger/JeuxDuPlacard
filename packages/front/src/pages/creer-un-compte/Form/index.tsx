@@ -1,12 +1,12 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
-import { useUserContext } from 'business/User/state/index';
+import { useUserContext } from 'business/User/state/index';
 import { UserRegisterData } from 'common/src/business/user/types/register';
 import { Input } from 'components/molecules/Input';
 import { Button } from 'components/molecules/Button';
 import styles from 'styles/pages/Register/index.module.scss';
 import validateFormValues from 'technical/form/validateFormValues';
-import { registerValidationConstraints } from 'common/src/business/user/validation/register';
+import { registerValidationConstraints } from 'common/src/business/user/validation/register';
 
 const initialValues = {
   email: "",
@@ -17,7 +17,7 @@ const initialValues = {
 }
 
 const RegisterForm = () => {
-  const { registerUser } = useUserContext();
+  const { registerUser } = useUserContext();
 
   const submitForm = (values: UserRegisterData) => {
     registerUser(values)

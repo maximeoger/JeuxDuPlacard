@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
 
-type controllerInterface<T = any> = (req: Request, res: Response) => Promise<T>;
+type ControllerInterface<T = any> = (req: Request, res: Response) => Promise<T>;
 
-export default controllerInterface;
+export default ControllerInterface;

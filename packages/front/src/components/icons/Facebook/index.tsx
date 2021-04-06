@@ -1,7 +1,7 @@
 
 interface IProps {
   color?: string;
-};
+}
 
 const Facebook = ({color="none"}: IProps) => (
   <svg 

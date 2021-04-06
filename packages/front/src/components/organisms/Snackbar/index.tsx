@@ -8,7 +8,7 @@ interface IProps {
   type: "error";
 }
 
-export function Snackbar({message, type}: IProps) {
+export function Snackbar({message, type}: IProps) {
   return (
     <div className={classnames(styles.snackBar, {
       [styles.error]: type === "error",

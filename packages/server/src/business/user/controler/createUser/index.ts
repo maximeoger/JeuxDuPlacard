@@ -1,13 +1,13 @@
-import ControllerInterface from '../../../../technical/controller/controllerInterface';
-import { getUserRepository } from '../../../../business/user/repository/user';
-import { createUserEntity } from '../../entity/user.entity';
 import { IUserResponse } from 'common/dist/business/user';
-import { createEmailVerificationEntity } from '../../../email_verification/entity/email_verification.entity';
-import { apiExtractor } from '../../../../technical/user/apiExtractor';
-import { generateToken, TOKEN_MAX_AGE } from '../../../../technical/user/jwtHandler';
 import { getManager } from 'typeorm';
+import ControllerInterface from '../../../../technical/controller/controllerInterface';
+import { getUserRepository } from '../../repository/user';
+import { createUserEntity } from '../../entity/user.entity';
+import { createEmailVerificationEntity } from '../../../email_verification/entity/email_verification.entity';
+import apiExtractor from '../../../../technical/user/apiExtractor';
+import { generateToken, TOKEN_MAX_AGE } from '../../../../technical/user/jwtHandler';
 import { hashPassword } from '../../../../technical/user/passwordHandler';
-import EmailService from '../../../../technical/sendgrid/services/sendEmail';
+import sendEmail from '../../../../technical/sendgrid/services/sendEmail';
 import BadRequestError from '../../../../technical/Error/utils/badRequestError';
 
 const createUserController: ControllerInterface<IUserResponse> = async function UserPostController(req, res) {
@@ -16,35 +16,35 @@ const createUserController: ControllerInterface<IUserResponse> = async function 
   let user = await createUserEntity(req.body);
 
   const userExists = await userRepository.findOne({
-    where: { email: user.email }
+    where: { email: user.email },
   });
 
-  if(userExists) {
+  if (userExists) {
     throw new BadRequestError('user exist', 500);
   }
 
-  let emailVerification = await createEmailVerificationEntity(user);
+  const emailVerification = await createEmailVerificationEntity(user);
 
   user = await hashPassword(user);
 
-  await getManager().transaction(async entityManager => {
+  await getManager().transaction(async (entityManager) => {
     await entityManager.save(emailVerification);
   });
 
-  EmailService.send({
+  sendEmail({
     to: user.email,
     from: 'maximeoger93@gmail.com',
-    template_id: "d-4617241110954739adc8300c541dac20",
+    template_id: 'd-4617241110954739adc8300c541dac20',
     dynamic_template_data: {
       first_name: user.firstName,
       verification_id: emailVerification.id,
-    }
+    },
   });
-  
-  const responseData = await apiExtractor(user); 
-  const access_token = await generateToken(responseData);
-  res.cookie('access_token', access_token , { httpOnly: true, maxAge: TOKEN_MAX_AGE });
-  
+
+  const responseData = await apiExtractor(user);
+  const accessToken = await generateToken(responseData);
+  res.cookie('access_token', accessToken, { httpOnly: true, maxAge: TOKEN_MAX_AGE });
+
   return responseData;
 };
 

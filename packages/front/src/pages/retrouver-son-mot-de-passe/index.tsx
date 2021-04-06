@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { PageTitle } from 'components/molecules/PageTitle';
 import { PageWrapper } from 'components/styles/PageWrapper';
 import { useUserContext } from 'business/User/state';
@@ -7,14 +7,13 @@ import RecoverPasswordForm from 'components/organisms/RecoverPasswordForm';
 import { Text } from 'components/atoms/Text';
 import styles from 'styles/pages/RecoverPassword/index.module.scss';
 import { RecoverPassword } from 'common/src/business/user/types/recoverPassword';
-import { IUserRecoverPasswordResponse } from 'common/src/business/user';
 
 export default function RetrivePasswordPage(){
-  const [ emailSent, setEmailSent ] = useState<boolean>(false);
+  const [ emailSent, setEmailSent ] = useState<boolean>(false);
   const { sendUserEmailForPasswordRetrieval } = useUserContext();
 
   const sendRecoverPasswordEmail = async (values: RecoverPassword) => {
-    let data = await sendUserEmailForPasswordRetrieval(values);
+    const data = await sendUserEmailForPasswordRetrieval(values);
     if(data){
       setEmailSent(data.recoverPasswordEmailSent);
     }

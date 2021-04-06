@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import { ReactNode } from 'react';
 import Header from 'components/organisms/Header';
 import styles from './index.module.scss';
@@ -10,7 +9,7 @@ interface IProps {
 
 }
 
-export default function Layout({children, title}: IProps) {
+export default function Layout({children, title}: IProps) {
   return (
     <>
     <Head>

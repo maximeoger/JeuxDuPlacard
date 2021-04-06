@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import { RecoverPassword } from 'common/src/business/user/types/recoverPassword';
-import { recoverPasswordFormValidationRules } from 'common/src/business/user/validation/recoverPassord';
+import { recoverPasswordFormValidationRules } from 'common/src/business/user/validation/recoverPassord';
 import validateFormValues from 'technical/form/validateFormValues';
 import { Input } from 'components/molecules/Input';
 import { Button } from 'components/molecules/Button';
@@ -11,7 +11,7 @@ interface IProps {
   sendRecoverPasswordEmail: (values: RecoverPassword) => Promise<void>
 }
 
-const initialValues = {
+const initialValues = {
   email: "",
 }
 

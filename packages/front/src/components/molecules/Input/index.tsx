@@ -1,6 +1,5 @@
 import React from 'react';
-import { Field, ErrorMessage } from 'formik';
-import classname from 'classnames';
+import { Field, ErrorMessage } from 'formik';
 import styles from 'styles/organisms/Input/index.module.scss';
 
 enum InputTypes {

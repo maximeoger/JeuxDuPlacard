@@ -1,8 +1,8 @@
 import React from 'react';
 import { PageWrapper } from 'components/styles/PageWrapper';
-import { PageTitle } from 'components/molecules/PageTitle';
+import { PageTitle } from 'components/molecules/PageTitle';
 import { Text } from 'components/atoms/Text';
-import { performEmailVerification } from 'business/EmailVerification/services/api';
+import { performEmailVerification } from 'business/EmailVerification/services/api';
 
 type Context = { 
   params: {
@@ -10,11 +10,7 @@ type Context = {
   }
 };
 
-interface IProps {
-  succeeded: boolean;
-}
-
-export default function AccountVerificationPage(props: IProps) {
+export default function AccountVerificationPage() {
   return (
     <PageWrapper>
       <div>
