@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import BadRequestError from '../utils/badRequestError';
 
-export default function (error: BadRequestError, req: Request, res: Response, next: NextFunction) {
+export default function ErrorMiddleware(error: BadRequestError, req: Request, res: Response): Response {
   return res.status(error.statusCode).json({ error: error.message });
 }

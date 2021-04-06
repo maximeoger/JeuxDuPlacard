@@ -12,8 +12,6 @@ module.exports = {
     project: ["./tsconfig.json"]
   },
   rules: {
-    "import/no-extraneous-dependencies": "off", // Todo: limiter la désactivation de cette règle pour les déclarations d'import du dossier "common" dans les fichiers .ts
-    "max-len": [2, { "code": 150 }],
-    "no-param-reassign": "off"
+    "import/prefer-default-export": "off"
   }
 }

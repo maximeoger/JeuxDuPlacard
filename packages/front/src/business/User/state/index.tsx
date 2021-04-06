@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect, useMemo, useState} from 'react';
+import React, {createContext, useContext, useMemo, useState} from 'react';
 import { useRouter } from 'next/router'
 import { IUserResponse } from 'common/src/business/user';
 import { UserCredentials } from 'common/src/business/user/types/login';
@@ -52,6 +52,7 @@ function useUserStateProvider() {
   }
 
   const sendUserEmailForPasswordRetrieval = async (data: RecoverPassword) => {
+    // eslint-disable-next-line
     try {
       const responseData = await recoverPassword(data);
       return responseData; 

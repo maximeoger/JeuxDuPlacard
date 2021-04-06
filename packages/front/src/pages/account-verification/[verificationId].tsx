@@ -10,11 +10,7 @@ type Context = {
   }
 };
 
-interface IProps {
-  succeeded: boolean;
-}
-
-export default function AccountVerificationPage(props: IProps) {
+export default function AccountVerificationPage() {
   return (
     <PageWrapper>
       <div>

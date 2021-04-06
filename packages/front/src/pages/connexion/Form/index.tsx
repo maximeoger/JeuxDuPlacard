@@ -35,7 +35,7 @@ const LoginForm = () => {
             <Input placeholder="email" type="email" name="login"/>
             <PasswordInput placeholder="Mot de passe" name="password"/>
             <div className={styles.submitButton}>
-              <Button type="submit" variant="default">Je m'identifie</Button>
+              <Button type="submit" variant="default">Je m&apos identifie</Button>
             </div>
           </Form>
         )}

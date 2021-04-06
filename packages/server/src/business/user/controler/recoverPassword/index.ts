@@ -4,7 +4,7 @@ import sendEmail from '../../../../technical/sendgrid/services/sendEmail';
 import BadRequestError from '../../../../technical/Error/utils/badRequestError';
 import { getUserRepository } from '../../repository/user';
 
-const createRecoverPassordController: ControllerInterface<IUserRecoverPasswordResponse> = async function recoverPasswordController(req, res) {
+const createRecoverPassordController: ControllerInterface<IUserRecoverPasswordResponse> = async function recoverPasswordController(req) {
   const userRepository = getUserRepository();
 
   const userExists = await userRepository.findOne({

@@ -45,8 +45,11 @@ app.post('/test', (req: Request, res: Response) => {
 
 apiRouter.use(userRouter);
 apiRouter.use(emailVerificationRouter);
+
 app.use(ErrorMiddleware);
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
+if (process.env.SENDGRID_API_KEY) {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+}
 
 export default app;

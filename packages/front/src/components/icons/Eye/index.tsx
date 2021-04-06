@@ -1,7 +1,7 @@
 
 interface IProps {
   color?: string;
-};
+}
 
 export const Eye = ({color="none"}: IProps) => (
   <svg 
