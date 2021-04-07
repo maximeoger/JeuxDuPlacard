@@ -9,4 +9,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: borales/actions-yarn@v2.0.0
-      run: "sh scripts/lint-ci.sh"
+        run: "sh scripts/lint-ci.sh"
