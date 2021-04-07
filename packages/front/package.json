@@ -27,6 +27,7 @@
     "start": "next start",
     "build": "next build",
     "lint": "eslint . --ext .tsx",
+    "lint.ci": "eslint . --ext .tsx",
     "lint.fix": "eslint . --ext .tsx --fix"
   },
   "eslintConfig": {
