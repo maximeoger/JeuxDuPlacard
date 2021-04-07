@@ -8,20 +8,22 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v2.0.0
       
       - name: Lint Server Package
         working-directory: ./packages/server
-        with: 
-          cmd: lint.ci
+        - uses: borales/actions-yarn@v2.0.0
+          with: 
+            cmd: lint.ci
 
       - name: Lint Commont Package
         working-directory: ./packages/common
-        with: 
-          cmd: lint.ci
+        - uses: borales/actions-yarn@v2.0.0
+          with: 
+            cmd: lint.ci
       
       - name: Lint Front Package
         working-directory: ./packages/front
-        with: 
-          cmd: lint.ci
+        - uses: borales/actions-yarn@v2.0.0
+          with: 
+            cmd: lint.ci
 
