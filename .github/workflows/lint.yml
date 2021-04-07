@@ -1,0 +1,24 @@
+name: CI
+
+on: [push]
+
+jobs:
+  lint-server-package:
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - uses: actions/checkout@v2
+      - uses: borales/actions-yarn@2.0.0
+      
+      - name: Lint Server Package
+        working-directory: ./packages/server
+        run: lint:ci
+
+      - name: Lint Commont Package
+        working-directory: ./packages/common
+        run: lint:ci
+      
+      - name: Lint Front Package
+        working-directory: ./packages/front
+        run: lint:ci
+
