@@ -3,27 +3,23 @@ name: CI
 on: [push]
 
 jobs:
-  lint-server-package:
+  lint:
     runs-on: ubuntu-20.04
-    
     steps:
       - uses: actions/checkout@v2
       
-      - name: Lint Server Package
-        working-directory: ./packages/server
-        - uses: borales/actions-yarn@v2.0.0
-          with: 
-            cmd: lint.ci
+      working-directory: ./packages/server
+      - uses: borales/actions-yarn@v2.0.0
+        with: 
+          cmd: lint.ci
 
-      - name: Lint Commont Package
-        working-directory: ./packages/common
-        - uses: borales/actions-yarn@v2.0.0
-          with: 
-            cmd: lint.ci
+      working-directory: ./packages/common
+      - uses: borales/actions-yarn@v2.0.0
+        with: 
+          cmd: lint.ci
       
-      - name: Lint Front Package
-        working-directory: ./packages/front
-        - uses: borales/actions-yarn@v2.0.0
-          with: 
-            cmd: lint.ci
+      working-directory: ./packages/front
+      - uses: borales/actions-yarn@v2.0.0
+        with: 
+          cmd: lint.ci
 
