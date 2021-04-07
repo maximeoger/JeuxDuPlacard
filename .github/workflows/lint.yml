@@ -8,18 +8,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      working-directory: ./packages/server
-      - uses: borales/actions-yarn@v2.0.0
-        with: 
-          cmd: lint.ci
+      - name: Lint Server Package
+        working-directory: ./packages/server
+        run: npm run lint.ci  
 
-      working-directory: ./packages/common
-      - uses: borales/actions-yarn@v2.0.0
-        with: 
-          cmd: lint.ci
+      - name: Lint Common Package
+        working-directory: ./packages/common
+        run: npm run lint.ci
+        
+      - name: Lint Front Package
+        working-directory: ./packages/front
+        run: npm run lint.ci
       
-      working-directory: ./packages/front
-      - uses: borales/actions-yarn@v2.0.0
-        with: 
-          cmd: lint.ci
 
