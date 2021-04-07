@@ -5,14 +5,8 @@ on: [push]
 jobs:
   eslint:
     runs-on: ubuntu-20.04
+    
     steps:
       - uses: actions/checkout@v2
-      - uses: mrdivyansh/eslint-action@1.0.7
-        # GITHUB_TOKEN in forked repositories is read-only
-        # https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request
-        if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }} 
-        with:
-          repo-token: ${{secrets.GITHUB_TOKEN}}
-          eslint-rc: .eslintrc.js
-          execute-on-files:
-            - ./packages
+      - uses: borales/actions-yarn@v2.0.0
+      run: "sh scripts/lint-ci.sh"
