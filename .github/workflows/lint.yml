@@ -12,13 +12,13 @@ jobs:
       
       - name: Lint Server Package
         working-directory: ./packages/server
-        run: lint:ci
+        run: lint.ci
 
       - name: Lint Commont Package
         working-directory: ./packages/common
-        run: lint:ci
+        run: lint.ci
       
       - name: Lint Front Package
         working-directory: ./packages/front
-        run: lint:ci
+        run: lint.ci
 
