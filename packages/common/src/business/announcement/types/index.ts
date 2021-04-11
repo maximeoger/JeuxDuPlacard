@@ -1,1 +1,1 @@
-export type AnnouncementItemCondition = "Comme neuf" | "Bon etat" | "Passable";
+export type AnnouncementItemCondition = 'Comme neuf' | 'Bon etat' | 'Passable';

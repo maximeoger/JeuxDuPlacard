@@ -14,4 +14,4 @@ export interface IUserRecoverPasswordResponse {
   recoverPasswordEmailSent: boolean;
 }
 
-export type PartialUserResponse = Omit<IUserResponse, "email" | "lastName">
+export type PartialUserResponse = Omit<IUserResponse, 'email' | 'lastName'>;

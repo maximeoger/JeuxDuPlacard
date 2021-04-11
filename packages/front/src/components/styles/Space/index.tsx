@@ -4,7 +4,7 @@ import styles from './index.module.scss';
 
 type SpacingAutorizedValues = 2|4|8|16|24|32|40|48|56|72|80|0;
 
-interface IProps { 
+interface IProps { 
   up?: SpacingAutorizedValues;
   right?: SpacingAutorizedValues;
   bottom?: SpacingAutorizedValues;

@@ -1,49 +1,49 @@
-import { Entity, BaseEntity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { ItemType, ItemCategory } from 'common/dist/business/item/types/index';
+import {
+  Entity, BaseEntity, Column, PrimaryGeneratedColumn, OneToMany,
+} from 'typeorm';
+import { ItemType, ItemCategory } from 'common/dist/business/item/types/index';
 import { AnnouncementEntity } from '../../announcement/entity/announcement.entity';
+import IItemEntity from '../types';
 
-
-export interface IItemEntiry {
-  id?: string;
-  isbnEanCode: string;
-  name: string;
-  publicPrice: number;
-  dimensions: string;
-  weight: number;
-  publisher: string;
-  category: ItemCategory;
-  type: ItemType;
-}
-
-@Entity("item")
+@Entity('item')
 export class ItemEntity extends BaseEntity {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column("text", { unique: true })
-  isbn_ean_code: string;
+  @Column('text', { unique: true })
+  isbnEanCode: string;
 
-  @Column("text")
+  @Column('text')
   name: string;
 
-  @Column("decimal")
-  public_price: number;
+  @Column('decimal')
+  publicPrice: number;
 
-  @Column("text")
+  @Column('text')
   dimensions: string;
 
-  @Column("decimal")
+  @Column('decimal')
   weight: number;
 
-  @Column("text")
+  @Column('text')
   publisher: string;
 
-  @Column("text")
+  @Column('text')
   category: ItemCategory;
 
-  @Column("text")
+  @Column('text')
   type: ItemType;
 
-  @OneToMany(() => AnnouncementEntity, announcement => announcement.item, { nullable: true })
+  @OneToMany('AnnouncementEntity', 'item', { nullable: true })
   announcements: AnnouncementEntity[];
+}
+
+export async function createItem(itemToCreate: IItemEntity): Promise<IItemEntity> {
+  const item = new ItemEntity();
+
+  if (itemToCreate.id) {
+    item.id = itemToCreate.id;
+  }
+
+  return item;
 }

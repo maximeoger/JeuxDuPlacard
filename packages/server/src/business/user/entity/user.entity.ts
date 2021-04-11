@@ -1,15 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from "typeorm";
+import {
+  Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany,
+} from 'typeorm';
 import { AnnouncementEntity } from '../../announcement/entity/announcement.entity';
-
-export interface IUserEntity {
-  id?: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  password: string;
-  emailConfirmed: boolean;
-  announcements?: AnnouncementEntity[]; 
-}
+import IUserEntity from '../types';
 
 @Entity('user')
 export class UserEntity extends BaseEntity {
@@ -31,7 +24,7 @@ export class UserEntity extends BaseEntity {
   @Column('boolean', { name: 'email_confirmed', default: false })
   email_confirmed: boolean;
 
-  @OneToMany(() => AnnouncementEntity, announcement => announcement.user, { nullable: true })
+  @OneToMany('AnnouncementEntity', 'user', { nullable: true })
   announcements: AnnouncementEntity[];
 }
 

@@ -1,6 +1,6 @@
 import { PartialUserResponse } from '../user/index';
 import { AnnouncementItemCondition } from './types/index';
-import { IItemResponse } from '../item/index';
+import { IItemResponse } from '../item/index';
 
 export interface IAnnouncementResponse {
   id: string;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { PageTitle } from 'components/molecules/PageTitle';
-import { PageWrapper } from 'components/styles/PageWrapper';
 import { Space } from 'components/styles/Space';
 import Layout from 'components/Layout';
 import RegisterForm from './Form';

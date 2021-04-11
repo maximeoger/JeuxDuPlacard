@@ -1,58 +1,56 @@
-import { BaseEntity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn, Entity } from 'typeorm';
+import {
+  BaseEntity, Column, PrimaryGeneratedColumn, ManyToOne, Entity,
+} from 'typeorm';
 import { AnnouncementItemCondition } from 'common/dist/business/announcement/types/index';
-import { UserEntity, IUserEntity } from '../../user/entity/user.entity';
-import { ItemEntity, IItemEntiry } from '../../item/entity/item.entity';
+import IUserEntity from '../../user/types';
+import IItemEntity from '../../item/types';
+import IAnnouncementEntity from '../types';
 
-interface IAnnouncementEntity {
-  id?: string;
-  user: UserEntity;
-  item: ItemEntity;
+export type NewAnnouncement = {
+  user: IUserEntity;
+  item: IItemEntity;
   condition: AnnouncementItemCondition;
-  sellingPrice: number;
-  parcelDefaultFormat?: string;
-  description: string;
-}
+} & IAnnouncementEntity;
 
-@Entity("announcement")
-export class AnnouncementEntity extends BaseEntity { 
-  @PrimaryGeneratedColumn("uuid")
+@Entity('announcement')
+export class AnnouncementEntity extends BaseEntity implements IAnnouncementEntity {
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => UserEntity, user => user.announcements, { eager: true })
-  user: UserEntity;
+  @ManyToOne('UserEntity', 'user', { eager: true })
+  user: IUserEntity;
 
-  @ManyToOne(() => ItemEntity, item => item.id)
-  item: ItemEntity;
+  @ManyToOne('ItemEntity', 'id')
+  item: IItemEntity;
 
-  @Column("text")
+  @Column('text')
   condition: AnnouncementItemCondition;
 
-  @Column("decimal")
-  selling_price: number;
+  @Column('decimal')
+  sellingPrice: number;
 
-  @Column("text", { nullable: true })
-  parcel_default_format: string;
+  @Column('text', { nullable: true })
+  parcelDefaultFormat: string;
 
-  @Column("text")
+  @Column('text')
   description: string;
 }
 
-export async function createAnnouncementEntity(announcementToCreate: IAnnouncementEntity): Promise<AnnouncementEntity> {
-
+export async function createAnnouncementEntity(announcementToCreate: NewAnnouncement): Promise<AnnouncementEntity> {
   const announcement = new AnnouncementEntity();
 
-  if(announcementToCreate.id) {
+  if (announcementToCreate.id) {
     announcement.id = announcementToCreate.id;
   }
 
-  if(announcementToCreate.parcelDefaultFormat){
-    announcement.parcel_default_format = announcementToCreate.parcelDefaultFormat;
+  if (announcementToCreate.parcelDefaultFormat) {
+    announcement.parcelDefaultFormat = announcementToCreate.parcelDefaultFormat;
   }
-  
+
   announcement.user = announcementToCreate.user;
   announcement.item = announcementToCreate.item;
   announcement.condition = announcementToCreate.condition;
-  announcement.selling_price = announcementToCreate.sellingPrice;
+  announcement.sellingPrice = announcementToCreate.sellingPrice;
   announcement.description = announcementToCreate.description;
 
   return announcement;

@@ -34,3 +34,9 @@ lint:
 	cd packages/server && yarn run lint
 	cd packages/common && yarn run lint
 	cd packages/front && yarn run lint
+
+
+lint.fix:
+	cd packages/server && yarn run lint.fix
+	cd packages/common && yarn run lint.fix
+	cd packages/front && yarn run lint.fix

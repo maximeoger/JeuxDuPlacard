@@ -1,6 +1,6 @@
-import { ItemType, ItemCategory } from '../item/types/index';
+import { ItemType, ItemCategory } from './types/index';
 
-export interface IItemResponse {
+export interface IItemResponse {
   id: string;
   isbn_ean_code: string;
   name: string;
