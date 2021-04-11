@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageTitle } from 'components/molecules/PageTitle';
-import { PageWrapper } from 'components/styles/PageWrapper';
+import { Space } from 'components/styles/Space';
 import Layout from 'components/Layout';
 import RegisterForm from './Form';
 import styles from 'styles/pages/Register/index.module.scss';
@@ -8,14 +8,14 @@ import styles from 'styles/pages/Register/index.module.scss';
 export default function RegisterPage(){
 	return (
 		<Layout title="Jeux du Placard - Créer un compte">
-			<PageWrapper>
-				<div className={styles.registerPageLayout}>
-					<div className={styles.pageTitle}>
+			<section className={styles.section}>
+				<div>
+					<Space up={32}>
 						<PageTitle>Créer un compte</PageTitle>
-					</div>
+					</Space>
 					<RegisterForm/>
 				</div>
-			</PageWrapper>
+			</section>
 		</Layout>	
 	)
 }

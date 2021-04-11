@@ -1,3 +1,10 @@
-.container {
+.section {
   padding: 0 26px;
+  height: calc(100vh - 65px);
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  max-width: 460px;
 }

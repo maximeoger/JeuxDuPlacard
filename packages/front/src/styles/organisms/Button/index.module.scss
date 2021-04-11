@@ -52,19 +52,27 @@
     grid-gap: 16px;
     align-items: center;
     text-align: left;
-    border-radius: 32px;
-    border-color: $quaternary_color;
+    border-radius: 32px !important;
+    border-color: $quaternary_color !important;
     color: $white;
     height: 51px;
     padding: 10px 16px 10px 55px;
     box-sizing: border-box;
-    background-color: $quaternary_color;
+    background-color: $quaternary_color !important;
     &:active {
       top: 0px;
     }
   }
   &:after {
     background: none;
+  }
+}
+
+.variantLink {
+  & button.button {
+    border: none;
+    background-color: transparent !important;
+    text-decoration: underline;
   }
 }
 

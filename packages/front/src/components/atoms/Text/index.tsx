@@ -2,10 +2,12 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from 'styles/atoms/Text/index.module.scss';
 
+export type textAlign = "left" | "center" | "right";
+
 interface IProps {
   children: React.ReactNode;
   style?: "page-title" | "link" | "error";
-  textAlign?: "left" | "center" | "right";
+  textAlign?: textAlign;
 }
 
 export const Text = ({children, style, textAlign = "left"}: IProps) => (

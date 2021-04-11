@@ -13,3 +13,5 @@ export interface IUserLoginAndRegisterResponse {
 export interface IUserRecoverPasswordResponse {
   recoverPasswordEmailSent: boolean;
 }
+
+export type PartialUserResponse = Omit<IUserResponse, 'email' | 'lastName'>;

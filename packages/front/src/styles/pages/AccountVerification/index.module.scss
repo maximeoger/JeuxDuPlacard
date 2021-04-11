@@ -1,0 +1,11 @@
+@import "styles/vars/colors/index.module.scss";
+
+.section {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: $page_background;
+  div {
+    max-width: 360px;
+  }
+}

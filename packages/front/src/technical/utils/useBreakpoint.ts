@@ -7,7 +7,7 @@ enum BreakpointPixelSizes {
   BpDesktop = 1200,
 }
 
-const getDeviceConfig = (width) => {
+const getDeviceConfig = (width: number) => {
   if(width < BreakpointPixelSizes.BpMobileLarge) {
     return 'mobile-large'
   } else if(width >= BreakpointPixelSizes.BpMobileLarge && width < BreakpointPixelSizes.BpTablet ) {
@@ -20,9 +20,9 @@ const getDeviceConfig = (width) => {
 }
 
 const useBreakpoint = () => {
-  const [brkPnt, setBrkPnt] = useState(() => getDeviceConfig(window.innerWidth));
+  const [brkPnt, setBrkPnt] = useState(() => getDeviceConfig(typeof window !== "undefined" ? window.innerWidth : 0));
   
-  useEffect(() => {
+  useEffect(function onMount() {
     const calcInnerWidth = function() {
       setBrkPnt(getDeviceConfig(window.innerWidth))
     }; 
