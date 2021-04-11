@@ -3,7 +3,7 @@ import { createAnnouncementFormValidationConstraints } from 'common/dist/busines
 import jsonRequestHandler from '../../../technical/controller/jsonControllerHandler';
 import createAnnouncementController from '../controller/createAnnouncement';
 import validationHandler from '../../../technical/validation/validationHandler';
-import { verifyToken } from '../../../technical/user/verifyToken';
+import verifyToken from '../../../technical/user/verifyToken';
 
 const announcement = Router();
 

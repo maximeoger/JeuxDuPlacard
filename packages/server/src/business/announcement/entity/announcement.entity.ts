@@ -26,13 +26,13 @@ export class AnnouncementEntity extends BaseEntity implements IAnnouncementEntit
   @Column('text')
   condition: AnnouncementItemCondition;
 
-  @Column('decimal')
+  @Column('decimal', { name: 'selling_price' })
   sellingPrice: number;
 
-  @Column('text', { nullable: true })
+  @Column('text', { nullable: true, name: 'parcel_default_format' })
   parcelDefaultFormat: string;
 
-  @Column('text')
+  @Column('text', { name: 'description' })
   description: string;
 }
 

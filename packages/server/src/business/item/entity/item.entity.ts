@@ -10,28 +10,28 @@ export class ItemEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('text', { unique: true })
+  @Column('text', { unique: true, name: 'isbn_ean_code' })
   isbnEanCode: string;
 
-  @Column('text')
+  @Column('text', { name: 'name' })
   name: string;
 
-  @Column('decimal')
+  @Column('decimal', { name: 'public_price' })
   publicPrice: number;
 
-  @Column('text')
+  @Column('text', { name: 'dimensions' })
   dimensions: string;
 
-  @Column('decimal')
+  @Column('decimal', { name: 'weight' })
   weight: number;
 
-  @Column('text')
+  @Column('text', { name: 'publisher' })
   publisher: string;
 
-  @Column('text')
+  @Column('text', { name: 'category' })
   category: ItemCategory;
 
-  @Column('text')
+  @Column('text', { name: 'type' })
   type: ItemType;
 
   @OneToMany('AnnouncementEntity', 'item', { nullable: true })
@@ -44,6 +44,13 @@ export async function createItem(itemToCreate: IItemEntity): Promise<IItemEntity
   if (itemToCreate.id) {
     item.id = itemToCreate.id;
   }
+
+  item.isbnEanCode = itemToCreate.isbnEanCode;
+  item.name = itemToCreate.name;
+  item.publicPrice = itemToCreate.publicPrice;
+  item.dimensions = itemToCreate.dimensions;
+  item.weight = itemToCreate.weight;
+  item.publisher = itemToCreate.publisher;
 
   return item;
 }
