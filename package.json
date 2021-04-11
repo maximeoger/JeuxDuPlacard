@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint:ci": "sh scripts/lint-ci.sh"
   },
   "devDependencies": {
     "eslint": "^7.23.0",

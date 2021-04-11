@@ -1,0 +1,23 @@
+name: Lint
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Lint Server Package
+        working-directory: ./packages/server
+        run: npm install && npm run lint.ci  
+
+      - name: Lint Common Package
+        working-directory: ./packages/common
+        run: npm install && npm run lint.ci  
+        
+      - name: Lint Front Package
+        working-directory: ./packages/front
+        run: npm install && npm run lint.ci  
+      
+

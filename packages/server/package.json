@@ -10,6 +10,7 @@
       "start": "tsc --watch",
       "build": "tsc",
       "lint": "eslint . --ext .ts",
+      "lint.ci": "eslint . --ext .ts",
       "lint.fix": "eslint . --ext .ts --fix",
       "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
    },
