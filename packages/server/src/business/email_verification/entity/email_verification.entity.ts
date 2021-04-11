@@ -3,13 +3,6 @@ import {
 } from 'typeorm';
 import { UserEntity } from '../../user/entity/user.entity';
 
-interface IEmailVerificationEntity {
-  id?: string;
-  user: UserEntity;
-  verified_at: Date | null;
-  verified: boolean;
-}
-
 @Entity('email_verification')
 export class EmailVerificationEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
