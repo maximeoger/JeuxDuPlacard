@@ -1,7 +1,7 @@
 import {
   BaseEntity, Column, PrimaryGeneratedColumn, ManyToOne, Entity,
 } from 'typeorm';
-import { AnnouncementItemCondition } from 'common/dist/business/announcement/types/index';
+import { AnnouncementItemCondition } from 'common/src/business/announcement/types/index';
 import IUserEntity from '../../user/types';
 import IItemEntity from '../../item/types';
 import IAnnouncementEntity from '../types';

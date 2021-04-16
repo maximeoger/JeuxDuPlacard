@@ -1,7 +1,7 @@
 import {
   Entity, BaseEntity, Column, PrimaryGeneratedColumn, OneToMany,
 } from 'typeorm';
-import { ItemType, ItemCategory } from 'common/dist/business/item/types/index';
+import { ItemType, ItemCategory } from 'common/src/business/item/types/index';
 import { AnnouncementEntity } from '../../announcement/entity/announcement.entity';
 import IItemEntity from '../types';
 

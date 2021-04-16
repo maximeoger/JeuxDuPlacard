@@ -3,13 +3,21 @@ import { createConnection as TypeOrmCreateConnexion, getConnectionOptions, Conne
 
 export default async function createConnection(handleError: (error: Error) => unknown): Promise<Connection> {
   return getConnectionOptions()
-    .then((connectionOptions) => TypeOrmCreateConnexion({
-      ...(connectionOptions as PostgresConnectionOptions),
-      poolErrorHandler: handleError,
-      extra: {
-        max: 1,
+    .then(
+      (connectionOptions) => {
+        console.log(connectionOptions);
+        return TypeOrmCreateConnexion(
+          {
+            ...(connectionOptions as PostgresConnectionOptions),
+            poolErrorHandler: handleError,
+            extra:
+              {
+                max: 1,
+              },
+          },
+        );
       },
-    }))
+    )
     .catch((error) => {
       handleError(error);
       throw error;

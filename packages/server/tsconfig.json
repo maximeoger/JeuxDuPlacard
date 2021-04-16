@@ -16,6 +16,7 @@
         "noImplicitAny": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "resolveJsonModule": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
         "incremental": true,
@@ -30,5 +31,6 @@
     "include": [
         "./**/*",
         "../common/**/*",
+        "../common/package.json"
     ]
 }

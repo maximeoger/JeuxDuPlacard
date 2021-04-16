@@ -1,4 +1,4 @@
-import { IUserRecoverPasswordResponse } from 'common/dist/business/user/index';
+import { IUserRecoverPasswordResponse } from 'common/src/business/user/index';
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import sendEmail from '../../../../technical/sendgrid/services/sendEmail';
 import BadRequestError from '../../../../technical/Error/utils/badRequestError';

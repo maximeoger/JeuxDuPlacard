@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createAnnouncementFormValidationConstraints } from 'common/dist/business/announcement/validation/createAnnouncement';
+import { createAnnouncementFormValidationConstraints } from 'common/src/business/announcement/validation/createAnnouncement';
 import jsonRequestHandler from '../../../technical/controller/jsonControllerHandler';
 import createAnnouncementController from '../controller/createAnnouncement';
 import validationHandler from '../../../technical/validation/validationHandler';
