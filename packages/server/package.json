@@ -12,7 +12,8 @@
       "lint": "eslint . --ext .ts",
       "lint.ci": "eslint . --ext .ts",
       "lint.fix": "eslint . --ext .ts --fix",
-      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
+      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+      "fixtures": "fixtures ./fixtures --config ./ormconfig.js --sync"
    },
    "_moduleAliases": {
       "@root": "./dist",
@@ -51,6 +52,7 @@
       "ts-node": "3.3.0",
       "ts-node-dev": "^1.0.0",
       "ttypescript": "^1.5.12",
+      "typeorm-fixtures-cli": "^1.9.1",
       "typescript": "^4.0.5",
       "typescript-transform-paths": "^2.2.3"
    },
