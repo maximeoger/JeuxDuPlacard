@@ -1,6 +1,6 @@
 version: "3"
 services: 
-  database: 
+  db: 
     image: "postgres"
     env_file:
       - database.env
@@ -9,22 +9,24 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - database
-  
-  admin:
-    env_file:
-        - database.env
+      - jdp-db-network
+
+  server:
+    image: api-test
     networks:
-      - database
-    image: adminer
-    restart: always
-    depends_on:
-      - database
+      - jdp-db-network
+    env_file:
+      - ../.env
+    volumes:
+      - jpd-node-api:/dist/
     ports:
-      - "${ADMINER_PORT:-5050}:8080"
+      - "3003:3002"
+    depends_on: 
+      - db
 
 volumes:
   database-data: 
+  jpd-node-api:
 
 networks:
-  database:
+  jdp-db-network:

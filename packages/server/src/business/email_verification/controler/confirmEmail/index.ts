@@ -1,5 +1,5 @@
 import { getManager } from 'typeorm';
-import { IEmailVerificationResponse } from 'common/src/business/email_verification/index';
+import { IEmailVerificationResponse } from 'common/dist/business/email_verification/index';
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import { getEmailVerificationRepository } from '../../repository/emailVerification';
 import { getUserRepository } from '../../../user/repository/user';

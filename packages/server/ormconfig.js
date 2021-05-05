@@ -4,7 +4,7 @@ const USER_NAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;
 const DATABASE = process.env.DB_NAME;
 
-const connectionOptions = {
+module.exports = {
   type: 'postgres',
   host: HOST,
   port: PORT,
@@ -12,13 +12,12 @@ const connectionOptions = {
   password: PASSWORD,
   database: DATABASE,
   synchronize: true,
-  logging: false,
+  logging: true,
   entities: [
-    'dist/server/src/business/**/*.entity.js',
+    'dist/business/**/*.entity.js',
   ],
   subscribers: [
-    'dist/server/src/business/**/*.subscriber.js',
+    'dist/business/**/*.subscriber.js',
   ],
 };
 
-module.exports = connectionOptions;
