@@ -1,4 +1,4 @@
-import { IUserResponse } from 'common/src/business/user';
+import { IUserResponse } from 'common/dist/business/user';
 import { getManager } from 'typeorm';
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import { getUserRepository } from '../../repository/user';

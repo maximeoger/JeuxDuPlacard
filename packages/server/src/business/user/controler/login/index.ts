@@ -1,4 +1,4 @@
-import { IUserLoginAndRegisterResponse } from 'common/src/business/user/index';
+import { IUserLoginAndRegisterResponse } from 'common/dist/business/user/index';
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import { getUserRepository } from '../../repository/user';
 import { comparePasswords } from '../../../../technical/user/passwordHandler';

@@ -1,1 +1,1 @@
-npx tsc --watch
+npx ttsc --watch

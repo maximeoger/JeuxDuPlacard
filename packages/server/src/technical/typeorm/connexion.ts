@@ -8,12 +8,11 @@ export default async function createConnection(handleError: (error: Error) => un
         console.log(connectionOptions);
         return TypeOrmCreateConnexion(
           {
-            ...(connectionOptions as PostgresConnectionOptions),
             poolErrorHandler: handleError,
-            extra:
-              {
-                max: 1,
-              },
+            extra: {
+              max: 1,
+            },
+            ...connectionOptions,
           },
         );
       },

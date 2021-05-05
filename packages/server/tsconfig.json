@@ -10,7 +10,7 @@
         "strict": true,
         "lib": ["ES2017", "ES2020"],
         "types": [
-            "node",
+            "node"
         ],
         "allowSyntheticDefaultImports": true,
         "noImplicitAny": true,
@@ -24,13 +24,19 @@
         "strictPropertyInitialization": false,
         "paths": {
             "*": ["node_modules/*"],
-            "business/*": ["src/business"],
-            "technical/*": ["src/technical"]
-        }
+            "business/*": ["src/business/*"],
+            "technical/*": ["src/technical/*"]
+        },
+        "plugins": [
+            { "transform": "typescript-transform-paths" },
+        ]
     },
     "include": [
         "./**/*",
-        "../common/**/*",
-        "../common/package.json"
+        // "../common/**/*",
+        // "../common/package.json"
+    ],
+    "exclude": [
+        "ormconfig.js"
     ]
 }

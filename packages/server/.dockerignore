@@ -1,0 +1,11 @@
+src
+node_modules
+.env
+.env.exemple
+.eslintrc.js
+.gitignore
+README.md
+tsconfig.json
+package-lock.json
+yarn.lock
+docker
