@@ -8,4 +8,5 @@ export interface IAnnouncementResponse {
   description: string;
   item: IItemResponse;
   condition: AnnouncementItemCondition;
+  sellingPrice: string;
 }
