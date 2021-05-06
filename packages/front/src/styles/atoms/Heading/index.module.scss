@@ -1,0 +1,21 @@
+@import '../../vars/colors/index.module.scss';
+@import '../../vars/fonts/index.module.scss';
+
+.h1 {
+  font-family: 'Nunito Bold';
+  color: $text_color;
+  font-size: 28px;
+}
+
+.h2 {
+  font-family: 'Nunito Regular';
+  color: $text_color;
+  font-size: 28px;
+}
+
+.h3 {
+  font-family: 'Nunito Regular';
+  color: $light_purple;
+  font-size: 22px;
+  font-weight: $medium;
+}

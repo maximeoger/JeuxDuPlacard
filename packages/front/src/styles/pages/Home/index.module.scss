@@ -1,4 +1,6 @@
 @import "styles/vars/colors/index.module.scss";
+@import "styles/vars/spacing/index.module.scss";
+@import "styles/vars/breakpoints/index.module.scss";
 
 .container {
   padding: 0 26px;
@@ -20,4 +22,24 @@
   flex-direction: column;
   justify-content: space-around;
   background-color: $secondary_color_variant1;
+}
+
+.section2 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.announcementContainer { 
+  display: grid;
+  grid-template-columns: repeat(2, 156px);
+  grid-template-rows: repeat(3, 259px);
+  grid-column-gap: $spacing-16;
+  grid-row-gap: $spacing-16;
+
+  @include mobile-large {
+    grid-template-columns: repeat(4, 233px);
+    grid-template-rows: repeat(2, 297px);
+  }
 }

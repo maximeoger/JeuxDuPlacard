@@ -1,0 +1,16 @@
+entity: user
+items:
+  
+  user1:
+    email: 'zoubida91@yopmail.com'
+    firstName: 'dimitri'
+    lastName: 'laplaystation'
+    password: 'Azerty1234'
+    email_confirmed: 'true'
+
+  user2:
+    email: 'jeanne38@yopmail.com'
+    firstName: 'jeanne'
+    lastName: 'oscour'
+    password: 'Azerty1234'
+    email_confirmed: 'true'

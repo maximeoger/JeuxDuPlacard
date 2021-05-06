@@ -20,7 +20,7 @@ export class AnnouncementEntity extends BaseEntity implements IAnnouncementEntit
   @ManyToOne('UserEntity', 'user', { eager: true })
   user: IUserEntity;
 
-  @ManyToOne('ItemEntity', 'id')
+  @ManyToOne('ItemEntity', 'id', { eager: true })
   item: IItemEntity;
 
   @Column('text')

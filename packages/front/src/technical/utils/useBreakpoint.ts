@@ -19,16 +19,23 @@ const getDeviceConfig = (width: number) => {
   }
 }
 
-const useBreakpoint = () => {
-  const [brkPnt, setBrkPnt] = useState(() => getDeviceConfig(typeof window !== "undefined" ? window.innerWidth : 0));
+const useBreakpoint = (): string => {
+  const [brkPnt, setBrkPnt] = useState<string>('mobile-large');
+  
   
   useEffect(function onMount() {
+
     const calcInnerWidth = function() {
       setBrkPnt(getDeviceConfig(window.innerWidth))
     }; 
+
+    calcInnerWidth();
+
     window.addEventListener('resize', calcInnerWidth);
-    return () => window.removeEventListener('resize', calcInnerWidth);
-  }, []);
+
+    return () => window.removeEventListener('resize', calcInnerWidth) 
+
+  },[]);
 
   return brkPnt;
 }

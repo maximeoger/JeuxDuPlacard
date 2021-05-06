@@ -4,18 +4,12 @@ import { createConnection as TypeOrmCreateConnexion, getConnectionOptions, Conne
 export default async function createConnection(handleError: (error: Error) => unknown): Promise<Connection> {
   return getConnectionOptions()
     .then(
-      (connectionOptions) => {
-        console.log(connectionOptions);
-        return TypeOrmCreateConnexion(
-          {
-            poolErrorHandler: handleError,
-            extra: {
-              max: 1,
-            },
-            ...connectionOptions,
-          },
-        );
-      },
+      (connectionOptions) => TypeOrmCreateConnexion(
+        {
+          //            poolErrorHandler: handleError,
+          ...connectionOptions,
+        },
+      ),
     )
     .catch((error) => {
       handleError(error);
