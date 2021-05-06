@@ -6,11 +6,12 @@ export type textAlign = "left" | "center" | "right";
 
 interface IProps {
   children: React.ReactNode;
-  style?: "page-title" | "link" | "error";
+  style?: "page-title" | "link" | "error" | "label";
   textAlign?: textAlign;
+  noOverflow?: boolean;
 }
 
-export const Text = ({children, style, textAlign = "left"}: IProps) => (
+export const Text = ({children, style, textAlign = "left", noOverflow}: IProps) => (
   <p
     className={
       classNames(styles.text, {
@@ -20,6 +21,8 @@ export const Text = ({children, style, textAlign = "left"}: IProps) => (
         [styles.center]: textAlign === "center",
         [styles.right]: textAlign === "right",
         [styles.error]: style === "error",
+        [styles.label]: style === "label",
+        [styles.ellipsis]: noOverflow,
       })
     }
   >{children}</p>

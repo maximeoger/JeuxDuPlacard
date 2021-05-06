@@ -7,19 +7,16 @@ import { Search } from 'components/icons/Search';
 
 const Header = () => {
   const bp = useBreakpoint();
-
+ // console.log(bp);
   return (
     <div className={styles.header}>
       <div className={styles.container}>
         {
-          (bp === "mobile-large" || bp === "tablet") && (
+          (bp === "mobile-large" || bp === "tablet") ? (
             <div className={styles.iconContainer}>
               <Search color="#575366"/>
             </div>
-          )
-        }
-        {
-          (bp !== "mobile-large" && bp !== "tablet") && (
+          ) : (
             <div className={styles.btnContainer}>
               <Link href="/">
                 <a><Button variant="flat" size="small" color="primary">Vendre un jeu</Button></a>
@@ -29,7 +26,8 @@ const Header = () => {
               </Link>
             </div>
           )
-        }
+        } 
+         
       </div>
     </div>
   )
