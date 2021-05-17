@@ -9,9 +9,10 @@ interface IProps {
   variant?: "default" | "facebook" | "flat" | "link";
   color?: "primary" | "secondary";
   size?: "default" | "small";
+  onClick?: (any) => void;
 }
 
-export const Button = ({type, children, variant, size, color}: IProps) => (
+export const Button = ({type, children, variant, size, color, onClick}: IProps) => (
   <div 
     className={
       classNames(styles.container, {
@@ -25,6 +26,6 @@ export const Button = ({type, children, variant, size, color}: IProps) => (
       })
     }
   >
-    <button className={styles.button} type={type}>{children}</button>
+    <button onClick={onClick} className={styles.button} type={type}>{children}</button>
   </div>
 )

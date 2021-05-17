@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import { PageTitle } from 'components/molecules/PageTitle';
-import { Text } from 'components/atoms/Text';
-import { Button } from 'components/molecules/Button';
+import { PageTitle } from 'components/design-system/molecules/PageTitle';
+import { Text } from 'components/design-system/atoms/Text';
+import { Button } from 'components/design-system/molecules/Button';
 import Layout from 'components/Layout';
 import { Space } from 'components/styles/Space';
-import { FacebookButton } from 'components/molecules/FacebookButton';
+import { FacebookButton } from 'components/design-system/molecules/FacebookButton';
 import styles from 'styles/pages/Register/index.module.scss';
 
 export default function RegisterPage(){

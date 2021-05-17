@@ -1,0 +1,24 @@
+@import "../../../../styles/vars/colors/index.module.scss";
+
+.searchMethodCard {
+  background: $white;
+  border-radius: 16px;
+  max-width: 344px;
+  padding: 24px;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 10px 3px rgba(154, 140, 152, 0.05);
+  
+  &__row {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    grid-gap: 16px;
+  }
+
+  &__img {
+    background-color: $pale_grey;
+    border-radius: 26px;
+    height: 52px;
+    width: 52px;
+  }
+}
+

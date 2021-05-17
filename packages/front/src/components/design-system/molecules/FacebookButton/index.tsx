@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button} from 'components/molecules/Button';
-import Facebook from 'components/icons/Facebook';
+import {Button} from 'components/design-system/molecules/Button';
+import Facebook from 'components/design-system/icons/Facebook';
 
 interface IProps {
   children: React.ReactNode;

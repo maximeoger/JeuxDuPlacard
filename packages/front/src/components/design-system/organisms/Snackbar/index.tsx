@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Text } from 'components/atoms/Text';
+import { Text } from 'components/design-system/atoms/Text';
 import styles from 'styles/organisms/Snackbar/index.module.scss';
 
 interface IProps {

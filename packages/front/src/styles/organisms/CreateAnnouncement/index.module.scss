@@ -1,0 +1,50 @@
+@import "../../vars/colors/index.module.scss";
+@import "../../vars/breakpoints/index.module.scss";
+
+.overlay {
+  @include desktop-small {
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(87, 83, 102, 0.7);
+    display: grid;
+    place-items: center;
+  }
+}
+
+.modal {
+  background-color: $page_background;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  @include desktop-small {
+    border-radius: 16px;
+    position: relative;
+    width: 1052px;
+    height: 550px;
+    box-sizing: border-box;
+    padding: 24px;
+  }
+
+  &__header {
+    display: flex;
+  }
+
+  &__title {
+    margin: 0 auto;
+  }
+
+  &__closeBtn {
+    position: 'absolute';
+    left: 0;
+    height: 42px;
+    width: 42px;
+  }
+}

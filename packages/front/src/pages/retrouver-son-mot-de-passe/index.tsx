@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { PageTitle } from 'components/molecules/PageTitle';
+import { PageTitle } from 'components/design-system/molecules/PageTitle';
 import { useUserContext } from 'business/User/state';
 import Layout from 'components/Layout';
-import RecoverPasswordForm from 'components/organisms/RecoverPasswordForm';
-import { Text } from 'components/atoms/Text';
+import RecoverPasswordForm from 'components/design-system/organisms/RecoverPasswordForm';
+import { Text } from 'components/design-system/atoms/Text';
 import styles from 'styles/pages/RecoverPassword/index.module.scss';
 import { RecoverPassword } from 'common/src/business/user/types/recoverPassword';
 import { Space } from 'components/styles/Space';

@@ -1,7 +1,7 @@
 import Layout from 'components/Layout';
-import { Button } from "components/molecules/Button";
-import { Text } from "components/atoms/Text";
-import { PageTitle } from "components/molecules/PageTitle";
+import { Button } from "components/design-system/molecules/Button";
+import { Text } from "components/design-system/atoms/Text";
+import { PageTitle } from "components/design-system/molecules/PageTitle";
 import { Space } from "components/styles/Space";
 import styles from "styles/pages/AccountCreated/index.module.scss";
 

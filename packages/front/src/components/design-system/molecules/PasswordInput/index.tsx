@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classname from 'classnames';
-import { Eye } from 'components/icons/Eye';
+import { Eye } from 'components/design-system/icons/Eye';
 import { Input } from '../Input';
 import styles from 'styles/molecules/PasswordInput/index.module.scss';
 

@@ -1,0 +1,15 @@
+@import "../../vars/colors/index.module.scss";
+
+
+
+.step {
+  font-family: "Nunito Bold";
+  font-size: 18px;
+  color: $light_purple;
+  text-align: center;
+}
+
+.stepTitle {
+  font-family: "Nunito Semibold";
+  color: $grey;
+}

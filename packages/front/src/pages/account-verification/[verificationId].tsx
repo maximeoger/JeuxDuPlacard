@@ -1,6 +1,6 @@
 import React from 'react';
-import { PageTitle } from 'components/molecules/PageTitle';
-import { Text } from 'components/atoms/Text';
+import { PageTitle } from 'components/design-system/molecules/PageTitle';
+import { Text } from 'components/design-system/atoms/Text';
 import { performEmailVerification } from 'business/EmailVerification/services/api';
 import { Space } from 'components/styles/Space';
 import styles from 'styles/pages/AccountVerification/index.module.scss';

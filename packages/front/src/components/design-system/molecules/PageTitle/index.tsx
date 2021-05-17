@@ -1,4 +1,4 @@
-import { Text, textAlign } from 'components/atoms/Text';
+import { Text, textAlign } from 'components/design-system/atoms/Text';
 
 
 

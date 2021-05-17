@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
-import Header from 'components/organisms/Header';
+import Header from 'components/design-system/organisms/Header';
 import styles from './index.module.scss';
 
 interface IProps {

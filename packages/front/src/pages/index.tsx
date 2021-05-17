@@ -1,15 +1,21 @@
 import Layout from 'components/Layout';
-import { Display } from  'components/atoms/Display';
-import { Heading } from 'components/atoms/Heading';
-import { Button } from "components/molecules/Button";
-import { AnnouncementCard } from "components/organisms/AnnouncementCard";
+import { Display } from  'components/design-system/atoms/Display';
+import { Heading } from 'components/design-system/atoms/Heading';
+import { Button } from "components/design-system/molecules/Button";
+import { AnnouncementCard } from "components/design-system/organisms/AnnouncementCard";
 import styles from "styles/pages/Home/index.module.scss";
 import useBreakpoint from "technical/utils/useBreakpoint";
 import { getAnnouncements } from 'business/Announcement/services/api';
+import { useModalContext, ModalTypeEnum } from 'business/Modal/state';
 
 export default function Home({ announcements }) {
   const bp = useBreakpoint();
-
+  const { setModal } = useModalContext();
+  
+  const onButtonClick = (e) => {
+    e.preventDefault();
+    setModal(ModalTypeEnum.CREATE_ANNOUNCEMENT)
+  };
   
   return (
     <Layout title="Jeux du Placard - Recyclez vos anciens jeux de sociétés !">
@@ -39,7 +45,7 @@ export default function Home({ announcements }) {
         </section>
         {
           (bp === "mobile-large" || bp === "tablet") && (<div className={styles.placeASaleBtnContainer}>
-            <Button>Vendre un jeu</Button>
+            <Button onClick={onButtonClick}>Vendre un jeu</Button>
           </div>)
         }
       </main>
