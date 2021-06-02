@@ -1,0 +1,21 @@
+@import "styles/vars/colors/index.module.scss";
+@import "styles/vars/spacing/index.module.scss";
+
+.UserName {
+  display: flex;
+  align-items: center;
+}
+
+.UserName__avatar {
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  background-color: $light_purple;
+}
+
+.UserName__firstName {
+  font-family: 'Nunito Regular';
+  font-size: 14px;
+  color: $light_purple;
+  padding-left: $spacing-8;
+}
