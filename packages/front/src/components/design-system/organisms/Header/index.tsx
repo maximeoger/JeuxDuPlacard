@@ -18,6 +18,8 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <div className={styles.container}>
+        <span><Link href="/"><a>[todo: make a beautiful logo]</a></Link></span>
+        <div>
         {
           (bp === "mobile-large" || bp === "tablet") ? (
             <div className={styles.iconContainer}>
@@ -41,7 +43,7 @@ const Header = () => {
             </div>
           )
         } 
-         
+        </div>
       </div>
     </div>
   )

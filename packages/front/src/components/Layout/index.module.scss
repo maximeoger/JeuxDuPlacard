@@ -4,7 +4,6 @@
 
   &__root {
     position: relative;
-    background-color: $page_background;
   }
 
   &__pageContainer { 
@@ -17,7 +16,7 @@
     
     min-height: calc(100vh - 65px);
 
-
+    &__noMargin { width: auto };
     &__full { width: 1184px; }
     &__large { width: 882px; }
     &__medium { width: 580px; }

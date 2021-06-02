@@ -11,7 +11,7 @@ interface IProps {
   pageWidth?: PageContentWidthValues;
 }
 
-type PageContentWidthValues = "full" | "large" | "medium" | "small";
+type PageContentWidthValues = "full" | "large" | "medium" | "small" | "auto";
 
 export default function Layout({children, pageWidth = "full", title}: IProps) {
   const bp = useBreakpoint();
@@ -31,6 +31,7 @@ export default function Layout({children, pageWidth = "full", title}: IProps) {
           [styles.layout__pageContent__large] : isDesktop && pageWidth === "large",
           [styles.layout__pageContent__medium]: isDesktop && pageWidth === "medium",
           [styles.layout__pageContent__small] : isDesktop && pageWidth === "small",
+          [styles.layout__pageContent__auto] : isDesktop && pageWidth === "auto",
         })}>
           {children}
         </div>

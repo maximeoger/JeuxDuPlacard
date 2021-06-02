@@ -11,18 +11,17 @@
   position: fixed;
   bottom: 0;
   padding: 12px 24px 24px 24px;
+  box-sizing: border-box;
   background: $white;
   box-shadow: 0px -4px 10px 3px rgba(154, 140, 152, 0.05);
-  width: 100%;
+  left: 0;
+  right: 0;
 }
 
-// .section1 {
-//   height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-around;
-//   background-color: $secondary_color_variant1;
-// }
+.section1 {
+  height: 417px;
+  
+}
 
 .section2 {
   min-height: 100vh;
@@ -38,7 +37,12 @@
   grid-column-gap: $spacing-16;
   grid-row-gap: $spacing-16;
 
-  @include mobile-large {
+  @include tablet {
+    grid-template-columns: repeat(4, 156px);
+    grid-template-rows: repeat(2, 259px);
+  }
+
+  @include desktop-small {
     grid-template-columns: repeat(4, 233px);
     grid-template-rows: repeat(2, 297px);
   }

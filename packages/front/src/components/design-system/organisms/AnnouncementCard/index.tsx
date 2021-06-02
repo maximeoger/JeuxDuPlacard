@@ -14,12 +14,10 @@ type IProps = Pick<
 export const AnnouncementCard = ({user, item, sellingPrice, condition}: IProps) => {
   const bp = useBreakpoint();
 
-
-
   return (
     <div className={styles.Announcement__container}>
       { 
-        (bp === "tablet" || bp === "desktop-small" || bp === "desktop") && (
+        (bp === "desktop-small" || bp === "desktop") && (
           <UserName firstName={user.firstName}/>
         )
       }
