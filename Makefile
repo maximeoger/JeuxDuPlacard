@@ -21,6 +21,12 @@ db.connect:
 ## Dev
 ## ------------
 
+log.front:
+	npx pm2 logs Front
+
+log.server:
+	npx pm2 logs Server
+
 start:
 	npx pm2 start
 

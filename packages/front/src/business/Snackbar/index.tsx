@@ -1,5 +1,5 @@
 import React from 'react';
-import { Snackbar } from 'components/organisms/Snackbar';
+import { Snackbar } from 'components/design-system/organisms/Snackbar';
 import { useErrorContext } from 'business/Error/state';
 import { useInterval } from './services/useInterval';
 
