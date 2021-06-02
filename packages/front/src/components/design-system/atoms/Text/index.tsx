@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from 'styles/atoms/Text/index.module.scss';
+import styles from './index.module.scss';
 
 export type textAlign = "left" | "center" | "right";
 

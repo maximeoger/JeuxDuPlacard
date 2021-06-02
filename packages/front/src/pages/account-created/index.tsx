@@ -3,7 +3,7 @@ import { Button } from "components/design-system/molecules/Button";
 import { Text } from "components/design-system/atoms/Text";
 import { PageTitle } from "components/design-system/molecules/PageTitle";
 import { Space } from "components/styles/Space";
-import styles from "styles/pages/AccountCreated/index.module.scss";
+import styles from "./index.module.scss";
 
 export default function Home() {
   return (

@@ -3,7 +3,7 @@ import { PageTitle } from 'components/design-system/molecules/PageTitle';
 import { Text } from 'components/design-system/atoms/Text';
 import { performEmailVerification } from 'business/EmailVerification/services/api';
 import { Space } from 'components/styles/Space';
-import styles from 'styles/pages/AccountVerification/index.module.scss';
+import styles from './index.module.scss';
 
 type Context = { 
   params: {

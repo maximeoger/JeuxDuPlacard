@@ -6,7 +6,7 @@ import { Input } from 'components/design-system/molecules/Input';
 import { Button } from 'components/design-system/molecules/Button';
 import { Space } from 'components/styles/Space';
 
-import styles from 'styles/pages/Register/index.module.scss';
+import styles from '../index.module.scss';
 import validateFormValues from 'technical/form/validateFormValues';
 import { registerValidationConstraints } from 'common/src/business/user/validation/register';
 

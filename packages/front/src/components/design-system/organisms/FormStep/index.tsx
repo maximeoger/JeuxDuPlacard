@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from 'styles/organisms/FormStep/index.module.scss';
+import styles from './index.module.scss';
 
 interface IProps {
   activeStep: number,

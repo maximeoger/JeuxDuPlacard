@@ -4,9 +4,9 @@ import { useUserContext } from 'business/User/state';
 import Layout from 'components/Layout';
 import RecoverPasswordForm from 'components/design-system/organisms/RecoverPasswordForm';
 import { Text } from 'components/design-system/atoms/Text';
-import styles from 'styles/pages/RecoverPassword/index.module.scss';
 import { RecoverPassword } from 'common/src/business/user/types/recoverPassword';
 import { Space } from 'components/styles/Space';
+import styles from './index.module.scss';
 
 export default function RetrivePasswordPage(){
   const [ emailSent, setEmailSent ] = useState<boolean>(false);

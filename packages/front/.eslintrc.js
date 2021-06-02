@@ -45,6 +45,8 @@ module.exports = {
         // we dont know why it should be important to specify the return type of functionnal components for now (we should think about this 'need')
         '@typescript-eslint/explicit-module-boundary-types': 'off'
 
+        
+
 
       },
     },

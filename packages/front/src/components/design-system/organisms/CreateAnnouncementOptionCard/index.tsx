@@ -1,10 +1,10 @@
 import React from 'react';
 import { ItemType } from 'common/src/business/item/types';
-import styles from 'styles/organisms/CreateAnnouncementOptionCard/index.module.scss';
 import { Heading } from 'components/design-system/atoms/Heading';
 import { Space } from 'components/styles/Space';
 import { Text } from 'components/design-system/atoms/Text';
 import { Input } from 'components/design-system/molecules/Input';
+import styles from './index.module.scss';
 
 interface Iprops {
   itemType: ItemType;

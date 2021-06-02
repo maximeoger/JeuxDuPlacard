@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Button } from 'components/design-system/molecules/Button';
 import useBreakpoint from "technical/utils/useBreakpoint";
-import styles from 'styles/organisms/Header/index.module.scss';
 import { Search } from 'components/design-system/icons/Search';
+import styles from './index.module.scss';
 
 const Header = () => {
   const bp = useBreakpoint();

@@ -7,7 +7,7 @@ import { UserCredentials } from 'common/src/business/user/types/login';
 import { Input } from 'components/design-system/molecules/Input';
 import { PasswordInput } from 'components/design-system/molecules/PasswordInput';
 import { Button } from 'components/design-system/molecules/Button';
-import styles from 'styles/pages/Login/index.module.scss';
+import styles from '../index.module.scss';
 
 const initialValues = {
   login: "",

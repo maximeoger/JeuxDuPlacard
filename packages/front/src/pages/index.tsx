@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router';
 import Layout from 'components/Layout';
-import { Display } from  'components/design-system/atoms/Display';
 import { Heading } from 'components/design-system/atoms/Heading';
 import { Button } from "components/design-system/molecules/Button";
 import { AnnouncementCard } from "components/design-system/organisms/AnnouncementCard";
-import styles from "styles/pages/Home/index.module.scss";
+import styles from "./index.module.scss";
 import useBreakpoint from "technical/utils/useBreakpoint";
 import { getAnnouncements } from 'business/Announcement/services/api';
 
@@ -21,9 +20,7 @@ export default function Home({ announcements }) {
     <Layout title="Jeux du Placard - Recyclez vos anciens jeux de sociétés !">
       <main>
         <section className={styles.section1}>
-          <div className={styles.container}>
-            <Display>Offrez une seconde vie <br/> à vos anciens jeux</Display>
-          </div>
+          
         </section>
         <section className={styles.section2}>
           <div className={styles.container}>

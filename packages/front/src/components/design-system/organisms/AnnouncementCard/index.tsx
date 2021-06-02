@@ -3,7 +3,7 @@ import { UserName } from 'components/design-system/atoms/UserName';
 import { IAnnouncementResponse } from 'common/src/business/announcement/index';
 import { Text } from 'components/design-system/atoms/Text';
 import useBreakpoint from "technical/utils/useBreakpoint";
-import styles from 'styles/organisms/AnnouncementCard/index.module.scss';
+import styles from './index.module.scss';
 
 type IProps = Pick<
   IAnnouncementResponse,

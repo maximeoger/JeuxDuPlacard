@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from 'styles/atoms/Display/index.module.scss';
+import styles from './index.module.scss';
 
 interface IProps { 
   children: React.ReactNode;
