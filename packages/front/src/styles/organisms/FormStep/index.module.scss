@@ -1,6 +1,9 @@
 @import "../../vars/colors/index.module.scss";
 
 
+.container {
+  width: 250px ;
+} 
 
 .step {
   font-family: "Nunito Bold";
@@ -12,4 +15,5 @@
 .stepTitle {
   font-family: "Nunito Semibold";
   color: $grey;
+  text-align: center;
 }

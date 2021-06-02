@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import Layout from 'components/Layout';
 import { Display } from  'components/design-system/atoms/Display';
 import { Heading } from 'components/design-system/atoms/Heading';
@@ -6,15 +7,14 @@ import { AnnouncementCard } from "components/design-system/organisms/Announcemen
 import styles from "styles/pages/Home/index.module.scss";
 import useBreakpoint from "technical/utils/useBreakpoint";
 import { getAnnouncements } from 'business/Announcement/services/api';
-import { useModalContext, ModalTypeEnum } from 'business/Modal/state';
 
 export default function Home({ announcements }) {
   const bp = useBreakpoint();
-  const { setModal } = useModalContext();
+  const router = useRouter();
   
   const onButtonClick = (e) => {
     e.preventDefault();
-    setModal(ModalTypeEnum.CREATE_ANNOUNCEMENT)
+    router.push('/créer-une-annonce');
   };
   
   return (

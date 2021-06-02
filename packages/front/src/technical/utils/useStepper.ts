@@ -7,7 +7,7 @@ function useStepper (steps: string[]) {
 
   const setNextStep = (stepId: string) => {
     let nextStep = steps.find(step => step === stepId);
-    console.log({steps, nextStep});
+
     if(nextStep) {
       setHistory([...history, nextStep]);
       setCurrentStep(nextStep);

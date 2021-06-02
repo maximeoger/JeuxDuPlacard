@@ -1,7 +1,9 @@
 import React, { useContext, useState, createContext } from 'react';
 
 export enum ModalTypeEnum {
-  CREATE_ANNOUNCEMENT = "CREATE_ANNOUNCEMENT"
+  CREATE_ANNOUNCEMENT = "CREATE_ANNOUNCEMENT",
+  SCAN_BARCODE = "SCAN_BARCODE",
+  RETRIEVE_EXISTING_ARTICLE = "RETRIEVE_EXISTING_ARTICLE"
 }
 
 type ModalName = keyof typeof ModalTypeEnum;

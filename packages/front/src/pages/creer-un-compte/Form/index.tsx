@@ -2,8 +2,8 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { useUserContext } from 'business/User/state/index';
 import { UserRegisterData } from 'common/src/business/user/types/register';
-import { Input } from 'components/molecules/Input';
-import { Button } from 'components/molecules/Button';
+import { Input } from 'components/design-system/molecules/Input';
+import { Button } from 'components/design-system/molecules/Button';
 import { Space } from 'components/styles/Space';
 
 import styles from 'styles/pages/Register/index.module.scss';

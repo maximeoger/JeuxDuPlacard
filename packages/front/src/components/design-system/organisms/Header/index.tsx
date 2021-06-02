@@ -1,18 +1,18 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Button } from 'components/design-system/molecules/Button';
 import useBreakpoint from "technical/utils/useBreakpoint";
 import styles from 'styles/organisms/Header/index.module.scss';
 import { Search } from 'components/design-system/icons/Search';
-import { useModalContext, ModalTypeEnum } from 'business/Modal/state';
 
 const Header = () => {
   const bp = useBreakpoint();
-  const { setModal } = useModalContext();
+  const router = useRouter();
   
   const onButtonClick = (e) => {
     e.preventDefault();
-    setModal(ModalTypeEnum.CREATE_ANNOUNCEMENT)
+    router.push('/creer-une-annonce');
   };
 
   return (

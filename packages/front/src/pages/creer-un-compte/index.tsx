@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageTitle } from 'components/molecules/PageTitle';
+import { PageTitle } from 'components/design-system/molecules/PageTitle';
 import { Space } from 'components/styles/Space';
 import Layout from 'components/Layout';
 import RegisterForm from './Form';

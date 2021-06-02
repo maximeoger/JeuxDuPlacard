@@ -16,7 +16,7 @@ export const SearchMethodCard = ({onButtonClick, buttonText, methodDescription}:
     <div className={styles.searchMethodCard}>
       <div className={styles.searchMethodCard__row}>
         <div className={styles.searchMethodCard__img}></div>
-        <Text>{methodDescription}</Text>
+        <div className={styles.searchMethodCard__text}><Text>{methodDescription}</Text></div>
       </div>
       
       <Space up={24}>

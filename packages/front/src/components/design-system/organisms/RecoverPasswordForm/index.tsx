@@ -3,8 +3,8 @@ import { Formik, Form } from 'formik';
 import { RecoverPassword } from 'common/src/business/user/types/recoverPassword';
 import { recoverPasswordFormValidationRules } from 'common/src/business/user/validation/recoverPassord';
 import validateFormValues from 'technical/form/validateFormValues';
-import { Input } from 'components/molecules/Input';
-import { Button } from 'components/molecules/Button';
+import { Input } from 'components/design-system/molecules/Input';
+import { Button } from 'components/design-system/molecules/Button';
 import styles from './index.module.scss';
 
 interface IProps {

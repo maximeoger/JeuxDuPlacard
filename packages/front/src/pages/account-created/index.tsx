@@ -15,10 +15,10 @@ export default function Home() {
             <Text>Pour commencer à utiliser les fonctionnalités du site, veuillez confirmer votre email en cliquant sur le lien que vous vennez de recevoir à l’addresse que vous avez choisi !</Text>
           </Space>
           <Space>
-            <Text>Si vous n&apos avez rien reçu, cliquez sur le lien çi dessous pour renvoyer un email de confirmation.</Text>
+            <Text>Si vous n&apos; avez rien reçu, cliquez sur le lien çi dessous pour renvoyer un email de confirmation.</Text>
           </Space>
           <Space>
-            <Button>Renvoyer l&apos email de confirmation</Button>
+            <Button>Renvoyer l&apos; email de confirmation</Button>
           </Space>
         </div>
       </section>

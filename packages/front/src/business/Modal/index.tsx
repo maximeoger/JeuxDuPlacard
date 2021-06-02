@@ -1,7 +1,14 @@
 import React from 'react';
-import CreateAnnouncementModal from 'components/CreateAnnouncementModal';
 import { useModalContext, ModalTypeEnum } from './state';
+import RetrieveExistingArticleModal from 'components/RetrieveExistingArticleModal';
 
+
+/**
+ * todo : implements SCAN_BARCODE
+ * todo : implements RETRIEVE_EXISTING_ARTICLE
+ * 
+ * @returns null | React.Reactchildren
+ */
 export default function ModalRoot () { 
   const { isOpen, modalType } = useModalContext();
 
@@ -10,9 +17,12 @@ export default function ModalRoot () {
   }
 
   switch(modalType) {
+    
+    case ModalTypeEnum.RETRIEVE_EXISTING_ARTICLE:
+      return (<RetrieveExistingArticleModal/>)
 
-    case ModalTypeEnum.CREATE_ANNOUNCEMENT:
-      return (<CreateAnnouncementModal/>)
+    case ModalTypeEnum.SCAN_BARCODE:
+      return null
 
     default:
       return null

@@ -1,7 +1,7 @@
 import React from 'react';
-import { PageTitle } from 'components/molecules/PageTitle';
+import { PageTitle } from 'components/design-system/molecules/PageTitle';
 import { PageWrapper } from 'components/styles/PageWrapper';
-import { Button } from 'components/molecules/Button';
+import { Button } from 'components/design-system/molecules/Button';
 import { Space } from 'components/styles/Space';
 import Layout from 'components/Layout';
 import LoginForm from './Form';
@@ -22,7 +22,7 @@ export default function LoginPage(){
             <Link href="/retrouver-son-mot-de-passe">
               <a>
                 <Button variant="link">
-                  J&apos ai oublié mon mot de passe
+                  J&apos;ai oublié mon mot de passe
                 </Button>
               </a>
             </Link>
