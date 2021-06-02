@@ -1,6 +1,8 @@
 ## Description 
 
-Le dépôt est structuré en MonoRepo. C'est à dire qu'il contient le code de tout les services qui composent le site. Ces services se présentent sous la forme de packages. Un pour le front 
+Projet perso - création d'une plateforme de revente de jeux de société.
+
+[Lien du figma](https://www.figma.com/file/PCd8JQM0Fk7ySlSOjFY7Vn)
 
 `packages/front` 
 
@@ -29,7 +31,7 @@ $ make install
 
 ## Lancer le projet
 
-avant de lancer le projet, s'assurer que la base de donnée postgres est bien lancée sur le port 5432
+Avant de lancer le projet, s'assurer qu'une base de donnée postgres est bien lancée sur le port 5432
 
 ```shell
 $ make start
