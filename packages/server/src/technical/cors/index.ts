@@ -2,7 +2,7 @@ import cors, { CorsOptions } from 'cors';
 
 const originUrl = process.env.ORIGIN_URL || '';
 
-const crossOriginOptions : CorsOptions = {
+let crossOriginOptions : CorsOptions = {
   allowedHeaders: [
     'Origin',
     'X-Requested-With',
@@ -13,7 +13,11 @@ const crossOriginOptions : CorsOptions = {
   ],
   credentials: true,
   methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-  origin: originUrl,
 };
+
+if (process.env.NODE_ENV === 'production') {
+  // specify a custom origin for production environment
+  crossOriginOptions = { ...crossOriginOptions, origin: originUrl };
+}
 
 export default cors(crossOriginOptions);

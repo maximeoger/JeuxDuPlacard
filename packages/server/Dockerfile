@@ -18,15 +18,10 @@ RUN yarn link common
 
 # Define environement vars
 ENV PORT=$PORT \
-    DB_USERNAME="admin" \
-    DB_PASSWORD="adminpwd" \
-    DB_NAME="jdp-api" \
-    DP_PORT=5432 \
-    DB_HOST="heroku-jdp-api-database" \
     ACCESS_TOKEN_SECRET="])=|*e5<{YF1RR*€K&gP)6bBkdjH9}" \
     ACCESS_TOKEN_LIFE=60000 \
     BCRYPT_SALT_ROUND=10 \
-    NODE_ENV="production" \
+    NODE_ENV="staging" \
     ORIGIN_URL="heroku-jdp-front"
 
 # Run the app
