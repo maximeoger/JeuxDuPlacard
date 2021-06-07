@@ -1,5 +1,7 @@
 import cors, { CorsOptions } from 'cors';
 
+const originUrl = process.env.ORIGIN_URL || '';
+
 const crossOriginOptions : CorsOptions = {
   allowedHeaders: [
     'Origin',
@@ -11,7 +13,7 @@ const crossOriginOptions : CorsOptions = {
   ],
   credentials: true,
   methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-  origin: process.env.ORIGIN_URL,
+  origin: originUrl,
 };
 
 export default cors(crossOriginOptions);

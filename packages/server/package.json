@@ -7,6 +7,8 @@
    "type": "commonjs",
    "scripts": {
       "test": "echo testing server",
+      "start.dist": "node dist/index.js",
+      "heroku-postbuild": "yarn run build",
       "start": "ttsc --watch",
       "build": "ttsc",
       "lint": "eslint . --ext .ts",
