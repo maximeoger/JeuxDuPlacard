@@ -1,0 +1,32 @@
+version: "3"
+services: 
+  # db: 
+  #   image: "postgres"
+  #   env_file:
+  #     - database.env
+  #   volumes:
+  #     - database-data:/var/lib/postgresql/data/
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - jdp-db-network
+
+  server:
+    image: jdp-server-nodejs
+    networks:
+      - jdp-db-network
+    env_file:
+      - ../packages/server/.env
+    volumes:
+      - jpd-node-api:/dist/
+    ports:
+      - "3003:3002"
+    # depends_on: 
+    #   - db
+
+volumes:
+ # database-data: 
+  jpd-node-api:
+
+networks:
+  jdp-db-network:
