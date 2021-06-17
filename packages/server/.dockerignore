@@ -1,11 +1,10 @@
-src
-node_modules
+dist
 .env
 .env.exemple
 .eslintrc.js
 .gitignore
 README.md
-tsconfig.json
-package-lock.json
-yarn.lock
-docker
+node_modules
+procfile
+sendgrid.env
+yarn-error.log

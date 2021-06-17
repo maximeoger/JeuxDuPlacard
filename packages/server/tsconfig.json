@@ -9,9 +9,7 @@
         "outDir": "dist",
         "strict": true,
         "lib": ["ES2017", "ES2020"],
-        "types": [
-            "node"
-        ],
+        "types": ["node"],
         "allowSyntheticDefaultImports": true,
         "noImplicitAny": true,
         "emitDecoratorMetadata": true,
@@ -33,10 +31,9 @@
     },
     "include": [
         "./**/*",
-        // "../common/**/*",
-        // "../common/package.json"
     ],
     "exclude": [
-        "ormconfig.js"
+        "ormconfig.js",
+        "common",
     ]
 }
