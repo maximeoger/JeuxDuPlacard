@@ -23,6 +23,20 @@ export default function Layout({children, pageWidth = "full", title}: IProps) {
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preload" href="/fonts/Nunito/Nunito-Black.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-BlackItalic.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-Bold.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-BoldItalic.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-ExtraBold.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-ExtraBoldItalic.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-ExtraLight.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-ExtraLightItalic.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-Italic.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-Light.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-LightItalic.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-Regular.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-SemiBold.ttf" as="font" crossOrigin=""/>
+        <link rel="preload" href="/fonts/Nunito/Nunito-SemiBoldItalic.ttf" as="font" crossOrigin=""/>
       </Head>
       <Header/>
       <div className={styles.layout__pageContainer}>
