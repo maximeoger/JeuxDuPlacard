@@ -21,6 +21,7 @@ async function getOptions() {
   } else {
     connectionOptions = await getConnectionOptions();
   }
+  // const connectionOptions = await getConnectionOptions();
 
   return connectionOptions;
 }
