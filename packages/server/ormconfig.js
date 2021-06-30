@@ -15,6 +15,11 @@ module.exports = {
   url: URL,
   synchronize: true,
   logging: true,
+  extra: {
+    ssl: {
+      rejectUnauthorized: false
+    }
+  },
   entities: [
     'dist/business/**/*.entity.js',
   ],
