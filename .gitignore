@@ -6,3 +6,6 @@ sendgrid.env
 ## MISC ##
 .idea
 .vscode
+
+.env
+.env.local
