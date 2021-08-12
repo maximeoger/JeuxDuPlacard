@@ -4,7 +4,6 @@ import { UserCredentials } from 'common/src/business/user/types/login';
 import { UserRegisterData } from 'common/src/business/user/types/register';
 import { RecoverPassword } from 'common/src/business/user/types/recoverPassword';
 
-
 export async function login(data: UserCredentials) {
   const response = await axios.post<IUserResponse>('/login', data);
   if(response.status !== 200) {

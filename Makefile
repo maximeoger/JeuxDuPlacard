@@ -10,6 +10,13 @@ install:
 	cd packages/server && yarn
 
 ## ------------
+## Build
+## ------------
+
+build.back:
+	cd packages/server && yarn run build
+
+## ------------
 ## Database
 ## ------------
 

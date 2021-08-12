@@ -1,8 +1,6 @@
 import cors, { CorsOptions } from 'cors';
 
-const originUrl = process.env.ORIGIN_URL || '';
-
-let crossOriginOptions : CorsOptions = {
+const crossOriginOptions : CorsOptions = {
   allowedHeaders: [
     'Origin',
     'X-Requested-With',
@@ -13,11 +11,7 @@ let crossOriginOptions : CorsOptions = {
   ],
   credentials: true,
   methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+  origin: process.env.ORIGIN_URL || 'http://localhost:3000',
 };
-
-if (process.env.NODE_ENV === 'production') {
-  // specify a custom origin for production environment
-  crossOriginOptions = { ...crossOriginOptions, origin: originUrl };
-}
 
 export default cors(crossOriginOptions);

@@ -8,5 +8,4 @@ temp/
 .env
 yarn-error.log
 sendgrid.env
-
 common/
