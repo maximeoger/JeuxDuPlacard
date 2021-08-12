@@ -33,7 +33,7 @@ const createUserController: ControllerInterface<IUserResponse> = async function 
 
   sendEmail({
     to: user.email,
-    from: 'maximeoger93@gmail.com',
+    from: 'support@jeuxduplacard.fr',
     template_id: 'd-4617241110954739adc8300c541dac20',
     dynamic_template_data: {
       first_name: user.firstName,

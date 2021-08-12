@@ -1,4 +1,4 @@
-yarn --cwd common link
-yarn --cwd server link common
+yarn --cwd common/dist link
+yarn --cwd server/dist link common
 source sendgrid.env
-node --input-type=module --require dotenv/config dist/server/src/index.js 
+node --input-type=module dist/index.js 

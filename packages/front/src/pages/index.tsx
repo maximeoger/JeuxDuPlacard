@@ -1,27 +1,73 @@
+import { useRouter } from 'next/router';
 import Layout from 'components/Layout';
-import { Display } from  'components/atoms/Display';
-import { Button } from "components/molecules/Button";
-import styles from "styles/pages/Home/index.module.scss";
+import { Heading } from 'components/design-system/atoms/Heading';
+import { Button } from "components/design-system/molecules/Button";
+import { AnnouncementCard } from "components/design-system/organisms/AnnouncementCard";
+import { Space } from 'components/styles/Space';
+import { WaveBackground } from 'components/design-system/misc/WaveBackground/index.jsx';
 import useBreakpoint from "technical/utils/useBreakpoint";
+import { getAnnouncements } from 'business/Announcement/services/api';
+import { SearchAnnouncementBlock } from 'components/design-system/organisms/SearchAnnouncementBlock';
+import styles from "styles/pages/index.module.scss";
 
-export default function Home() {
+export default function Home({ announcements }) {
   const bp = useBreakpoint();
-
+  const router = useRouter();
+  
+  const onButtonClick = (e) => {
+    e.preventDefault();
+    router.push('/créer-une-annonce');
+  };
   
   return (
-    <Layout title="Jeux du Placard - Recyclez vos anciens jeux de sociétés !">
+    <>
+    <WaveBackground/>
+    <Layout title="Jeux du Placard - Recyclez vos anciens jeux de sociétés !" pageWidth="auto">
       <main>
         <section className={styles.section1}>
+          <SearchAnnouncementBlock/>
+        </section>
+        <section className={styles.section2}>
           <div className={styles.container}>
-            <Display>Offrez une seconde vie <br/> à vos anciens jeux</Display>
+            <Space up={24}>
+              <Heading priority="2" textAlign="center">Dernières annonces</Heading>
+            </Space>
+            <Space up={32}>
+              <div className={styles.announcementContainer}>
+                {
+                  announcements.data.map(announcement => (
+                    <AnnouncementCard 
+                      key={announcement.id}
+                      user={announcement.user}
+                      item={announcement.item}
+                      sellingPrice={announcement.sellingPrice}
+                      condition={announcement.condition}
+                    />
+                  ))
+                }
+              </div>
+            </Space>
           </div>
         </section>
         {
           (bp === "mobile-large" || bp === "tablet") && (<div className={styles.placeASaleBtnContainer}>
-            <Button>Vendre un jeu</Button>
+            <Button onClick={onButtonClick}>Vendre un jeu</Button>
           </div>)
         }
       </main>
     </Layout>
+    </>
   )
+}
+
+
+export  const getStaticProps = async () => {
+
+  const getAnnouncementsRequestResult = await getAnnouncements({limit: 8});
+
+  return { 
+    props: {
+       announcements: getAnnouncementsRequestResult 
+    }
+  };
 }

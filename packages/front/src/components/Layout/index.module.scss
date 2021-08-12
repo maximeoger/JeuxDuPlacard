@@ -1,5 +1,25 @@
-@import "../../styles/vars/colors/index.module.scss";
+@import "styles/vars/colors/index.module.scss";
 
 .layout {
-  background-color: $page_background;  
+
+  &__root {
+    position: relative;
+  }
+
+  &__pageContainer { 
+    display: flex;
+    justify-content: space-around;
+    margin-top: 65px;
+  }
+
+  &__pageContent {
+    
+    min-height: calc(100vh - 65px);
+
+    &__noMargin { width: auto };
+    &__full { width: 1184px; }
+    &__large { width: 882px; }
+    &__medium { width: 580px; }
+    &__small { width: 278px; }
+  }
 }

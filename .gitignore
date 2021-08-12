@@ -1,3 +1,11 @@
+## DEPENDENCIES ##
 /node_modules
 yarn-error.log
 sendgrid.env
+
+## MISC ##
+.idea
+.vscode
+
+.env
+.env.local

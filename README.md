@@ -1,43 +1,46 @@
-# JeuxDuPlacard
+## Description 
 
+Projet perso - création d'une plateforme de revente de jeux de société.
 
-
-##### But du projet: 
-
-Ce projet est encore au stade de développement, cependant le but est de poser les premières briques de la maniere la plus scallable possible afin de garder une maintenabilité pour les mises à jour futures. 
-
-L'objectif est d'arriver dans un premier temps à une preuve de concept.
-
-
-
-
-##### Description de l'architecture: 
-
+[Lien du figma](https://www.figma.com/file/PCd8JQM0Fk7ySlSOjFY7Vn)
 
 `packages/front` 
 
-Contiens l'ensemble de l'application front-end
-
-- react
+Contient l'ensemble de l'application front-end
+- NextJs
 - Typescript
-
-
 
 
 `packages/server`
 
-Contiens l'API REST qui gère les fonctionnalités back end de la plateforme.
-
+Contient l'API REST qui gère les fonctionnalités back end de la plateforme.
 - express
 - Typescript
 - TypeORM
-- Postgres
-
-
-
 
 `packages/common`
 
-Contiens les éléments partagés entre la partie front et back-end (types, interfaces, règles de validation, etc)
+Contiens les éléments partagés entre la partie front et back-end (types, interfaces, règles de validation, etc). Ce fichier est automatiquement dupliqué dans le package "Server" au moment de construire les images docker.
 
 
+## Installer le projet: 
+
+```shell
+$ make install
+```
+
+## Lancer le projet
+
+Avant de lancer le projet, s'assurer qu'une base de donnée postgres est bien lancée sur le port 5432
+
+```shell
+$ make start
+```
+
+## Lancer le linter de code
+
+```shell
+$ make lint
+```
+
+Vous pouvez aussi lancer la commande `$ make lint.fix` pour fixer automatiquement certaines petites erreurs.

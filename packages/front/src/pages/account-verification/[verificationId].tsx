@@ -1,9 +1,9 @@
 import React from 'react';
-import { PageTitle } from 'components/molecules/PageTitle';
-import { Text } from 'components/atoms/Text';
+import { PageTitle } from 'components/design-system/molecules/PageTitle';
+import { Text } from 'components/design-system/atoms/Text';
 import { performEmailVerification } from 'business/EmailVerification/services/api';
 import { Space } from 'components/styles/Space';
-import styles from 'styles/pages/AccountVerification/index.module.scss';
+import styles from './index.module.scss';
 
 type Context = { 
   params: {
@@ -11,7 +11,7 @@ type Context = {
   }
 };
 
-export default function AccountVerificationPage() {
+function AccountVerificationPage() {
   return (
     <section className={styles.section}>
       <div>
@@ -33,3 +33,5 @@ export  const getServerSideProps = async (context: Context) => {
 
   return { props: verificationRequestResult };
 }
+
+export default AccountVerificationPage;

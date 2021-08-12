@@ -48,6 +48,7 @@ apiRouter.use(userRouter);
 apiRouter.use(emailVerificationRouter);
 apiRouter.use(announcementRouter);
 
+// this one have to be defined last
 app.use(ErrorMiddleware);
 
 if (process.env.SENDGRID_API_KEY) {

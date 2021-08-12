@@ -1,8 +1,8 @@
 import 'reflect-metadata';
-import createConnection from './technical/typeorm/connexion';
+import createConnection from 'technical/typeorm/connexion';
 import app from './app';
 
-const port = 3002;
+const port = process.env.PORT || '3002';
 
 createConnection((error) => { throw new Error(error.message); })
   .catch((error) => console.log(error));

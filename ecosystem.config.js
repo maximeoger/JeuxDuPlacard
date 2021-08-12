@@ -23,21 +23,11 @@ module.exports = {
       max_memory_restart: "1G"
     },
     {
-      name: "start.database",
-      script: "../../../scripts/start_db.sh",
-      cwd: "packages/server/docker",
-      exec_interpreter: "bash",
-      exec_mode: "fork_mode",
-      instances: 1,
-      autorestart: true,
-      max_memory_restart: "1G"
-    },
-    {
       name: "common",
       cwd: "packages/common",
       interpreter: "bash",
       script: "yarn",
-      args: "run build",
+      args: "run build.watch",
       exec_interpreter: "bash",
       exec_mode: "fork_mode",
       instances: 1,

@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useMemo, useState} from 'react';
+import React, {createContext, useContext, useEffect, useMemo, useState} from 'react';
 import { useRouter } from 'next/router'
 import { IUserResponse } from 'common/src/business/user';
 import { UserCredentials } from 'common/src/business/user/types/login';
@@ -13,6 +13,7 @@ interface IUserContext {
   connectUser: (data: UserCredentials) => void;
   registerUser: (data: UserRegisterData) => void;
   sendUserEmailForPasswordRetrieval: (data: RecoverPassword) => Promise<IUserRecoverPasswordResponse> | void;
+  userMediaVideo: boolean;
 }
 
 export const UserContext = createContext<IUserContext>({
@@ -20,16 +21,23 @@ export const UserContext = createContext<IUserContext>({
   userIsLoggedIn: false,
   connectUser: () => {},
   registerUser: () => {},
-  sendUserEmailForPasswordRetrieval: () => {}
+  sendUserEmailForPasswordRetrieval: () => {},
+  userMediaVideo: false
 });
 
 function useUserStateProvider() {
   const [user, setUser] = useState<IUserResponse | null>(null);
+  const [userMediaVideo, setUserMediaVideo] = useState<boolean>(false);
   const router = useRouter();
+
+  useEffect(() => {
+    Promise.resolve(navigator.mediaDevices.getUserMedia({video: true}))
+    .then(() => setUserMediaVideo(true))
+  }, []);
 
   const userIsLoggedIn : boolean = useMemo(() => {
     return user !== null;
-  }, [user])
+  }, [user]);
 
   const connectUser = async (data: UserCredentials) => {
     try{
@@ -67,6 +75,7 @@ function useUserStateProvider() {
     connectUser,
     registerUser,
     sendUserEmailForPasswordRetrieval,
+    userMediaVideo,
   }
 }
 

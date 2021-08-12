@@ -1,0 +1,10 @@
+dist
+.env
+.env.exemple
+.eslintrc.js
+.gitignore
+README.md
+node_modules
+procfile
+sendgrid.env
+yarn-error.log

@@ -1,0 +1,73 @@
+entity: item
+items:
+
+  item1:
+    name: 'kingdomino'
+    isbnEanCode: '3770000904406'
+    publicPrice: '20'
+    dimensions: '20.50x20.10x5.30'
+    weight: '0.58'
+    publisher: 'Blue Orange'
+    category: 'board_game'
+    type: 'standalone'
+
+  item2:
+    name: 'Kingdomino : Age of Giants'
+    isbnEanCode: '3770000904956'
+    publicPrice: '18'
+    dimensions: '26.70x13.00x6.10'
+    weight: '0.57'
+    publisher: 'Blue Orange'
+    category: 'board_game'
+    type: 'expansion'
+
+  item3:
+    name: 'Cyclades'
+    isbnEanCode: '3760146644120'
+    publicPrice: '49'
+    dimensions: '7.90x39.60x27.60'
+    weight: '2.03'
+    publisher: 'Matagot'
+    category: 'board_game'
+    type: 'standalone'
+
+  item4:
+    name: 'Cyclades : Extension Monuments'
+    isbnEanCode: '3760146648296'
+    publicPrice: '13'
+    dimensions: '190x250x270'
+    weight: '0.17'
+    publisher: 'Matagot'
+    category: 'board_game'
+    type: 'expansion'
+  
+  item5:
+    name: 'Andor'
+    isbnEanCode: '3760175510700'
+    publicPrice: '45'
+    dimensions: '7x29,5x29,5 '
+    weight: '1.202'
+    publisher: 'Iello'
+    category: 'board_game'
+    type: 'standalone'
+  
+  item6:
+    name: 'The Island'
+    isbnEanCode: '3558380014232'
+    publicPrice: '30'
+    dimensions: '32.60x6.00x30.00'
+    weight: '1.52'
+    publisher: 'Stronghold Games'
+    category: 'board_game'
+    type: 'standalone'
+
+  item7:
+    name: 'Betrayal at house on the hill'
+    isbnEanCode: '5010993633678'
+    publicPrice: '30'
+    dimensions: '32.60x6.00x30.00'
+    weight: '1.52'
+    publisher: 'Avalon Hill'
+    category: 'board_game'
+    type: 'standalone'
+  

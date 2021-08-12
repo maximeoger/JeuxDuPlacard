@@ -9,13 +9,12 @@
         "outDir": "dist",
         "strict": true,
         "lib": ["ES2017", "ES2020"],
-        "types": [
-            "node",
-        ],
+        "types": ["node"],
         "allowSyntheticDefaultImports": true,
         "noImplicitAny": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "resolveJsonModule": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
         "incremental": true,
@@ -23,12 +22,18 @@
         "strictPropertyInitialization": false,
         "paths": {
             "*": ["node_modules/*"],
-            "business/*": ["src/business"],
-            "technical/*": ["src/technical"]
-        }
+            "business/*": ["src/business/*"],
+            "technical/*": ["src/technical/*"]
+        },
+        "plugins": [
+            { "transform": "typescript-transform-paths" },
+        ]
     },
     "include": [
         "./**/*",
-        "../common/**/*",
+    ],
+    "exclude": [
+        "ormconfig.js",
+        "common",
     ]
 }

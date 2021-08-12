@@ -10,6 +10,13 @@ install:
 	cd packages/server && yarn
 
 ## ------------
+## Build
+## ------------
+
+build.back:
+	cd packages/server && yarn run build
+
+## ------------
 ## Database
 ## ------------
 
@@ -20,6 +27,12 @@ db.connect:
 ## ------------
 ## Dev
 ## ------------
+
+log.front:
+	npx pm2 logs Front
+
+log.server:
+	npx pm2 logs Server
 
 start:
 	npx pm2 start
@@ -40,3 +53,11 @@ lint.fix:
 	cd packages/server && yarn run lint.fix
 	cd packages/common && yarn run lint.fix
 	cd packages/front && yarn run lint.fix
+
+
+## ------------
+## Deploy (commandes à executer avant le deploiement sur heroku)
+## ------------
+
+cp.common:
+	sh scripts/copy_common.sh

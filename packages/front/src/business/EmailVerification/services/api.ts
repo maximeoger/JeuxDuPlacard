@@ -1,4 +1,3 @@
-import { CONNREFUSED } from 'node:dns';
 import axios from 'technical/request';
 
 interface RequestStatus { 

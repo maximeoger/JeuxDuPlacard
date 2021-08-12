@@ -1,0 +1,9 @@
+entity: announcement
+items:
+  
+  announcement{1..12}:
+    user: '@user*'
+    item: '@item*'
+    condition: 'Bon etat'
+    sellingPrice: '10'
+    description: 'Fixture'
