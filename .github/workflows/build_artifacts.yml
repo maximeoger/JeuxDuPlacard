@@ -19,6 +19,9 @@ jobs:
       #   id: vars
       #   run: echo ::set-output name=tag::$(echo ${GITHUB_REF})
 
+      - name: Build the Common directory
+        run: cd packages/common && yarn install && yarn run build
+
       - name: Duplicate Common directory inside Server Package
         run: cp -r packages/common packages/server
         
