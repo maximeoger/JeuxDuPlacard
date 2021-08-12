@@ -17,7 +17,7 @@ jobs:
 
         - name: Get the version
           id: vars
-          run: echo ::set-output name=tag::$(echo ${GITHUB_REF:8})
+          run: echo ::set-output name=tag::$(echo ${GITHUB_REF})
 
         - name: Duplicate Common directory inside Server Package
           run: cp -r packages/common packages/server
