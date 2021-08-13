@@ -5,7 +5,6 @@ on:
     branches:
       - staging
 
-
 jobs:
   build_artifacts:
     runs-on: ubuntu-20.04
@@ -22,14 +21,20 @@ jobs:
       - name: Build the Common directory
         run: cd packages/common && yarn install && yarn run build
 
-      - name: Duplicate Common directory inside Server Package
-        run: cp -r packages/common packages/server
+      - name: Duplicate Common directory in both Server and Front Package
+        run: cp -r packages/common packages/server && cp -r packages/common packages/front
         
       - name: Build the tagged image from package Server
         run: docker build packages/server --file docker/Dockerfile.api --tag maximeoger/jdp-api:latest
 
       - name: Push the tagged image from package Server
         run: docker push maximeoger/jdp-api:latest
+
+      - name: Build the tagged image from package Front
+        run: docker build packages/front --filr docker/Dockerfile.front --tag maximeoger/jdp-front:latest
+
+      - name: Push the tagged image from package Front
+        run: docker push maximeoger/jdp-front:latest
 
 
 
