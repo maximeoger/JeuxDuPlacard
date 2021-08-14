@@ -31,7 +31,7 @@ jobs:
         run: docker push maximeoger/jdp-api:latest
 
       - name: Build the tagged image from package Front
-        run: docker build packages/front --filr docker/Dockerfile.front --tag maximeoger/jdp-front:latest
+        run: docker build packages/front --file docker/Dockerfile.front --tag maximeoger/jdp-front:latest
 
       - name: Push the tagged image from package Front
         run: docker push maximeoger/jdp-front:latest
