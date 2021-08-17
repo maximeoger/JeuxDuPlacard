@@ -24,7 +24,9 @@ jobs:
         run: cp -r packages/common packages/server && cp -r packages/common packages/front
         
       - name: Build server
-        run: docker build packages/server --file docker/Dockerfile.api --tag maximeoger/jdp-api:latest
+        run: docker build packages/server 
+              --file docker/Dockerfile.api 
+              --tag maximeoger/jdp-api:latest
 
       - name: Push server image
         run: docker push maximeoger/jdp-api:latest
@@ -41,7 +43,11 @@ jobs:
         run: heroku container:release --app jdp-api web 
 
       - name: Build front
-        run: docker build packages/front --file docker/Dockerfile.front --build-arg NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} --tag maximeoger/jdp-front:latest
+        run: docker build packages/front 
+              --file docker/Dockerfile.front 
+              --build-arg NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} 
+              --build-arg NEXT_PUBLIC_NODE_ENV=development 
+              --tag maximeoger/jdp-front:latest
 
       - name: Push the tagged image
         run: docker push maximeoger/jdp-front:latest
