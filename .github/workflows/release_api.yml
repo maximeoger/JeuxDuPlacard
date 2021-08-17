@@ -1,0 +1,26 @@
+name: release api
+
+on:
+  workflow_run:
+    workflows: ["build and deploy api"]
+    types: 
+      - completed
+  push:
+    branches:
+      - staging
+
+jobs: 
+  release_image:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to Heroku container registry
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:login
+
+      - name: Release
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:release --app jdp-api web 
