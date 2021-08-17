@@ -22,8 +22,8 @@ jobs:
       - name: Build the Common directory
         run: cd packages/common && yarn install && yarn run build
 
-      - name: Duplicate Common directory inside Server Package
-        run: cp -r packages/common packages/server
+      - name: Duplicate Common directory in both Server and Front Package
+        run: cp -r packages/common packages/server && cp -r packages/common packages/front
         
       - name: Build the tagged image from package Server
         run: docker build packages/server --file docker/Dockerfile.api --tag maximeoger/jdp-api:latest
