@@ -1,9 +1,8 @@
 name: build and deploy front
 
 on:
-  workflow_run:
-    workflows: ["release api"]
-    types: [completed]
+  repository_dispatch:
+    types: [trigger-build-and-deploy-front]
   push:
     branches:
       - staging
@@ -38,3 +37,12 @@ jobs:
 
       - name: Push to container registry
         run: docker push registry.heroku.com/jdp-front/web
+
+      - name: Trigger next workflow
+        if: success()
+        uses: peter-evans/repository-dispatch@v1
+          with:
+            token: ${{ secrets.REPO_GHA_PAT }}
+            repository: ${{ github.repository }}
+            event-type: trigger-release-front
+            client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'

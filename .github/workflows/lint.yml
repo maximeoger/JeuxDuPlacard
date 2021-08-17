@@ -18,6 +18,7 @@ jobs:
         
       - name: Lint Front Package
         working-directory: ./packages/front
-        run: npm install && npm run lint.ci  
+        run: npm install && npm run lint.ci
+
       
 

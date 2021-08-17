@@ -1,9 +1,6 @@
 name: build and deploy api
 
 on:
-  workflow_run:
-    workflows: ["lint"]
-    types: [completed]
   push:
     branches:
       - staging
@@ -14,6 +11,8 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v2
+        with:
+            ref: ${{ github.event.client_payload.sha }}
 
       - name: Login to Dockerhub Registry
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
@@ -38,3 +37,12 @@ jobs:
 
       - name: Push to container registry
         run: docker push registry.heroku.com/jdp-api/web
+      
+      - name: Trigger next workflow
+        if: success()
+        uses: peter-evans/repository-dispatch@v1
+          with:
+            token: ${{ secrets.REPO_GHA_PAT }}
+            repository: ${{ github.repository }}
+            event-type: trigger-release-api
+            client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'

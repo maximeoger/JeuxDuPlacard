@@ -1,9 +1,8 @@
 name: release front
 
 on: 
-  workflow_run:
-    workflows: ["build and deploy front"]
-    types: [completed]
+  repository_dispatch:
+    types: [trigger-release-front]
   push:
     branches:
       - staging

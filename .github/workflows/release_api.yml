@@ -1,9 +1,8 @@
 name: release api
 
 on:
-  workflow_run:
-    workflows: ["build and deploy api"]
-    types: [completed]
+  repository_dispatch:
+    types: [trigger-release-api]
   push:
     branches:
       - staging
@@ -24,3 +23,12 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku container:release --app jdp-api web 
+      
+      - name: Trigger next workflow
+        if: success()
+        uses: peter-evans/repository-dispatch@v1
+          with:
+            token: ${{ secrets.REPO_GHA_PAT }}
+            repository: ${{ github.repository }}
+            event-type: trigger-build-and-deploy-front
+            client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
