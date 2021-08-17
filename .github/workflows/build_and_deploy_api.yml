@@ -1,4 +1,4 @@
-name: build api
+name: build and deploy api
 
 on:
   workflow_run:
@@ -30,3 +30,17 @@ jobs:
 
       - name: Push the tagged image from package Server
         run: docker push maximeoger/jdp-api:latest
+  
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: login to heroku container registry
+        run: echo ${{ secrets.HEROKU_API_KEY }} | docker login -u ${{ secrets.HEROKU_LOGIN }} --password-stdin registry.heroku.com
+
+      - name: create a new tag for latest image
+        run: docker tag maximeoger/jdp-api registry.heroku.com/jdp-api/web
+
+      - name: push to container registry
+        run: docker push registry.heroku.com/jdp-api/web
