@@ -1,0 +1,40 @@
+name: build and deploy front
+
+on:
+  workflow_run:
+    workflows: ["release api"]
+    types: [completed]
+  push:
+    branches:
+      - staging
+  
+jobs:
+  build_artifacts:
+    runs-on: ubuntu-20.04
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to Dockerhub Registry
+        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
+      - name: Login to Heroku container registry
+        run: echo ${{ secrets.HEROKU_API_KEY }} | docker login -u ${{ secrets.HEROKU_LOGIN }} --password-stdin registry.heroku.com
+
+      - name: Build the 'common' directory
+        run: cd packages/common && yarn install && yarn run build
+
+      - name: Duplicate 'common' directory in Front Package
+        run: cp -r packages/common packages/front
+        
+      - name: Build the tagged image
+        run: docker build packages/front --file docker/Dockerfile.front --build-arg NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} --tag maximeoger/jdp-front:latest
+
+      - name: Push the tagged image
+        run: docker push maximeoger/jdp-front:latest
+
+      - name: Tag the latest image to Heroku container registry
+        run: docker tag maximeoger/jdp-front registry.heroku.com/jdp-front/web
+
+      - name: Push to container registry
+        run: docker push registry.heroku.com/jdp-front/web

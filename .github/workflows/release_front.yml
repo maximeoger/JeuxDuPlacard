@@ -1,14 +1,14 @@
-name: release api
+name: release front
 
-on:
+on: 
   workflow_run:
-    workflows: ["build and deploy api"]
+    workflows: ["build and deploy front"]
     types: [completed]
   push:
     branches:
       - staging
 
-jobs: 
+jobs:
   release:
     runs-on: ubuntu-20.04
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
@@ -23,4 +23,4 @@ jobs:
       - name: Release
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release --app jdp-api web 
+        run: heroku container:release --app jdp-front web 
