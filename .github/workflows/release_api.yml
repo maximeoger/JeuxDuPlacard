@@ -3,9 +3,6 @@ name: release api
 on:
   repository_dispatch:
     types: [trigger-release-api]
-  push:
-    branches:
-      - staging
 
 jobs: 
   release:

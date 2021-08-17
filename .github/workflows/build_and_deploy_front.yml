@@ -3,9 +3,6 @@ name: build and deploy front
 on:
   repository_dispatch:
     types: [trigger-build-and-deploy-front]
-  push:
-    branches:
-      - staging
   
 jobs:
   build_artifacts:

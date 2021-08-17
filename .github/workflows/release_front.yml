@@ -3,9 +3,6 @@ name: release front
 on: 
   repository_dispatch:
     types: [trigger-release-front]
-  push:
-    branches:
-      - staging
 
 jobs:
   release:
