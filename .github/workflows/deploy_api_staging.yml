@@ -2,7 +2,7 @@ name: deploy api staging
 
 on:
   workflow_run:
-    workflow: ["build api"]
+    workflows: ["build api"]
     types:
       - completed
 
