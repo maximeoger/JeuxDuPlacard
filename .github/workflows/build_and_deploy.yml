@@ -23,23 +23,40 @@ jobs:
       - name: Duplicate Common directory in both Server and Front Package
         run: cp -r packages/common packages/server && cp -r packages/common packages/front
         
-      - name: Build the tagged image from package Server
+      - name: Build server
         run: docker build packages/server --file docker/Dockerfile.api --tag maximeoger/jdp-api:latest
 
-      - name: Push the tagged image from package Server
+      - name: Push server image
         run: docker push maximeoger/jdp-api:latest
 
-      - name: Create a new tag for latest image
+      - name: Tag the server image to Heroku container registry
         run: docker tag maximeoger/jdp-api registry.heroku.com/jdp-api/web
 
       - name: Push to container registry
         run: docker push registry.heroku.com/jdp-api/web
+
+      - name: Release api container
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:release --app jdp-api web 
+
+      - name: Build front
+        run: docker build packages/front --file docker/Dockerfile.front --build-arg NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} --tag maximeoger/jdp-front:latest
+
+      - name: Push the tagged image
+        run: docker push maximeoger/jdp-front:latest
+
+      - name: Tag the front image to Heroku container registry
+        run: docker tag maximeoger/jdp-front registry.heroku.com/jdp-front/web
+
+      - name: Push to container registry
+        run: docker push registry.heroku.com/jdp-front/web
+
+      - name: Release front container 
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:release --app jdp-front web 
+
       
-      - name: Trigger next workflow
-        if: ${{ success() }}
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.REPO_GHA_PAT }}
-          repository: ${{ github.repository }}
-          event-type: trigger-release-api
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+      
+      
