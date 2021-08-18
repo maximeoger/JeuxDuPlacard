@@ -26,6 +26,7 @@ jobs:
       - name: Build server
         run: docker build packages/server 
               --file docker/Dockerfile.api 
+              --build-arg NODE_ENV=development
               --tag maximeoger/jdp-api:latest
 
       - name: Push server image
@@ -34,7 +35,7 @@ jobs:
       - name: Tag the server image to Heroku container registry
         run: docker tag maximeoger/jdp-api registry.heroku.com/jdp-api/web
 
-      - name: Push to container registry
+      - name: Push server image to container registry
         run: docker push registry.heroku.com/jdp-api/web
 
       - name: Release api container
@@ -55,7 +56,7 @@ jobs:
       - name: Tag the front image to Heroku container registry
         run: docker tag maximeoger/jdp-front registry.heroku.com/jdp-front/web
 
-      - name: Push to container registry
+      - name: Push front image to container registry
         run: docker push registry.heroku.com/jdp-front/web
 
       - name: Release front container 
