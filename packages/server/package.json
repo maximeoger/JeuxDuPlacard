@@ -38,7 +38,8 @@
       "pg": "^8.6.0",
       "reflect-metadata": "^0.1.10",
       "typeorm": "0.2.29",
-      "validate.js": "^0.13.1"
+      "validate.js": "^0.13.1",
+      "winston": "^3.3.3"
    },
    "devDependencies": {
       "@ef-carbon/tspm": "^2.2.5",
