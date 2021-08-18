@@ -1,4 +1,4 @@
-name: build and deploy api
+name: build and deploy to heroku
 
 on:
   push:
@@ -55,6 +55,9 @@ jobs:
 
       - name: Tag the front image to Heroku container registry
         run: docker tag maximeoger/jdp-front registry.heroku.com/jdp-front/web
+
+      - name: Login to heroku container registry
+        run: echo ${{ secrets.HEROKU_API_KEY }} | docker login -u ${{ secrets.HEROKU_LOGIN }} --password-stdin registry.heroku.com
 
       - name: Push front image to container registry
         run: docker push registry.heroku.com/jdp-front/web
