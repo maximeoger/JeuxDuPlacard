@@ -14,7 +14,7 @@ module.exports = {
   database: DATABASE,
   url: URL,
   synchronize: true,
-  logging: true,
+  logging: process.env.NODE_ENV !== "production",
   extra: {
     ssl: {
       rejectUnauthorized: false
