@@ -62,7 +62,7 @@ jobs:
       - name: Release front container 
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release --app jdp-front web 
+        run: heroku container:release --app jdp-front-nextjs web 
 
       
       
