@@ -15,5 +15,7 @@
   },
   "dependencies": {
     "typescript": "^4.2.3"
-  }
+  },
+  "useWorkspaces": true,
+  "workspaces": ["packages/*"]
 }
