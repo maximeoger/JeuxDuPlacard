@@ -8,7 +8,7 @@ import { WaveBackground } from 'components/design-system/misc/WaveBackground/ind
 import useBreakpoint from "technical/utils/useBreakpoint";
 import { getAnnouncements } from 'business/Announcement/services/api';
 import { SearchAnnouncementBlock } from 'components/design-system/organisms/SearchAnnouncementBlock';
-import styles from "./index.module.scss";
+import styles from "styles/pages/index.module.scss";
 
 export default function Home({ announcements }) {
   const bp = useBreakpoint();

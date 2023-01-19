@@ -8,6 +8,4 @@ temp/
 .env
 yarn-error.log
 sendgrid.env
-
-## This folder must not be tracked by git. It is used by docker when we build the server image ##
-common
+common/

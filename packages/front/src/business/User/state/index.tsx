@@ -33,11 +33,11 @@ function useUserStateProvider() {
   useEffect(() => {
     Promise.resolve(navigator.mediaDevices.getUserMedia({video: true}))
     .then(() => setUserMediaVideo(true))
-  }, [])
+  }, []);
 
   const userIsLoggedIn : boolean = useMemo(() => {
     return user !== null;
-  }, [user])
+  }, [user]);
 
   const connectUser = async (data: UserCredentials) => {
     try{

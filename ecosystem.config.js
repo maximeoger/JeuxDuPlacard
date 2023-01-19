@@ -27,7 +27,7 @@ module.exports = {
       cwd: "packages/common",
       interpreter: "bash",
       script: "yarn",
-      args: "run build",
+      args: "run build.watch",
       exec_interpreter: "bash",
       exec_mode: "fork_mode",
       instances: 1,

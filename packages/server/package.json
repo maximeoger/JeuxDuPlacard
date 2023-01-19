@@ -36,7 +36,8 @@
       "pg": "^8.6.0",
       "reflect-metadata": "^0.1.10",
       "typeorm": "^0.3.11",
-      "validate.js": "^0.13.1"
+      "validate.js": "^0.13.1",
+      "winston": "^3.3.3"
    },
    "devDependencies": {
       "@ef-carbon/tspm": "^2.2.5",
@@ -57,6 +58,6 @@
       "typescript-transform-paths": "^2.2.3"
    },
    "engines": {
-      "node": "^18"
+      "node": "^14"
    }
 }

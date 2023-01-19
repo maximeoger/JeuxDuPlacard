@@ -13,6 +13,7 @@
     "@types/react-dom": "^16.9.8",
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
+    "file-loader": "^6.2.0",
     "formik": "^2.2.6",
     "next": "^10.0.7",
     "quagga": "^0.12.1",
@@ -26,7 +27,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "build": "next build",
     "lint": "eslint . --ext .tsx",
     "lint.ci": "eslint . --ext .tsx",

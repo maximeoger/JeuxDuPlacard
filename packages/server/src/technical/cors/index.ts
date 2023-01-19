@@ -11,7 +11,7 @@ const crossOriginOptions : CorsOptions = {
   ],
   credentials: true,
   methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-  origin: 'http://localhost:3000',
+  origin: process.env.ORIGIN_URL || 'http://localhost:3000',
 };
 
 export default cors(crossOriginOptions);

@@ -11,7 +11,7 @@ type Context = {
   }
 };
 
-export default function AccountVerificationPage() {
+function AccountVerificationPage() {
   return (
     <section className={styles.section}>
       <div>
@@ -33,3 +33,5 @@ export  const getServerSideProps = async (context: Context) => {
 
   return { props: verificationRequestResult };
 }
+
+export default AccountVerificationPage;

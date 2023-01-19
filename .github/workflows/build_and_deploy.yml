@@ -1,0 +1,69 @@
+name: build and deploy to heroku
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  build_artifacts:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to Dockerhub Registry
+        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
+      - name: Login to heroku container registry
+        run: echo ${{ secrets.HEROKU_API_KEY }} | docker login -u ${{ secrets.HEROKU_LOGIN }} --password-stdin registry.heroku.com
+
+      - name: Build the Common directory
+        run: cd packages/common && yarn install && yarn run build
+
+      - name: Duplicate Common directory in both Server and Front Package
+        run: cp -r packages/common packages/server && cp -r packages/common packages/front
+        
+      - name: Build server
+        run: docker build packages/server 
+              --file docker/Dockerfile.api 
+              --build-arg NODE_ENV=development
+              --tag maximeoger/jdp-api:latest
+
+      - name: Push server image
+        run: docker push maximeoger/jdp-api:latest
+
+      - name: Tag the server image to Heroku container registry
+        run: docker tag maximeoger/jdp-api registry.heroku.com/jdp-api/web
+
+      - name: Push server image to container registry
+        run: docker push registry.heroku.com/jdp-api/web
+
+      - name: Release api container
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:release --app jdp-api web 
+
+      - name: Build front
+        run: docker build packages/front 
+              --file docker/Dockerfile.front 
+              --build-arg NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} 
+              --build-arg NEXT_PUBLIC_NODE_ENV=development 
+              --tag maximeoger/jdp-front:latest
+
+      - name: Push the tagged image
+        run: docker push maximeoger/jdp-front:latest
+
+      - name: Tag the front image to Heroku container registry
+        run: docker tag maximeoger/jdp-front registry.heroku.com/jdp-front-nextjs/web
+
+      - name: Push front image to container registry
+        run: docker push registry.heroku.com/jdp-front-nextjs/web
+
+      - name: Release front container 
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:release --app jdp-front-nextjs web 
+
+      
+      
+      
