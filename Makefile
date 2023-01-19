@@ -1,15 +1,4 @@
 ## ------------
-## Setup
-## ------------
-
-install:
-	yarn install
-	npx lerna bootstrap
-	cd packages/common && yarn run build
-	cd packages/front && yarn 
-	cd packages/server && yarn
-
-## ------------
 ## Database
 ## ------------
 
@@ -27,9 +16,6 @@ log.front:
 log.server:
 	npx pm2 logs Server
 
-start:
-	npx pm2 start
-
 stop:
 	npx pm2 delete all
 
@@ -41,8 +27,18 @@ lint:
 	cd packages/common && yarn run lint
 	cd packages/front && yarn run lint
 
-
 lint.fix:
 	cd packages/server && yarn run lint.fix
 	cd packages/common && yarn run lint.fix
 	cd packages/front && yarn run lint.fix
+
+start:
+	@echo "${YELLOW} Starting app..."
+	@make _link_common
+	npx pm2 start
+
+build:
+	@make _build_server
+
+include tools/makefiles/colors.Makefile
+include tools/makefiles/setup.Makefile

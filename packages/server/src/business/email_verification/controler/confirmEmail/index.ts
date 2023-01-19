@@ -8,17 +8,21 @@ import BadRequestError from '../../../../technical/Error/utils/badRequestError';
 const confirmEmailController: ControllerInterface<IEmailVerificationResponse> = async function EmailVerificationGetController(req) {
   const emailVerificationRepository = getEmailVerificationRepository();
   const userRepository = getUserRepository();
-
-  const emailVerificationFound = await emailVerificationRepository.findOne({
-    where: { id: req.query.verification_id },
+  /*
+  const emailVerificationFound = await emailVerificationRepository.find({
+    relations: {
+      user: true,
+    },
   });
 
   if (!emailVerificationFound) {
     throw new BadRequestError('provided verification key does not relate to any existing verification.', 500);
   }
 
-  const userRelatedToEmailVerification = await userRepository.findOne({
-    id: emailVerificationFound.user.id,
+  const userRelatedToEmailVerification = await userRepository.find({
+    relations: {
+      email_confirmed
+    }
   });
 
   if (!userRelatedToEmailVerification) {
@@ -39,6 +43,8 @@ const confirmEmailController: ControllerInterface<IEmailVerificationResponse> = 
   });
 
   return { succeeded: true, message: 'Email successfully verified.' };
+   */
+  return { succeeded: true, message: 'TEST : Email successfully verified.' };
 };
 
 export default confirmEmailController;
