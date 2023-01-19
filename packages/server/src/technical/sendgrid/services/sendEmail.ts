@@ -6,6 +6,6 @@ export default async function sendEmail(msg: any) {
       await sgMail.send(msg);
     }
   } catch (error) {
-    console.log(error.response.body);
+    console.log('ERREUR');
   }
 }

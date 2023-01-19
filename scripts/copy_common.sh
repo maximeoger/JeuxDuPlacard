@@ -1,1 +1,0 @@
-cp -r packages/common packages/server

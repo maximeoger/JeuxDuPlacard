@@ -1,22 +1,4 @@
 ## ------------
-## Setup
-## ------------
-
-install:
-	yarn install
-	npx lerna bootstrap
-	cd packages/common && yarn run build
-	cd packages/front && yarn 
-	cd packages/server && yarn
-
-## ------------
-## Build
-## ------------
-
-build.back:
-	cd packages/server && yarn run build
-
-## ------------
 ## Database
 ## ------------
 
@@ -34,9 +16,6 @@ log.front:
 log.server:
 	npx pm2 logs Server
 
-start:
-	npx pm2 start
-
 stop:
 	npx pm2 delete all
 
@@ -48,16 +27,18 @@ lint:
 	cd packages/common && yarn run lint
 	cd packages/front && yarn run lint
 
-
 lint.fix:
 	cd packages/server && yarn run lint.fix
 	cd packages/common && yarn run lint.fix
 	cd packages/front && yarn run lint.fix
 
+start:
+	@echo "${YELLOW} Starting app..."
+	@make _link_common
+	npx pm2 start
 
-## ------------
-## Deploy (commandes à executer avant le deploiement sur heroku)
-## ------------
+build:
+	@make _build_server
 
-cp.common:
-	sh scripts/copy_common.sh
+include tools/makefiles/colors.Makefile
+include tools/makefiles/setup.Makefile

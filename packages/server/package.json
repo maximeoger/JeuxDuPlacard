@@ -7,8 +7,6 @@
    "type": "commonjs",
    "scripts": {
       "test": "echo testing server",
-      "start.dist": "node dist/server/src/index.js",
-      "heroku-postbuild": "yarn run build",
       "start": "ttsc --watch",
       "build": "ttsc",
       "lint": "eslint . --ext .ts",
@@ -37,7 +35,7 @@
       "npm": "^7.10.0",
       "pg": "^8.6.0",
       "reflect-metadata": "^0.1.10",
-      "typeorm": "0.2.29",
+      "typeorm": "^0.3.11",
       "validate.js": "^0.13.1",
       "winston": "^3.3.3"
    },
