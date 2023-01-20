@@ -10,7 +10,7 @@ export class EmailVerificationEntity extends BaseEntity {
 
   @ManyToOne(() => UserEntity, (user) => user.id, {
     eager: true, cascade: true, onDelete: 'CASCADE', onUpdate: 'CASCADE',
-  })
+    })
   user: UserEntity;
 
   @Column('timestamp', { name: 'verified_at', nullable: true })
