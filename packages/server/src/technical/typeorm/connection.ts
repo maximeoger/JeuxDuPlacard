@@ -1,20 +1,29 @@
-import { DataSource } from 'typeorm';
+import dotenv from 'dotenv';
+import { DataSource, DataSourceOptions } from 'typeorm';
 
-interface IConnectionOptions {
-  dbPort: number;
-  host: string;
-  username: string;
-  password: string;
-  database: string;
+dotenv.config();
+
+const opts: DataSourceOptions = {
+  port: Number(process.env.DB_PORT)!,
+  host: process.env.DB_HOST!,
+  username: process.env.DB_USERNAME!,
+  password: process.env.DB_PASSWORD!,
+  database: process.env.DB_NAME!,
+  type: 'postgres',
+  url: `postgresql://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
+};
+
+class DatabaseConnection {
+  private static instance: DataSource;
+
+  public static getConnection(): DataSource {
+    if (!DatabaseConnection.instance) {
+      DatabaseConnection.instance = new DataSource(opts);
+    }
+    return DatabaseConnection.instance;
+  }
 }
 
-function getConnection(opts: IConnectionOptions): Promise<DataSource> {
-  const dataSource = new DataSource({
-    ...opts,
-    type: 'postgres',
-    url: `postgresql://${opts.username}:${opts.password}@${opts.host}:${opts.dbPort}/${opts.database}`,
-  });
-  return dataSource.initialize();
-}
+const connection = DatabaseConnection.getConnection();
 
-export default getConnection;
+export default connection;

@@ -1,8 +1,8 @@
-import { getManager } from 'typeorm';
+import connection from 'technical/typeorm/connection';
 import { IEmailVerificationResponse } from 'common/dist/business/email_verification/index';
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
-import { getEmailVerificationRepository } from '../../repository/emailVerification';
-import { getUserRepository } from '../../../user/repository/user';
+import getEmailVerificationRepository from '../../repository/emailVerification';
+import getUserRepository from '../../../user/repository/user';
 import BadRequestError from '../../../../technical/Error/utils/badRequestError';
 
 const confirmEmailController: ControllerInterface<IEmailVerificationResponse> = async function EmailVerificationGetController(req) {
@@ -21,8 +21,8 @@ const confirmEmailController: ControllerInterface<IEmailVerificationResponse> = 
 
   const userRelatedToEmailVerification = await userRepository.find({
     relations: {
-      email_confirmed
-    }
+      email_confirmed: true,
+    },
   });
 
   if (!userRelatedToEmailVerification) {
@@ -38,12 +38,12 @@ const confirmEmailController: ControllerInterface<IEmailVerificationResponse> = 
   emailVerificationFound.verified = true;
   emailVerificationFound.user = userRelatedToEmailVerification;
 
-  await getManager().transaction(async (entityManager) => {
+  await connection.transaction(async (entityManager) => {
     await entityManager.save(emailVerificationFound);
   });
 
   return { succeeded: true, message: 'Email successfully verified.' };
-   */
+  */
   return { succeeded: true, message: 'TEST : Email successfully verified.' };
 };
 

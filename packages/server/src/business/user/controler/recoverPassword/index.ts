@@ -2,7 +2,7 @@ import { IUserRecoverPasswordResponse } from 'common/dist/business/user/index';
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import sendEmail from '../../../../technical/sendgrid/services/sendEmail';
 import BadRequestError from '../../../../technical/Error/utils/badRequestError';
-import { getUserRepository } from '../../repository/user';
+import getUserRepository from '../../repository/user';
 
 const createRecoverPassordController: ControllerInterface<IUserRecoverPasswordResponse> = async function recoverPasswordController(req) {
   const userRepository = getUserRepository();

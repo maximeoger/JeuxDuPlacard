@@ -1,7 +1,7 @@
 import { IUserResponse } from 'common/dist/business/user';
-import { getManager } from 'typeorm';
+import connection from 'technical/typeorm/connection';
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
-import { getUserRepository } from '../../repository/user';
+import getUserRepository from '../../repository/user';
 import { createUserEntity } from '../../entity/user.entity';
 import { createEmailVerificationEntity } from '../../../email_verification/entity/email_verification.entity';
 import apiExtractor from '../../../../technical/user/apiExtractor';
@@ -9,6 +9,7 @@ import { generateToken, TOKEN_MAX_AGE } from '../../../../technical/user/jwtHand
 import { hashPassword } from '../../../../technical/user/passwordHandler';
 import sendEmail from '../../../../technical/sendgrid/services/sendEmail';
 import BadRequestError from '../../../../technical/Error/utils/badRequestError';
+
 
 const createUserController: ControllerInterface<IUserResponse> = async function UserPostController(req, res) {
   const userRepository = getUserRepository();
@@ -27,7 +28,7 @@ const createUserController: ControllerInterface<IUserResponse> = async function 
 
   user = await hashPassword(user);
 
-  await getManager().transaction(async (entityManager) => {
+  await connection.transaction(async (entityManager) => {
     await entityManager.save(emailVerification);
   });
 

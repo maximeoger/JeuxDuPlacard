@@ -1,4 +1,5 @@
-import { getManager } from 'typeorm';
+import IItemEntity from 'business/item/types';
+import connection from 'technical/typeorm/connection';
 import BadRequestError from 'technical/Error/utils/badRequestError';
 import ControllerInterface from '../../../../technical/controller/controllerInterface';
 import { getItemRepository } from '../../../item/repository/item';
@@ -16,14 +17,14 @@ const createAnnouncementController: ControllerInterface = async function Announc
   }
 
   const newAnnouncement = await createAnnouncementEntity({
-    item: relatedItem,
+    item: relatedItem as IItemEntity,
     user: req.body.user,
     description: req.body.description,
     sellingPrice: req.body.sellingPrice,
     condition: req.body.condition,
   });
 
-  await getManager().transaction(async (entityManager) => {
+  await connection.transaction(async (entityManager) => {
     await entityManager.save(newAnnouncement);
   });
 
