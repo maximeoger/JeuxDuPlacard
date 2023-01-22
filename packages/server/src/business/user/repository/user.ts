@@ -1,8 +1,6 @@
-import { EntityRepository, Repository } from 'typeorm';
 import { UserEntity } from '../entity/user.entity';
 import createGetRepository from '../../../technical/typeorm/repository/createGetRepository';
 
-@EntityRepository(UserEntity)
-export class UserRepository extends Repository<UserEntity> {}
+const getUserRepository = createGetRepository(UserEntity);
 
-export const getUserRepository = createGetRepository(UserRepository);
+export default getUserRepository;

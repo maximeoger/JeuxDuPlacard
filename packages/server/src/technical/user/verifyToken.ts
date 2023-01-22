@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
-import { getUserRepository } from '../../business/user/repository/user';
+import getUserRepository from '../../business/user/repository/user';
 import BadRequestError from '../Error/utils/badRequestError';
 
 export default async function verifyToken(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
