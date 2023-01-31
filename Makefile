@@ -37,7 +37,7 @@ start:
 	@make _link_common
 	npx pm2 start
 
-build:
+build.server:
 	@make _build_server
 
 include tools/makefiles/colors.Makefile
