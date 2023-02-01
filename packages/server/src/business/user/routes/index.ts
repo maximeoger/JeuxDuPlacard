@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { requiresAuth } from 'express-openid-connect';
 import { registerValidationConstraints } from 'common/dist/business/user/validation/register';
 import { loginFormValidationRules } from 'common/dist/business/user/validation/login';
+import ErrorMiddleware from 'technical/Error/middleware';
 import { recoverPasswordFormValidationRules } from 'common/dist/business/user/validation/recoverPassord';
 import jsonRequestHandler from '../../../technical/controller/jsonControllerHandler';
 import createUserController from '../controler/createUser';
@@ -13,18 +13,18 @@ import validationHandler from '../../../technical/validation/validationHandler';
 const user = Router();
 
 user.route('/register').post([
+  ErrorMiddleware,
   validationHandler(registerValidationConstraints),
   jsonRequestHandler(createUserController),
 ]);
 
 user.route('/login').post([
-  validationHandler(loginFormValidationRules),
+  ErrorMiddleware,
   jsonRequestHandler(loginUserController),
 ]);
 
-user.route('/login-new').get([loginUserController]);
-
 user.route('/password-recover').post([
+  ErrorMiddleware,
   validationHandler(recoverPasswordFormValidationRules),
   jsonRequestHandler(recoverPasswordController),
 ]);

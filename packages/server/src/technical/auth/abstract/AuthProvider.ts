@@ -1,8 +1,9 @@
-export type AuthUser = any;
+import { UserCredential } from 'firebase/auth';
+
+export type AuthUser = UserCredential;
 
 interface AuthProvider {
-  currentUser(): Promise<AuthUser>;
-  createUser(): Promise<AuthUser>;
+  createUser(): void;
   logOut(): void;
   sendEmailVerification(): void;
 }

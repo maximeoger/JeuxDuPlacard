@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import AuthProvider, { AuthUser } from 'technical/auth/abstract/AuthProvider';
 
 const firebaseConfig = {
@@ -12,18 +13,15 @@ const firebaseConfig = {
 };
 
 class FirebaseAuthProvider implements AuthProvider {
-  currentUser: AuthUser;
-
   initialize(): void {
     initializeApp(firebaseConfig);
   }
 
-  createUser(): Promise<AuthUser> {
-    return Promise.resolve(undefined);
-  }
+  createUser(): void {}
 
-  logIn(): Promise<AuthUser> {
-    return Promise.resolve(undefined);
+  async logIn(email: string, password: string): Promise<AuthUser> {
+    const auth = getAuth();
+    return signInWithEmailAndPassword(auth, email, password);
   }
 
   logOut(): void {}
