@@ -3,30 +3,28 @@ import ControllerInterface from 'technical/controller/controllerInterface';
 import getUserRepository from 'business/user/repository/user';
 import { comparePasswords } from 'technical/user/passwordHandler';
 import apiExtractor from 'technical/user/apiExtractor';
-import { generateToken, TOKEN_MAX_AGE } from 'technical/user/jwtHandler';
 import BadRequestError from 'technical/Error/utils/badRequestError';
+import AuthService from 'technical/auth/services/AuthService';
 
-const loginUserController: ControllerInterface<IUserLoginAndRegisterResponse> = async function UserLoginController(req, res) {
-  const userRepository = getUserRepository();
+type UserCredentials = {
+  login: string;
+  password: string;
+};
 
-  const user = await userRepository.findOne({
-    where: { email: req.body.login },
-  });
+const loginUserController: ControllerInterface<UserCredentials> = async function UserLoginController(req, res): Promise<any> {
+  const authService = AuthService.firebaseInstance;
+  const { provider } = authService;
 
-  if (!user) {
-    throw new BadRequestError('wrong email', 500);
+  const { login, password } = req.body;
+
+  try {
+    const user = await provider.logIn(login, password);
+    // Todo: persister l'utilisateur dans la DB ici, si il n'existe pas ou si il a été modifié
+    res.json(user);
+  } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-throw-literal
+    throw new BadRequestError('USER_NOT_FOUND', 404);
   }
-
-  const passwordIsCorrect = await comparePasswords(req.body.password, user.password);
-  if (!passwordIsCorrect) {
-    throw new BadRequestError('wrong password', 500);
-  }
-
-  const responseData = await apiExtractor(user);
-  const accessToken = await generateToken(responseData);
-  res.cookie('access_token', accessToken, { httpOnly: true, maxAge: TOKEN_MAX_AGE });
-
-  return responseData;
 };
 
 export default loginUserController;

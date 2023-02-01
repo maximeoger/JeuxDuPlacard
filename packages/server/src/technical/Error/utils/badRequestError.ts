@@ -1,11 +1,24 @@
-export default class BadRequestError extends Error {
-  public statusCode : number;
+type ErrorCodes = 'USER_NOT_FOUND' | 'USER_ALREADY_EXISTS';
+type ErrorHttpStatusCodes = 404 | 500;
 
-  constructor(message: string, statusCode: number) {
-    super(message);
+interface DomainError {
+  code: ErrorCodes;
+  httpStatusCode: ErrorHttpStatusCodes;
+  payload: any;
+}
 
-    this.name = 'BadRequestError';
-    this.message = message;
-    this.statusCode = statusCode;
+class BadRequestError implements DomainError {
+  code : ErrorCodes;
+
+  httpStatusCode : ErrorHttpStatusCodes;
+
+  payload;
+
+  constructor(code: ErrorCodes, statusCode: ErrorHttpStatusCodes, payload?: any) {
+    this.code = code;
+    this.httpStatusCode = statusCode;
+    this.payload = payload;
   }
 }
+
+export default BadRequestError;

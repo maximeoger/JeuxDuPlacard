@@ -1,5 +1,5 @@
 module.exports = {
-  apps: [/*
+  apps: [
     {
       name: "build.watch.back",
       script: "../../scripts/start_watch.sh",
@@ -9,7 +9,7 @@ module.exports = {
       instances: 1,
       autorestart: true,
       max_memory_restart: "1G"
-    },*/
+    },
     {
       name: "Server",
       cwd: "packages/server",
